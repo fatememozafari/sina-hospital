@@ -56,22 +56,22 @@
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1" aria-sort="ascending"
                                                 aria-label="نام: activate to sort column descending"
-                                                style="width: 125.062px;">نام
+                                                style="width: 125.062px;">نام دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" موقعیت : activate to sort column ascending"
-                                                style="width: 233.453px;"> موقعیت
+                                                aria-label=" نام تخصصی دوره : activate to sort column ascending"
+                                                style="width: 233.453px;"> نام تخصصی دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" دفتر : activate to sort column ascending"
-                                                style="width: 44.3906px;"> دفتر
+                                                aria-label=" مدرس : activate to sort column ascending"
+                                                style="width: 44.3906px;"> مدرس
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="سن: activate to sort column ascending"
-                                                style="width: 41.5625px;">سن
+                                                aria-label="نوع دوره: activate to sort column ascending"
+                                                style="width: 41.5625px;">نوع دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -80,8 +80,13 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="حقوق: activate to sort column ascending"
-                                                style="width: 106.828px;">حقوق
+                                                aria-label="امتیاز: activate to sort column ascending"
+                                                style="width: 106.828px;">امتیاز
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                aria-label="توضیحات بیشتر: activate to sort column ascending"
+                                                style="width: 106.828px;">توضیحات بیشتر
                                             </th>
                                         </tr>
                                         </thead>
