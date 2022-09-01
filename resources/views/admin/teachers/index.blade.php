@@ -5,7 +5,7 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
-                        <h2>داشبورد
+                        <h2>
                             <small class="text-muted">خوش امدید</small>
                         </h2>
                     </div>
@@ -15,9 +15,9 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="index.html"><i class="zmdi zmdi-home"></i>
+                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right">داشبورد</li>
+                            <li class="breadcrumb-item active float-right">مدرسان</li>
                         </ul>
                     </div>
                 </div>
