@@ -39,12 +39,12 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="" method="post">
+                            <form action="/admin/users" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="نام">
+                                            <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام">
                                         </div>
                                     </div>
                                 </div>
@@ -52,88 +52,97 @@
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="نام خانوادگی">
+                                            <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="کد ملی">
+                                            <input type="text" name="melli_code" value="{{old('melli_code' ?? '')}}" class="form-control" placeholder="کد ملی">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <select class="form-control show-tick">
+                                            <select class="form-control show-tick" name="gender">
                                                 <option value="">- جنسیت -</option>
-                                                <option> یک مورد را انتخاب کنید </option>
-                                                <option value="10">خانم</option>
-                                                <option value="20">آقا</option>
+                                                <option value="FEMALE">خانم</option>
+                                                <option value="MALE">آقا</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+{{--                                <div class="row clearfix">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <div class="radio inlineblock m-l-20">--}}
+{{--                                            <input type="radio" name="gender" id="male" class="with-gap" value="option1">--}}
+{{--                                            <label for="MALE">آقا</label>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="radio inlineblock">--}}
+{{--                                            <input type="radio" name="gender" id="Female" class="with-gap" value="option2" checked="">--}}
+{{--                                            <label for="FEMAIL">خانم</label>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="موبایل">
+                                            <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="ایمیل">
+                                            <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="رمز ورود">
+                                            <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="تایید رمز ورود">
+                                            <input type="text" name="password_verification" value="{{old('password_verification' ?? '')}}" class="form-control" placeholder="تایید رمز ورود">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="شغل">
+                                            <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="تاریخ تولد">
+                                            <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                                         <div class="dz-message">
                                             <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
                                             <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
                                             <em> <strong></strong></em> </div>
                                         <div class="fallback">
-                                            <input name="file" type="file" multiple />
+                                            <input name="file" type="avatar_path" value="{{old('avatar_path' ?? '')}}" multiple />
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" placeholder="آدرس"></textarea>
+                                            <textarea class="form-control" name="address" value="" placeholder="آدرس">{{old('address' ?? '')}}</textarea>
                                         </div>
                                     </div>
                                 </div>
