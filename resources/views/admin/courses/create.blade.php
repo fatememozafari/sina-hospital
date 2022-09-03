@@ -39,12 +39,12 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="" method="post">
+                            <form action="/admin/courses" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="شناسه دوره">
+                                        <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره">
                                     </div>
                                 </div>
                             </div>
@@ -52,34 +52,29 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="عنوان دوره">
+                                        <input type="text" name="title" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="عنوان تخصصی دوره">
+                                        <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="نام مدرس">
+                                        <input type="text" name="teacher_id" class="form-control" placeholder="نام مدرس">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
 
-                                <div class="col-sm-1">
+                                <div class="col-lg-12 col-md-6"><b> تاریخ برگزاری</b>
                                     <div class="form-group">
-                                        <span>تاریخ شروع:</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-11">
-                                    <div class="form-group">
-                                        <input type="date" class="form-control" placeholder="تاریخ شروع ">
+                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری ">
                                     </div>
                                 </div>
                             </div>
@@ -87,34 +82,35 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <select class="form-control show-tick">
+                                        <select class="form-control show-tick" name="type">
                                             <option value="">- نوع دوره -</option>
                                             <option> یک مورد را انتخاب کنید </option>
-                                            <option value="10">تخصصی</option>
-                                            <option value="20">عمومی</option>
+                                            <option value="SPECIALISED">تخصصی</option>
+                                            <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
+                                            <option value="GENERAL">عمومی</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
-                                    <div class="dz-message">
-                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
-                                        <h3> پرونده ها را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
-                                        <em> <strong></strong></em> </div>
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple />
-                                    </div>
-                                </form>
-                            </div>
+{{--                            <div class="col-lg-12 col-md-12 col-sm-12">--}}
+{{--                                <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">--}}
+{{--                                    <div class="dz-message">--}}
+{{--                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>--}}
+{{--                                        <h3> پرونده ها را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
+{{--                                        <em> <strong></strong></em> </div>--}}
+{{--                                    <div class="fallback">--}}
+{{--                                        <input name="file" type="file" multiple />--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea rows="4" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
+                                    <textarea rows="4" name="description" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                <button type="submit" class="btn btn-default btn-round btn-simple">لغو</button>
+                                <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
                             </div>
                             </form>
                         </div>
