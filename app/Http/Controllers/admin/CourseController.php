@@ -38,9 +38,9 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','email','body']);
+        $inputs=$request->only(['id_code','title','slug','type','start_at','description']);
         Course::create($inputs);
-        return redirect('admin.courses.index');
+        return redirect('admin/courses');
     }
 
     /**
@@ -51,7 +51,7 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course=Course::query()->get($id);
+        $course=Course::query()->find($id);
         return view('admin.courses.show',compact('course'));
 
     }
@@ -78,9 +78,9 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','email','body');
+        $data=$request->only('id_code','title','slug','type','start_at','description');
         Course::query()->where('id',$id)->update($data);
-        return redirect('admin.courses.index');
+        return redirect('admin/courses');
 
 
     }
