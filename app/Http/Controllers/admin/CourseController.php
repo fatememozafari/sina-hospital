@@ -38,9 +38,19 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','title','slug','type','start_at','description']);
-        Course::create($inputs);
-        return redirect('admin/courses');
+        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file']);
+        $inputs['rate'] = 0;
+
+        if ($request->file('file'))
+            $inputs['file'] = $this->uploadMedia($request->file('file'));
+
+        $result=Course::create($inputs);
+
+        if ($result){
+            return redirect('admin/courses');
+        } else{
+            return back();
+        }
     }
 
     /**
@@ -78,7 +88,9 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('id_code','title','slug','type','start_at','description');
+        $data=$request->only('id_code','title','slug','type','start_at','description','file');
+        if ($request->file('file'))
+            $data['file'] = $this->uploadMedia($request->file('file'));
         Course::query()->where('id',$id)->update($data);
         return redirect('admin/courses');
 
