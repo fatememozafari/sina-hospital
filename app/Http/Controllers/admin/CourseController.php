@@ -38,7 +38,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file']);
+        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file','teacher_id']);
         $inputs['rate'] = 0;
 
         if ($request->file('file'))
@@ -88,7 +88,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('id_code','title','slug','type','start_at','description','file');
+        $data=$request->only('id_code','title','slug','type','start_at','description','file','teacher_id');
         if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
         Course::query()->where('id',$id)->update($data);
