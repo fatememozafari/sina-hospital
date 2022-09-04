@@ -38,9 +38,19 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','email','body']);
-        Document::create($inputs);
-        return redirect('admin.documents.index');
+        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id']);
+        $inputs['rate'] = 0;
+
+        if ($request->file('file'))
+            $inputs['file'] = $this->uploadMedia($request->file('file'));
+
+        $result=Document::create($inputs);
+
+        if ($result){
+            return redirect('admin/documents');
+        } else{
+            return back();
+        }
     }
 
     /**
@@ -51,7 +61,7 @@ class DocumentController extends Controller
      */
     public function show($id)
     {
-        $document=Document::query()->get($id);
+        $document=Document::query()->find($id);
         return view('admin.documents.show',compact('document'));
 
     }
@@ -78,9 +88,11 @@ class DocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','email','body');
+        $data=$request->only('id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id');
+        if ($request->file('file'))
+            $data['file'] = $this->uploadMedia($request->file('file'));
         Document::query()->where('id',$id)->update($data);
-        return redirect('admin.documents.index');
+        return redirect('admin/documents');
 
 
     }
