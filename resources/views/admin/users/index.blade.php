@@ -53,10 +53,13 @@
                                         id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                         <thead>
                                         <tr role="row">
-
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 44.062px;">ردیف
+                                            </th>
                                             <th class="" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                style="width: 133.453px;"> نام و نام خانوادگی
+                                                style="width: 166.453px;"> نام و نام خانوادگی
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -64,12 +67,12 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                style="width: 98.7031px;"> شماره موبایل
+                                                style="width: 133.7031px;"> شماره موبایل
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                style="width: 125.062px;">ایمیل
-                                            </th>
+{{--                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"--}}
+{{--                                                rowspan="1" colspan="1"--}}
+{{--                                                style="width: 125.062px;">ایمیل--}}
+{{--                                            </th>--}}
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -77,16 +80,17 @@
                                             </th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                style="width: 133.453px;">عملیات
+                                                style="width: 233.453px;">عملیات
                                             </th>
                                         </tr>
                                         </thead>
                                         <tfoot>
                                         <tr>
+                                            <th rowspan="1" colspan="1"> ردیف</th>
                                             <th rowspan="1" colspan="1"> نام و نام خانوادگی</th>
                                             <th rowspan="1" colspan="1">کد ملی</th>
                                             <th rowspan="1" colspan="1"> شماره موبایل</th>
-                                            <th rowspan="1" colspan="1">ایمیل</th>
+{{--                                            <th rowspan="1" colspan="1">ایمیل</th>--}}
                                             <th rowspan="1" colspan="1">امتیاز</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
 
@@ -95,10 +99,11 @@
                                         <tbody>
                                         @foreach($user as $item)
                                             <tr role="row" class="even">
-                                                <td class="sorting_1">{{$item->id}}-{{$item->name}} {{$item->family}}</td>
-                                                <td>{{$item->melli_code}}</td>
-                                                <td>{{$item->mobile}}</td>
-                                                <td>{{$item->email}}</td>
+                                                <td>{{$item->id}}</td>
+                                                <td class="sorting_1"><a href="/admin/users/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td><a href="/admin/users/{{$item->id}}">{{$item->melli_code}}</a></td>
+                                                <td><a href="/admin/users/{{$item->id}}">{{$item->mobile}}</a></td>
+{{--                                                <td>{{$item->email}}</td>--}}
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
