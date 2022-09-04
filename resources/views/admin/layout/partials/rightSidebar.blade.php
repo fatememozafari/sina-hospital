@@ -17,10 +17,10 @@
             </li>
             <li class="header">اصلی</li>
             <li class="active open"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i><span>داشبورد</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>وقت ملاقات</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>برنامه آموزشی</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="events.html">برنامه مدرس</a></li>
-                    <li><a href="book-appointment.html">ثبت قرار ملاقات</a></li>
+                    <li><a href="{{route('event')}}">برنامه آموزشی</a></li>
+                    <li><a href="book-appointment.html">برنامه مدرس</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
@@ -43,6 +43,12 @@
                     <li><a href="{{route('course.create')}}">افزودن دوره حضوری جدید</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های غیرحضوری</span> </a>
+                <ul class="ml-menu">
+                    <li><a href="{{route('document.list')}}">لیست دوره های غیرحضوری </a></li>
+                    <li><a href="{{route('document.create')}}">افزودن دوره ی جدید غیرحضوری</a></li>
+                </ul>
+            </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>کارنامه</span> </a>
                 <ul class="ml-menu">
                     <li><a href="{{route('result.list')}}">نتایج آزمون</a></li>
@@ -55,12 +61,7 @@
                     <li><a href="{{route('online_exam.create')}}">افزودن آزمون آنلاین</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های غیرحضوری</span> </a>
-                <ul class="ml-menu">
-                    <li><a href="{{route('document.list')}}">لیست دوره های غیرحضوری </a></li>
-                    <li><a href="{{route('document.create')}}">افزودن دوره ی جدید غیرحضوری</a></li>
-                </ul>
-            </li>
+
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span> احراز هویت </span> </a>
                 <ul class="ml-menu">
                     <li><a href="{{route('login')}}">ورود</a> </li>
