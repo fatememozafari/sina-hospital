@@ -96,7 +96,7 @@ class TeacherController extends Controller
             $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
 
         Teacher::query()->where('id',$id)->update($data);
-        return redirect('admin/users');
+        return redirect('admin/teachers');
 
 
     }
