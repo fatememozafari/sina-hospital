@@ -26,3 +26,7 @@
 
 {{--<script src="{{asset('extrasection/assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->--}}
 <script src="{{asset('extrasection/assets/js/pages/tables/jquery-datatable.js')}}"></script>
+
+
+<script src="{{asset('assets/bundles/fullcalendarscripts.bundle.js')}}"></script><!--/ calender javascripts -->
+<script src="{{asset('assets/js/pages/calendar/calendar.js')}}"></script>
