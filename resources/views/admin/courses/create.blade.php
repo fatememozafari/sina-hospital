@@ -42,7 +42,7 @@
                             <form action="/admin/courses" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>شناسه دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره">
                                     </div>
@@ -50,21 +50,21 @@
                             </div>
                             <div class="row clearfix">
 
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>عنوان دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="title" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>نام مدرس</b>
                                     <div class="form-group">
                                         <input type="text" name="teacher_id" class="form-control" placeholder="نام مدرس">
                                     </div>
@@ -103,7 +103,7 @@
 {{--                                    </div>--}}
 {{--                                </form>--}}
 {{--                            </div>--}}
-                            <div class="col-sm-12">
+                            <div class="col-sm-12"><b>توضیحات</b>
                                 <div class="form-group">
                                     <textarea rows="4" name="description" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
                                 </div>

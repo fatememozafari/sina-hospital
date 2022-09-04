@@ -43,7 +43,7 @@
                                 @csrf
                                 @method('put')
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>شناسه دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="id_code" value="{{$inputs->id_code}}" class="form-control" placeholder="شناسه دوره">
                                     </div>
@@ -51,21 +51,21 @@
                             </div>
                             <div class="row clearfix">
 
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>عنوان دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"><b>نام مدرس</b>
                                     <div class="form-group">
 {{--                                        <input type="text" name="teacher_id" value="{{$inputs->teacher()->name}}" class="form-control" placeholder="نام مدرس">--}}
                                     </div>
@@ -73,12 +73,7 @@
                             </div>
                             <div class="row clearfix">
 
-                                <div class="col-sm-1">
-                                    <div class="form-group">
-                                        <span>تاریخ شروع:</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-11">
+                                <div class="col-sm-12"><b>تاریخ برگزاری</b>
                                     <div class="form-group">
                                         <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع ">
                                     </div>
@@ -109,14 +104,13 @@
 {{--                                    </div>--}}
 {{--                                </form>--}}
 {{--                            </div>--}}
-                            <div class="col-sm-12">
+                            <div class="col-sm-12"><b>توضیحات</b>
                                 <div class="form-group">
                                     <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                <button type="submit" class="btn btn-default btn-round btn-simple">لغو</button>
                             </div>
                             </form>
                         </div>

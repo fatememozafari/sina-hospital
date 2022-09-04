@@ -55,7 +55,11 @@
                                         id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                         <thead>
                                         <tr role="row">
-
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                aria-label=" ردیف : activate to sort column ascending"
+                                                style="width: 44.3906px;"> ردیف
+                                            </th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1" aria-sort="ascending"
                                                 aria-label="نام دوره: activate to sort column descending"
@@ -66,46 +70,43 @@
                                                 aria-label=" نام تخصصی دوره یا شناسه دوره: activate to sort column ascending"
                                                 style="width: 133.453px;"> نام تخصصی دوره یا شناسه دوره
                                             </th>
+
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" مدرس : activate to sort column ascending"
-                                                style="width: 98.7031px;"> مدرس
+                                                aria-label="مدرس و نوع دوره: activate to sort column ascending"
+                                                style="width: 41.5625px;">مدرس و نوع دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="نوع دوره: activate to sort column ascending"
-                                                style="width: 41.5625px;">نوع دوره
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="تاریخ شروع: activate to sort column ascending"
-                                                style="width: 44.3906px;">تاریخ شروع
+                                                aria-label="تاریخ برگزاری: activate to sort column ascending"
+                                                style="width: 66.3906px;">تاریخ برگزاری
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
                                                 aria-label="عملیات: activate to sort column ascending"
-                                                style="width: 133.453px;">عملیات
+                                                style="width: 233.453px;">عملیات
                                             </th>
 
                                         </tr>
                                         </thead>
                                         <tfoot>
                                         <tr>
+                                            <th rowspan="1" colspan="1">ردیف</th>
                                             <th rowspan="1" colspan="1">نام دوره</th>
                                             <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1"> مدرس</th>
-                                            <th rowspan="1" colspan="1">نوع دوره</th>
-                                            <th rowspan="1" colspan="1">تاریخ شروع</th>
+                                            <th rowspan="1" colspan="1">مدرس و نوع دوره</th>
+                                            <th rowspan="1" colspan="1">تاریخ برگزاری</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
                                         </tfoot>
                                         <tbody>
                                         @foreach($course as $item)
                                         <tr role="row" class="even">
-                                            <td class="sorting_1">{{$item->title}}</td>
-                                            <td>{{$item->slug}}{{$item->id_code}}</td>
-                                            <td>پاریس</td>
-                                            <td>{{$item->type}}</td>
+                                            <td>{{$item->id}}</td>
+                                            <td class="sorting_1"><a href="/admin/courses/{{$item->id}}">{{$item->title}}</a></td>
+                                            <td><a href="/admin/courses/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
+                                            <td><a href="/admin/teachers/{{$item->id}}">{{$item->teacher_id}}</a>
+                                                    <br>{{$item->type}}</td>
                                             <td>{{$item->start_at}}</td>
                                             <td>
                                                 <div>
