@@ -4,7 +4,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2> ثبت دوره جدید
+                    <h2> ثبت مدرس جدید
                         <small class="text-muted">خوش امدید</small>
                     </h2>
                 </div>
@@ -14,7 +14,7 @@
                     </button>
                     <ul class="breadcrumb float-md-left">
                         <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
-                        <li class="breadcrumb-item active float-right"> ثبت دوره جدید </li>
+                        <li class="breadcrumb-item active float-right"> ثبت مدرس جدید </li>
                     </ul>
                 </div>
             </div>
@@ -39,82 +39,117 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="" method="post">
+                            <form action="/admin/teachers" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12"><b>نام</b>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="شناسه دوره">
+                                            <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12"><b>نام خانوادگی</b>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="عنوان دوره">
+                                            <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>کدملی</b>
+                                        <div class="form-group">
+                                            <input type="text" name="melli_code" value="{{old('melli_code' ?? '')}}" class="form-control" placeholder="کد ملی">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="عنوان تخصصی دوره">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="نام مدرس">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-1">
-                                        <div class="form-group">
-                                            <span>تاریخ شروع:</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-11">
-                                        <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="تاریخ شروع ">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <select class="form-control show-tick">
-                                                <option value="">- نوع دوره -</option>
-                                                <option> یک مورد را انتخاب کنید </option>
-                                                <option value="10">تخصصی</option>
-                                                <option value="20">عمومی</option>
+                                            <select class="form-control show-tick" name="gender">
+                                                <option value="">- جنسیت -</option>
+                                                <option value="FEMALE">خانم</option>
+                                                <option value="MALE">آقا</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
-                                        <div class="dz-message">
-                                            <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
-                                            <h3> پرونده ها را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
-                                            <em> <strong></strong></em> </div>
-                                        <div class="fallback">
-                                            <input name="file" type="file" multiple />
+                                {{--                                <div class="row clearfix">--}}
+                                {{--                                    <div class="form-group">--}}
+                                {{--                                        <div class="radio inlineblock m-l-20">--}}
+                                {{--                                            <input type="radio" name="gender" id="male" class="with-gap" value="option1">--}}
+                                {{--                                            <label for="MALE">آقا</label>--}}
+                                {{--                                        </div>--}}
+                                {{--                                        <div class="radio inlineblock">--}}
+                                {{--                                            <input type="radio" name="gender" id="Female" class="with-gap" value="option2" checked="">--}}
+                                {{--                                            <label for="FEMAIL">خانم</label>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
+
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>شماره موبایل</b>
+                                        <div class="form-group">
+                                            <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل">
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>ایمیل</b>
+                                        <div class="form-group">
+                                            <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>رمز ورود</b>
+                                        <div class="form-group">
+                                            <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>تایید رمز ورود</b>
+                                        <div class="form-group">
+                                            <input type="text" name="password_verification" value="{{old('password_verification' ?? '')}}" class="form-control" placeholder="تایید رمز ورود">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>تخصص</b>
+                                        <div class="form-group">
+                                            <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>تاریخ تولد</b>
+                                        <div class="form-group">
+                                            <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12"><b>آپلود تصویر</b>
+                                    <div class="dz-message">
+                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
+                                        <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
+                                        <em> <strong></strong></em> </div>
+                                    <div class="fallback">
+                                        <input name="avatar_path" type="file" value="{{old('avatar_path' ?? '')}}" multiple />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12"><b>آدرس</b>
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="address" value="" placeholder="آدرس">{{old('address' ?? '')}}</textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                    <button type="submit" class="btn btn-default btn-round btn-simple">لغو</button>
+                                    <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
                                 </div>
                             </form>
                         </div>
