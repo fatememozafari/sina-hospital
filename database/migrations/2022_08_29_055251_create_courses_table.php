@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('id_code')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->foreignId('teacher_id')->nullable();
             $table->date('start_at');
-            $table->string('rate');
+            $table->string('rate')->nullable();
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();

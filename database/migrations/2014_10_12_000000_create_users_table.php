@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('family');
-            $table->string('melli_code')->nullable();
+            $table->string('melli_code')->unique()->nullable();
             $table->string('mobile');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->date('birthday')->nullable();
             $table->string('job')->nullable();
-            $table->string('type');
+            $table->enum('type',['SUPERADMIN','ADMIN','USER']);
             $table->string('rate');
             $table->enum('gender',['MALE',"FEMALE"])->nullable();
             $table->rememberToken();
