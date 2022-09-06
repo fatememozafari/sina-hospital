@@ -27,14 +27,16 @@
                 <ul class="ml-menu">
                     <li><a href="{{route('teacher.list')}}">لیست مدرس</a></li>
                     <li><a href="{{route('teacher.create')}}">افزودن مدرس</a></li>
-{{--                    <li><a href="{{route('teacher.show')}}">پروفایل پزشک</a></li>--}}
+{{--                    <li><a href="{{route('teacher.event')}}">برنامه آموزشی</a></li>--}}
+
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>کاربران</span> </a>
                 <ul class="ml-menu">
                     <li><a href="{{route('user.list')}}">تمامی کاربران</a></li>
                     <li><a href="{{route('user.create')}}">افزودن کاربر جدید</a></li>
-{{--                    <li><a href="{{route('user.show')}}">پروفایل کاربر</a></li>--}}
+{{--                    <li><a href="{{route('user.event')}}">برنامه آموزشی</a></li>--}}
+
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های حضوری</span> </a>
