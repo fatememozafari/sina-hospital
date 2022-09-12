@@ -11,5 +11,8 @@ class Teacher extends Model
     protected $fillable = [
         'name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type','rate'
     ];
-
+    public function courses()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

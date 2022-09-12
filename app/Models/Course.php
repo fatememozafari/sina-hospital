@@ -11,4 +11,14 @@ class Course extends Model
     protected $fillable=[
         'id_code','title','slug','type','start_at','description','file','teacher_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function scores()
+    {
+        return $this->hasOne(Score::class);
+    }
 }
