@@ -106,7 +106,7 @@
                                             <td class="sorting_1"><a href="/admin/courses/{{$item->id}}">{{$item->title}}</a></td>
                                             <td><a href="/admin/courses/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
                                             <td><a href="/admin/teachers/{{$item->id}}">{{$item->teacher_id}}</a>
-                                                    <br>{{$item->type}}</td>
+                                                    <br> {{__('custom.'.$item->type)}}</td>
                                             <td>{{$item->start_at}}</td>
                                             <td>
                                                 <div>
