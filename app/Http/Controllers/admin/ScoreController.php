@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Result;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
-class ResultController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ResultController extends Controller
     public function index()
     {
         $result=Result::query()->get();
-        return view('admin.results.index',compact('result'));
+        return view('admin.scores.index',compact('result'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ResultController extends Controller
      */
     public function create()
     {
-        return view('admin.results.create');
+        return view('admin.scores.create');
 
     }
 
@@ -40,7 +40,7 @@ class ResultController extends Controller
     {
         $inputs=$request->only(['name','email','body']);
         Result::create($inputs);
-        return redirect('admin.results.index');
+        return redirect('admin.scores.index');
     }
 
     /**
@@ -52,7 +52,7 @@ class ResultController extends Controller
     public function show($id)
     {
         $result=Result::query()->get($id);
-        return view('admin.results.show',compact('result'));
+        return view('admin.scores.show',compact('result'));
 
     }
 
@@ -65,7 +65,7 @@ class ResultController extends Controller
     public function edit($id)
     {
         $inputs=Result::query()->where('id',$id)->first();
-        return view('admin.results.edit',compact('inputs'));
+        return view('admin.scores.edit',compact('inputs'));
 
     }
 
@@ -80,7 +80,7 @@ class ResultController extends Controller
     {
         $data=$request->only('name','email','body');
         Result::query()->where('id',$id)->update($data);
-        return redirect('admin.results.index');
+        return redirect('admin.scores.index');
 
 
     }
@@ -93,7 +93,7 @@ class ResultController extends Controller
      */
     public function destroy($id)
     {
-        Result::query()->where('id',$id)->delete();
+        Score::query()->where('id',$id)->delete();
         return back();
     }
 }
