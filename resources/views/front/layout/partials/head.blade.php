@@ -11,3 +11,11 @@
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/blog.css')}}">
+<!-- JQuery DataTable Css -->
+<link rel="stylesheet" href="{{asset('extrasection/assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}">
+<!-- Custom Css -->
+<link  rel="stylesheet" href="{{asset('extrasection/assets/css/main.css')}}">
+<link rel="stylesheet" href="{{asset('extrasection/assets/css/color_skins.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/fullcalendar/fullcalendar.min.css')}}">
+<!-- Custom Css -->

@@ -25,9 +25,9 @@
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="{{route('teacher.list')}}">لیست مدرس</a></li>
-                    <li><a href="{{route('teacher.create')}}">افزودن مدرس</a></li>
-{{--                    <li><a href="{{route('teacher.event')}}">برنامه آموزشی</a></li>--}}
+                    <li><a href="{{route('teachers.list')}}">لیست مدرس</a></li>
+                    <li><a href="{{route('teachers.create')}}">افزودن مدرس</a></li>
+{{--                    <li><a href="{{route('teachers.event')}}">برنامه آموزشی</a></li>--}}
 
                 </ul>
             </li>
@@ -53,8 +53,8 @@
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>کارنامه</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="{{route('result.list')}}">نتایج آزمون</a></li>
-                    <li><a href="{{route('result.create')}}">چاپ کارنامه</a></li>
+                    <li><a href="{{route('score.list')}}">نتایج آزمون</a></li>
+                    <li><a href="{{route('score.create')}}">چاپ کارنامه</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>آزمون آنلاین</span> </a>
@@ -64,13 +64,35 @@
                 </ul>
             </li>
 
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span> احراز هویت </span> </a>
+{{--            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span> احراز هویت </span> </a>--}}
+{{--                <ul class="ml-menu">--}}
+{{--                    <li><a href="{{route('login')}}">ورود</a> </li>--}}
+{{--                    <li><a href="{{route('register')}}">ثبت نام</a> </li>--}}
+{{--                    <li><a href="{{route('forgetpassword')}}">فراموشی رمز عبور</a> </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>rolesنقش ها</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="{{route('login')}}">ورود</a> </li>
-                    <li><a href="{{route('register')}}">ثبت نام</a> </li>
-                    <li><a href="{{route('forgetpassword')}}">فراموشی رمز عبور</a> </li>
+                    <li><a href="{{route('role.list')}}">لیست نقش ها</a></li>
+                    <li><a href="{{route('role.create')}}">افزودن نقش  جدید</a></li>
                 </ul>
             </li>
+
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>permissionاختیارات</span> </a>
+                <ul class="ml-menu">
+                    <li><a href="{{route('permission.list')}}">لیست اختیارات</a></li>
+                    <li><a href="{{route('permission.create')}}">افزودن اختیارات جدید به نقش</a></li>
+                </ul>
+            </li>
+
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>asignتخصیص</span> </a>
+                <ul class="ml-menu">
+                    <li><a href="{{route('asign.list')}}">لیست تخصیصات</a></li>
+                    <li><a href="{{route('asign.create')}}"> تخصیص نقش جدید به کاربر</a></li>
+                </ul>
+            </li>
+
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>صفحات دیگر</span> </a>
                 <ul class="ml-menu">
                     <li><a href="javascript:void(0);" class="menu-toggle"><span> گالری تصاویر </span> </a>
@@ -87,7 +109,7 @@
                     </li>
                     <li><a href="javascript:void(0);" class="menu-toggle"><span> تماس با ما </span> </a>
                         <ul class="ml-menu">
-                            <li><a href="{{route('contact.list')}}">لیست پیام های ارسال شده </a></li>
+                            <li><a href="{{route('contacts.list')}}">لیست پیام های ارسال شده </a></li>
 {{--                            <li><a href="{{route('gallery.create')}}">افزودن تصویر جدید</a></li>--}}
                         </ul>
                     </li>
@@ -100,7 +122,7 @@
                     <li><a href="javascript:void(0);" class="menu-toggle"><span> اخبار </span> </a>
                         <ul class="ml-menu">
                             <li><a href="{{route('news.list')}}">لیست اخبار </a></li>
-                            <li><a href="{{route('news.create')}}">افزودن خبر جدید</a></li>
+                            <li><a href="/admin/news/create">افزودن خبر جدید</a></li>
                         </ul>
                     </li>
                 </ul>

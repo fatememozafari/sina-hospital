@@ -3,7 +3,7 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <div class="image"><a href="profile.html"><img src="assets/images/profile_av.jpg" alt="کاربر"></a></div>
+                    <div class="image"><a href="profile.html"><img src="{{asset('assets/images/profile_av.jpg')}}" alt="کاربر"></a></div>
                     <div class="detail">
                         <h4>دکتر حمید محمدی</h4>
                         <small>جراح قلب</small>
@@ -12,76 +12,84 @@
                     <a href="mail-inbox.html" title="صندوق ورودی"><i class="zmdi zmdi-email"></i></a>
                     <a href="contact.html" title="لیست مخاطبین"><i class="zmdi zmdi-account-box-phone"></i></a>
                     <a href="chat.html" title="برنامه چت"><i class="zmdi zmdi-comments"></i></a>
-                    <a href="sign-in.html" title="خروج از سیستم"><i class="zmdi zmdi-power"></i></a>
+                    <a href="{{route('logout')}}" title="خروج از سیستم"><i class="zmdi zmdi-power"></i></a>
                 </div>
             </li>
             <li class="header">اصلی</li>
-            <li class="active open"><a href="index.html"><i class="zmdi zmdi-home"></i><span>داشبورد</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>وقت ملاقات</span> </a>
+            <li class="active open"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i><span>داشبورد</span></a></li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>برنامه آموزشی</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="events.html">برنامه پزشک</a></li>
-                    <li><a href="book-appointment.html">ثبت قرار ملاقات</a></li>
+                    <li><a href="{{route('event')}}">برنامه آموزشی</a></li>
+                    <li><a href="book-appointment.html">برنامه مدرس</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>پزشکان</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="doctors.html">لیست پزشکان</a></li>
-                    <li><a href="add-doctor.html">افزودن پزشک</a></li>
-                    <li><a href="profile.html">پروفایل پزشک</a></li>
+                    <li><a href="{{route('front.teacher.list')}}">لیست مدرس</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>بیماران</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>پروفایل</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="patients.html">تمامی بیماران</a></li>
-                    <li><a href="add-patient.html">افزودن بیمار</a></li>
-                    <li><a href="patient-profile.html">پروفایل بیمار</a></li>
-                    <li><a href="patient-invoice.html">فاکتور بیمار</a></li>
+{{--                    <li><a href="{{route('front.user.show')}}">نمایش پروفایل</a></li>--}}
+{{--                    <li><a href="{{route('front.user.edit')}}">ویرایش پروفایل</a></li>--}}
+{{--                    <li><a href="{{route('front.user.event')}}">برنامه آموزشی</a></li>--}}
+
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>پرداخت ها</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های حضوری</span> </a>
                 <ul class="ml-menu">
-                    <li> <a href="payments.html">پرداخت ها</a></li>
-                    <li> <a href="add-payments.html">افزودن پرداخت</a></li>
-                    <li> <a href="patient-invoice.html">فاکتور بیمار</a></li>
+                    <li><a href="{{route('front.course.list')}}">لیست دوره های حضوری</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>برنامه</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های غیرحضوری</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="mail-inbox.html"> صندوق ورودی </a></li>
-                    <li><a href="chat.html">چت</a></li>
-                    <li><a href="events.html">تقویم</a></li>
-                    <li><a href="file-dashboard.html">مدیر فایل</a></li>
-                    <li><a href="contact.html">لیست مخاطبین</a></li>
-                    <li><a href="blog-dashboard.html">وبلاگ</a></li>
+                    <li><a href="{{route('front.document.list')}}">لیست دوره های غیرحضوری </a></li>
                 </ul>
             </li>
-            <li class="header">اجزای اضافی</li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>ابزارک ها</span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>کارنامه</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="widgets-app.html">ابزارک برنامه ها</a></li>
-                    <li><a href="widgets-data.html">ابزارک های داده</a></li>
+                    <li><a href="{{route('front.result.list')}}">نتایج آزمون</a></li>
+                    <li><a href="{{route('front.result.create')}}">چاپ کارنامه</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span> احراز هویت </span> </a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>آزمون آنلاین</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="sign-in.html">ورود</a> </li>
-                    <li><a href="sign-up.html">ثبت نام</a> </li>
-                    <li><a href="forgot-password.html">فراموشی رمز عبور</a> </li>
-                    <li><a href="404.html">صفحه 404</a> </li>
-                    <li><a href="500.html">صفحه 500</a> </li>
-                    <li><a href="page-offline.html">صفحه آفلاین</a> </li>
-                    <li><a href="locked.html">صفحه قفل شده</a> </li>
+                    <li><a href="{{route('front.online_exam.list')}}">لیست آزمونهای آنلاین </a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>صفحات نمونه</span> </a>
+
+
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>صفحات دیگر</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="blank.html">صفحه خالی</a> </li>
-                    <li> <a href="image-gallery.html">گالری تصاویر</a> </li>
-                    <li><a href="profile.html">پروفایل</a></li>
-                    <li><a href="timeline.html">جدول زمانی</a></li>
-                    <li><a href="pricing.html">قیمت گذاری</a></li>
-                    <li><a href="invoices.html">فاکتورها</a></li>
-                    <li><a href="search-results.html">نتایج جستجو</a></li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><span> گالری تصاویر </span> </a>
+                        <ul class="ml-menu">
+{{--                            <li><a href="{{route('front.gallery.list')}}">لیست تصاویر </a></li>--}}
+{{--                            <li><a href="{{route('gallery.create')}}">افزودن تصویر جدید</a></li>--}}
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><a href="{{route('front.about.list')}}"><span> درباره ما </span></a> </a>
+{{--                        <ul class="ml-menu">--}}
+{{--                            <li><a href="{{route('front.about.list')}}"> درباره ما </a></li>--}}
+{{--                        </ul>--}}
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><a href="{{route('front.contact.create')}}"><span> تماس با ما </span></a> </a>
+{{--                        <ul class="ml-menu">--}}
+{{--                            <li><a href="{{route('front.contact.create')}}">ارسال پیام</a></li>--}}
+{{--                        </ul>--}}
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><a href="{{route('front.question.list')}}"><span> سوالات متداول </span></a> </a>
+{{--                        <ul class="ml-menu">--}}
+{{--                            <li><a href="{{route('front.question.list')}}">لیست سوالات </a></li>--}}
+{{--                        </ul>--}}
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><a href="{{route('front.news.list')}}"><span> اخبار </span></a> </a>
+{{--                        <ul class="ml-menu">--}}
+{{--                            <li><a href="{{route('front.news.list')}}">لیست اخبار </a></li>--}}
+{{--                        </ul>--}}
+                    </li>
+                    <li><a href="javascript:void(0);" class="menu-toggle"><a href="{{route('front.newsletter.create')}}"><span> خبرنامه </span></a> </a>
+
+                    </li>
                 </ul>
             </li>
             <li class="header">بیشتر</li>
