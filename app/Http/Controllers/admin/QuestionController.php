@@ -54,7 +54,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        $question=Question::query()->get($id);
+        $question=Question::query()->find($id);
         return view('admin.questions.show',compact('question'));
 
     }
