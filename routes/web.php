@@ -9,7 +9,7 @@ use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\OnlineExamController;
 use App\Http\Controllers\admin\QuestionController;
-use App\Http\Controllers\admin\ResultController;
+use App\Http\Controllers\admin\ScoreController;
 use App\Http\Controllers\admin\TeacherController;
 use App\Http\Controllers\admin\UserController;
 use \App\Http\Controllers\auth\AuthController;
@@ -126,17 +126,17 @@ Route::prefix('admin')->group(function (){
         'show'=>'question.show',
         'index'=>'question.list',
     ]);
-    Route::resource('scores',ResultController::class)->names([
+    Route::resource('scores',ScoreController::class)->names([
         'create'=>'score.create',
         'edit'=>'score.edit',
         'show'=>'score.show',
         'index'=>'score.list',
     ]);
     Route::resource('teachers',TeacherController::class)->names([
-        'create'=>'teacher.create',
-        'edit'=>'teacher.edit',
-        'show'=>'teacher.show',
-        'index'=>'teacher.list',
+        'create'=>'teachers.create',
+        'edit'=>'teachers.edit',
+        'show'=>'teachers.show',
+        'index'=>'teachers.list',
     ]);
     Route::resource('users',UserController::class)->names([
         'create'=>'user.create',
@@ -145,7 +145,7 @@ Route::prefix('admin')->group(function (){
         'index'=>'user.list',
     ]);
     Route::view('event','admin.courses.event')->name('event');
-    Route::view('event2','admin.teachers.event')->name('teacher.event');
+    Route::view('event2','admin.teachers.event')->name('teachers.event');
     Route::view('event3','admin.users.event')->name('user.event');
 
 });
@@ -161,23 +161,22 @@ Route::prefix('admin')->group(function (){
 
     Route::view('dashboard','front.dashboard')->name('front.dashboard');
 
-    Route::resource('about',AboutController::class)->names([
+    Route::resource('about',\App\Http\Controllers\front\AboutController::class)->names([
 
         'show'=>'front.about.show',
         'index'=>'front.about.list',
     ]);
-    Route::resource('contact',ContactController::class)->names([
+    Route::resource('contact',\App\Http\Controllers\front\ContactController::class)->names([
         'create'=>'front.contact.create',
 
     ]);
-    Route::resource('courses',CourseController::class)->names([
+    Route::resource('courses',\App\Http\Controllers\front\CourseController::class)->names([
         'create'=>'front.course.create',//ثبتنام در دوره
         'edit'=>'front.course.edit',
         'show'=>'front.course.show',
         'index'=>'front.course.list',
     ]);
-    Route::resource('documents',DocumentController::class)->names([
-
+    Route::resource('documents',\App\Http\Controllers\front\DocumentController::class)->names([
         'show'=>'front.document.show',
         'index'=>'front.document.list',
     ]);
@@ -186,18 +185,21 @@ Route::prefix('admin')->group(function (){
         'show'=>'front.gallery.show',
         'index'=>'front.gallery.list',
     ]);
-    Route::resource('news',NewsController::class)->names([
-
+    Route::resource('news',\App\Http\Controllers\front\NewsController::class)->names([
         'show'=>'front.news.show',
         'index'=>'front.news.list',
     ]);
+Route::resource('newsletter',\App\Http\Controllers\front\NewsletterController::class)->names([
+    'create'=>'front.newsletter.create',
+
+]);
     Route::resource('online_exams',OnlineExamController::class)->names([
         'create'=>'front.online_exam.create',
         'edit'=>'front.online_exam.edit',
         'show'=>'front.online_exam.show',
         'index'=>'front.online_exam.list',
     ]);
-    Route::resource('questions',QuestionController::class)->names([
+    Route::resource('questions',\App\Http\Controllers\front\QuestionController::class)->names([
 
         'show'=>'front.question.show',
         'index'=>'front.question.list',
@@ -208,19 +210,19 @@ Route::prefix('admin')->group(function (){
         'show'=>'front.result.show',
         'index'=>'front.result.list',
     ]);
-    Route::resource('teachers',TeacherController::class)->names([
+    Route::resource('teachers',\App\Http\Controllers\front\TeacherController::class)->names([
 
         'show'=>'front.teacher.show',
         'index'=>'front.teacher.list',
     ]);
-    Route::resource('users',UserController::class)->names([
+    Route::resource('users',\App\Http\Controllers\front\UserController::class)->names([
         'create'=>'front.user.create',
         'edit'=>'front.user.edit',
         'show'=>'front.user.show',
         'index'=>'front.user.list',
     ]);
     Route::view('event','front.courses.event')->name('event');
-    Route::view('event2','front.teachers.event')->name('teacher.event');
+    Route::view('event2','front.teachers.event')->name('teachers.event');
     Route::view('event3','front.users.event')->name('user.event');
 
 
