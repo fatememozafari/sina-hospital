@@ -50,7 +50,7 @@ class AboutController extends Controller
      */
     public function show($id)
     {
-        $about=About::query()->get($id);
+        $about=About::query()->find($id);
         return view('admin.about.show',compact('about'));
     }
 
