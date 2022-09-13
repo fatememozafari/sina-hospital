@@ -5,15 +5,15 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>لیست وبلاگ
-                        <small>به قطب نما خوش آمدید</small>
+                    <h2>لیست اخبار
+                        <small> خوش آمدید</small>
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="index.html"><i class="zmdi zmdi-home"></i> قطب نما</a></li>
-                        <li class="breadcrumb-item float-right"><a href="blog-dashboard.html">وبلاگ</a></li>
-                        <li class="breadcrumb-item active float-right">لیست وبلاگ</li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i> داشبورد</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('front.news.list')}}">اخبار</a></li>
+                        <li class="breadcrumb-item active float-right">لیست اخبار</li>
                     </ul>
                 </div>
             </div>
@@ -21,12 +21,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 col-md-12 left-box">
+                    @foreach($news as $item)
                     <div class="card single_post">
                         <div class="body">
-                            <h3 class="m-t-0 m-b-5"><a href="blog-details.html">لورم ایپسوم متن ساختگی</a></h3>
+                            <h3 class="m-t-0 m-b-5"><a href="#">{{$item->title}}</a></h3>
                             <ul class="meta">
-                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-label col-red"></i>عکاسی</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : {{$item->writer}}</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-label col-red"></i>{{$item->photographer}}</a></li>
                                 <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
                             </ul>
                         </div>
@@ -35,13 +36,13 @@
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
+                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path1)}}" alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-2.jpg" alt="Second slide">
+                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path2)}}" alt="Second slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-3.jpg" alt="Third slide">
+                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path3)}}" alt="Third slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -54,81 +55,16 @@
                                     </a>
                                 </div>
                                 <div class="social_share">
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
+                                    <a href="{{$item->facebook}}"><button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button></a>
+                                    <a href="{{$item->twitter}}"><button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button></a>
+                                    <a href="{{$item->instagram}}"> <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button></a>
                                 </div>
                             </div>
-                            <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
+                            <p>{{$item->body}} </p>
+                            <a href="#" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
                         </div>
                     </div>
-                    <div class="card single_post">
-                        <div class="body">
-                            <h3 class="m-t-0 m-b-5"><a href="blog-details.html">تبلیغات جدید شرکت اپل</a></h3>
-                            <ul class="meta">
-                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-label col-amber"></i>تکنولوژی</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-2.jpg" alt="تصویر">
-                                <div class="social_share">
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                </div>
-                            </div>
-                            <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                        </div>
-                    </div>
-                    <div class="card single_post">
-                        <div class="body">
-                            <h3 class="m-t-0 m-b-5"><a href="blog-details.html">WTCR از سال 2018: قوانین جدید ، اتومبیل های بیشتر ، مسابقات بیشتر </a></h3>
-                            <ul class="meta">
-                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-label col-lime"></i>ورزشی</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-3.jpg" alt="تصویر">
-                                <div class="social_share">
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                </div>
-                            </div>
-                            <p>کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
-                            <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                        </div>
-                    </div>
-                    <div class="card single_post">
-                        <div class="body">
-                            <h3 class="m-t-0 m-b-5"><a href="blog-details.html">نمونه های گاه شمار CSS از CodePen</a></h3>
-                            <ul class="meta">
-                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-label col-green"></i>طراحی سایت</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-2.jpg" alt="تصویر">
-                                <div class="social_share">
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                </div>
-                            </div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
-                            <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                        </div>
-                    </div>
+                    @endforeach
                     <ul class="pagination pagination-primary">
                         <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>

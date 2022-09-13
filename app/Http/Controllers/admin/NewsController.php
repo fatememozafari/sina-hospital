@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news=News::query()->get();
+        $news=News::query()->orderBy('id','desc')->get();
         return view('admin.news.index',compact('news'));
     }
 
@@ -38,9 +38,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','email','body']);
+        $inputs=$request->only(['title','body','writer','photographer','feedback','avatar_path1','avatar_path2','avatar_path3','instagram','facebook','twitter',
+        ]);
+        if ($request->file('avatar_path1')){
+            $inputs['avatar_path1'] = $this->uploadMedia($request->file('avatar_path1'));
+
+        }
+        if ($request->file('avatar_path2')){
+            $inputs['avatar_path2'] = $this->uploadMedia($request->file('avatar_path2'));
+
+        }
+        if ($request->file('avatar_path3')){
+            $inputs['avatar_path3'] = $this->uploadMedia($request->file('avatar_path3'));
+
+        }
+
         News::create($inputs);
-        return redirect('admin.news.index');
+        return redirect('/admin/news');
     }
 
     /**
@@ -51,7 +65,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news=News::query()->get($id);
+        $news=News::query()->find($id);
         return view('admin.news.show',compact('news'));
 
     }
@@ -78,9 +92,19 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','email','body');
+        $data=$request->only('title','body','writer','photographer','feedback','avatar_path1','avatar_path2','avatar_path3','instagram','facebook','twitter',
+        );
+        if ($request->file('avatar_path1')){
+            $data['avatar_path1'] = $this->uploadMedia($request->file('avatar_path1'));
+        }
+        if ($request->file('avatar_path2')){
+            $data['avatar_path2'] = $this->uploadMedia($request->file('avatar_path2'));
+        }
+        if ($request->file('avatar_path3')){
+            $data['avatar_path3'] = $this->uploadMedia($request->file('avatar_path3'));
+        }
         News::query()->where('id',$id)->update($data);
-        return redirect('admin.news.index');
+        return redirect('/admin/news');
 
 
     }

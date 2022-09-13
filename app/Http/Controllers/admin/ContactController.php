@@ -15,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact=Contact::query()->get();
-        return view('admin.contact.index',compact('contact'));
+        $contact=Contact::query()->orderBy('id','desc')->get();
+        return view('admin.contacts.index',compact('contact'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('admin.contact.create');
+        return view('admin.contacts.create');
 
     }
 
@@ -38,9 +38,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-      $inputs=$request->only(['name','email','body']);
+      $inputs=$request->only(['name','title','message','file']);
+        if ($request->file('file')){
+            $inputs['file'] = $this->uploadMedia($request->file('file'));
+        }
       Contact::create($inputs);
-      return redirect('admin.contact.index');
+      return redirect('/admin/contacts');
     }
 
     /**
@@ -51,8 +54,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $contact=Contact::query()->get($id);
-        return view('admin.contact.show',compact('contact'));
+        $contact=Contact::query()->find($id);
+        return view('admin.contacts.show',compact('contact'));
 
     }
 
@@ -65,7 +68,7 @@ class ContactController extends Controller
     public function edit($id)
     {
         $inputs=Contact::query()->where('id',$id)->first();
-        return view('admin.contact.edit',compact('inputs'));
+        return view('admin.contacts.edit',compact('inputs'));
 
     }
 
@@ -78,9 +81,12 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','email','body');
+        $data=$request->only('name','title','message','file');
+        if ($request->file('file')){
+            $data['file'] = $this->uploadMedia($request->file('file'));
+        }
         Contact::query()->where('id',$id)->update($data);
-        return redirect('admin.contact.index');
+        return redirect('/admin/contacts');
 
 
     }

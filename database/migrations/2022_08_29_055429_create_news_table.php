@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('body');
+            $table->string('writer');
+            $table->string('photographer')->nullable();
+            $table->string('feedback')->nullable();
+            $table->string('avatar_path1');
+            $table->string('avatar_path2')->nullable();
+            $table->string('avatar_path3')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
