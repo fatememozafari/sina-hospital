@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('front.layout.masterPage')
 @section('content')
 
     <div class="theme-cyan">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i> خانه</a></li>
                             <li class="breadcrumb-item float-right"><a href="javascript:void(0);">دوره های حضوری</a></li>
                             <li class="breadcrumb-item active float-right">نمایش دوره</li>
@@ -124,7 +124,7 @@
                                             <div class="hidden-print col-md-12 text-left">
                                                 <a href="javascript:void(0);" class="btn btn-info btn-round"><i
                                                         class="zmdi zmdi-print"></i></a>
-                                                <a href="/admin/documents/{{$document->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
+                                                <a href="/front/documents/{{$document->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
                                             </div>
                                         </div>
                                     </div>

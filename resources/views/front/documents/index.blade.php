@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('front.layout.masterPage')
 @section('content')
     <div class="theme-cyan">
         <section class="content home">
@@ -15,7 +15,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست دوره های غیر حضوری</li>
                         </ul>
@@ -100,24 +100,24 @@
                                         @foreach($document as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/admin/documents/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/admin/documents/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
+                                                <td class="sorting_1"><a href="/front/documents/{{$item->id}}">{{$item->title}}</a></td>
+                                                <td><a href="/front/documents/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
                                                 <td>{{__('custom.'.$item->type)}}
                                                     <br>{{$item->file_type}}</td>
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/admin/documents/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="/front/documents/{{$item->id}}" class="btn btn-primary btn-round">دانلود
                                                         </a>
-                                                        <a href="/admin/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
-                                                        </a>
-                                                        <form action="/admin/documents/{{$item->id}}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-default btn-round btn-simple">
-                                                                حذف
-                                                            </button>
-                                                        </form>
+{{--                                                        <a href="/front/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش--}}
+{{--                                                        </a>--}}
+{{--                                                        <form action="/front/documents/{{$item->id}}" method="post">--}}
+{{--                                                            @csrf--}}
+{{--                                                            @method('delete')--}}
+{{--                                                            <button type="submit" class="btn btn-default btn-round btn-simple">--}}
+{{--                                                                حذف--}}
+{{--                                                            </button>--}}
+{{--                                                        </form>--}}
 
                                                     </div>
                                                 </td>

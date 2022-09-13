@@ -4,7 +4,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2> ثبت دوره غیرحضوری جدید
+                    <h2>ویرایش دوره
                         <small class="text-muted">خوش امدید</small>
                     </h2>
                 </div>
@@ -14,7 +14,7 @@
                     </button>
                     <ul class="breadcrumb float-md-left">
                         <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
-                        <li class="breadcrumb-item active float-right"> ثبت دوره جدید </li>
+                        <li class="breadcrumb-item active float-right"> ویرایش دوره</li>
                     </ul>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                                 <hr>
                                 <div class="col-sm-12"><b>توضیحات بیشتر</b>
                                     <div class="form-group">
-                                        <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
+                                        <textarea rows="4" name="description" value="" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">

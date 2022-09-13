@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Document;
@@ -15,8 +15,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $document=Document::query()->orderBy('id','desc')->get();
-        return view('admin.documents.index',compact('document'));
+        $document=Document::query()->get();
+        return view('front.documents.index',compact('document'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('admin.documents.create');
+        return view('front.documents.create');
 
     }
 
@@ -47,7 +47,7 @@ class DocumentController extends Controller
         $result=Document::create($inputs);
 
         if ($result){
-            return redirect('/admin/documents');
+            return redirect('front/documents');
         } else{
             return back();
         }
@@ -62,7 +62,7 @@ class DocumentController extends Controller
     public function show($id)
     {
         $document=Document::query()->find($id);
-        return view('admin.documents.show',compact('document'));
+        return view('front.documents.show',compact('document'));
 
     }
 
@@ -75,7 +75,7 @@ class DocumentController extends Controller
     public function edit($id)
     {
         $inputs=Document::query()->where('id',$id)->first();
-        return view('admin.documents.edit',compact('inputs'));
+        return view('front.documents.edit',compact('inputs'));
 
     }
 
@@ -89,12 +89,10 @@ class DocumentController extends Controller
     public function update(Request $request, $id)
     {
         $data=$request->only('id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id');
-
-        if ($request->file('file')){
+        if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
-        }
         Document::query()->where('id',$id)->update($data);
-        return redirect('/admin/documents');
+        return redirect('front/documents');
 
 
     }
