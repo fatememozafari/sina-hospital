@@ -38,9 +38,12 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','email','body']);
+        $inputs=$request->only(['question','answer','avatar_path']);
+        if ($request->file('avatar_path')){
+            $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+        }
         Question::create($inputs);
-        return redirect('admin.questions.index');
+        return redirect('/admin/questions');
     }
 
     /**
@@ -78,9 +81,12 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','email','body');
+        $data=$request->only('question','answer','avatar_path');
+        if ($request->file('avatar_path')){
+            $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+        }
         Question::query()->where('id',$id)->update($data);
-        return redirect('admin.questions.index');
+        return redirect('/admin/questions');
 
 
     }
