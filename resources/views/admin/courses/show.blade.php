@@ -85,7 +85,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h5> نوع دوره: </h5>
-                                                    <p class="text-justify">{{$course->type}}</p>
+                                                    <p class="text-justify">{{__('custom.'.$course->type)}}</p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -99,7 +99,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h5> مدرس دوره: </h5>
-{{--                                                    <p class="text-justify">{{$course->teacher}}</p>--}}
+{{--                                                    <p class="text-justify">{{$course->teachers}}</p>--}}
                                                 </div>
                                             </div>
                                             <hr>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->foreignId('teacher_id')->nullable();
             $table->date('start_at');
+//            $table->date('year');
             $table->string('rate')->nullable();
             $table->string('description');
             $table->timestamps();

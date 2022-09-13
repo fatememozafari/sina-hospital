@@ -67,7 +67,7 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12"><b>نام مدرس</b>
                                     <div class="form-group">
-{{--                                        <input type="text" name="teacher_id" value="{{$inputs->teacher()->name}}" class="form-control" placeholder="نام مدرس">--}}
+{{--                                        <input type="text" name="teacher_id" value="{{$inputs->teachers()->name}}" class="form-control" placeholder="نام مدرس">--}}
                                     </div>
                                 </div>
                             </div>
