@@ -14,7 +14,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="index.html"><i class="zmdi zmdi-home"></i> قطب نما</a></li>
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i> داشبورد</a></li>
                             <li class="breadcrumb-item float-right"><a href="javascript:void(0);">کاربران</a></li>
                             <li class="breadcrumb-item active float-right">پروفایل کاربر</li>
                         </ul>

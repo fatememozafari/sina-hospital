@@ -39,7 +39,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/users" method="post" enctype="multipart/form-data">
+                            <form action="/front/users" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>نام</b>
