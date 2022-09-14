@@ -25,7 +25,7 @@
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="{{route('front.teacher.list')}}">لیست مدرس</a></li>
+{{--                    <li><a href="{{route('front.teacher.list')}}">لیست مدرس</a></li>--}}
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>پروفایل</span> </a>

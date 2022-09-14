@@ -69,11 +69,7 @@
                                                 aria-label=" تخصصص : activate to sort column ascending"
                                                 style="width:44.3906px;"> تخصصص
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label=" شماره موبایل : activate to sort column ascending"
-                                                style="width: 106.828px;">شماره موبایل
-                                            </th>
+
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
                                                 aria-label="ایمیل: activate to sort column ascending"
@@ -92,7 +88,6 @@
                                             <th rowspan="1" colspan="1">ردیف</th>
                                             <th rowspan="1" colspan="1"> نام و نام خانوادگی</th>
                                             <th rowspan="1" colspan="1"> تخصصص</th>
-                                            <th rowspan="1" colspan="1">شماره موبایل</th>
                                             <th rowspan="1" colspan="1">ایمیل</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
@@ -101,17 +96,13 @@
                                         @foreach($teacher as $item)
                                             <tr role="row" class="even">
                                                 <td class="sorting_1">{{$item->id}}</td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td><a href="/teachers/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
                                                 <td>{{$item->job}}</td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->mobile}}</a></td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->email}}</a></td>
+                                                <td><a href="/teachers/{{$item->id}}">{{$item->email}}</a></td>
                                                 <td>
                                                     <div>
-                                                        <a href="/admin/teachers/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="/teachers/{{$item->id}}" class="btn btn-primary btn-round">نمایش
                                                         </a>
-                                                        <a href="/admin/teachers/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
-                                                        </a>
-
 
                                                     </div>
                                                 </td>

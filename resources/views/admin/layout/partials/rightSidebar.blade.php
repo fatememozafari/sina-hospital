@@ -26,7 +26,7 @@
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                 <ul class="ml-menu">
                     <li><a href="{{route('teachers.list')}}">لیست مدرس</a></li>
-                    <li><a href="{{route('teachers.create')}}">افزودن مدرس</a></li>
+                    <li><a href="/admin/teachers/create">افزودن مدرس</a></li>
 {{--                    <li><a href="{{route('teachers.event')}}">برنامه آموزشی</a></li>--}}
 
                 </ul>

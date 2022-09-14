@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -42,13 +43,14 @@ class TeacherController extends Controller
         $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type']);
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
+        $inputs['rate'] = 0;
 
         if ($request->file('avatar_path'))
             $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
 
         $result=Teacher::create($inputs);
         if ($result){
-            return redirect('admin/teachers');
+            return redirect('/admin/teachers');
         } else{
             return back();
         }
@@ -62,9 +64,10 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        $teacher=Teacher::query()->find($id);
-        return view('admin.teachers.show',compact('teacher'));
+        $course=Course::query()->where('teacher_id',$id)->get();
 
+        $teacher=Teacher::query()->find($id);
+        return view('admin.teachers.show',compact('teacher','course'));
     }
 
     /**
@@ -96,7 +99,7 @@ class TeacherController extends Controller
             $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
 
         Teacher::query()->where('id',$id)->update($data);
-        return redirect('admin/teachers');
+        return redirect('/admin/teachers');
 
 
     }

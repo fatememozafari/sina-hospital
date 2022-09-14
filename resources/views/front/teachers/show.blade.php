@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
                         <h2>پروفایل مدرس
-                            <small class="text-muted">به قطب نما خوش آمدید</small>
+                            <small class="text-muted"> خوش آمدید</small>
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -22,7 +22,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="index.html"><i class="zmdi zmdi-home"></i> قطب نما</a></li>
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>خانه</a></li>
                             <li class="breadcrumb-item float-right"><a href="javascript:void(0);">مدرسان</a></li>
                             <li class="breadcrumb-item active float-right">پروفایل مدرس</li>
                         </ul>
@@ -34,11 +34,11 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card member-card">
                             <div class="header l-cyan">
-                                <h4 class="m-t-10">{{$teacher->name}}</h4>
+                                <h4 class="m-t-10">{{$teacher->name}} {{$teacher->family}}</h4>
                             </div>
                             <div class="member-img">
-                                <a href="profile.html" class="">
-                                    <img src="{{asset('assets/images/profile_av.jpg')}}" class="rounded-circle" alt="عکس پروفایل">
+                                <a href="#" class="">
+                                    <img src="{{$teacher->avatar_path ?? asset('assets/images/profile_av.jpg')}}" class="rounded-circle" alt="عکس پروفایل">
                                 </a>
                             </div>
                             <div class="body">
@@ -77,36 +77,36 @@
                                     <small class="text-muted">شغل :</small>
                                     <p>{{$teacher->job}}</p>
                                     <hr>
-                                    <small class="text-muted">نام بیمارستان :</small>
-                                    <p>بیمارستان بینا </p>
+                                    <small class="text-muted">آدرس:</small>
+                                    <p>{{$teacher->address}} </p>
                                     <hr>
-                                    <small class="text-muted">آدرس ایمیل</small>
+                                    <small class="text-muted">آدرس ایمیل:</small>
                                     <p>{{$teacher->email}}</p>
                                     <hr>
                                     <small class="text-muted">تلفن :</small>
-                                    <p>{{$teacher->mobile}}</p>
+{{--                                    <p>{{$teacher->mobile}}</p>--}}
                                     <hr>
                                     <ul class="list-unstyled">
                                         <li>
-                                            <div>فتوشاپ</div>
+                                            <div></div>
                                             <div class="progress m-b-20">
                                                 <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% کامل است</span> </div>
                                             </div>
                                         </li>
                                         <li>
-                                            <div>وردپرس</div>
+                                            <div></div>
                                             <div class="progress m-b-20">
                                                 <div class="progress-bar l-green " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">87% کامل است</span> </div>
                                             </div>
                                         </li>
                                         <li>
-                                            <div>HTML 5</div>
+                                            <div> </div>
                                             <div class="progress m-b-20">
                                                 <div class="progress-bar l-amber" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"> <span class="sr-only">32% کامل است</span> </div>
                                             </div>
                                         </li>
                                         <li>
-                                            <div>انگولار</div>
+                                            <div></div>
                                             <div class="progress m-b-20">
                                                 <div class="progress-bar l-blush" role="progressbar" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100" style="width: 43%"> <span class="sr-only">56% کامل است</span> </div>
                                             </div>
@@ -147,7 +147,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">پست های من</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#timeline">جدول زمانی</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#usersettings">تنظیمات</a></li>
+{{--                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#usersettings">تنظیمات</a></li>--}}
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -166,13 +166,13 @@
                                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner" role="listbox">
                                                     <div class="carousel-item active">
-                                                        <img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
+                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-1.jpg')}}" alt="First slide">
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img class="d-block img-fluid" src="assets/images/blog/blog-page-2.jpg" alt="Second slide">
+                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-2.jpg')}}" alt="Second slide">
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img class="d-block img-fluid" src="assets/images/blog/blog-page-3.jpg" alt="Third slide">
+                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-3.jpg')}}" alt="Third slide">
                                                     </div>
                                                 </div>
                                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -194,78 +194,7 @@
                                         <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
                                     </div>
                                 </div>
-                                <div class="card single_post">
-                                    <div class="body">
-                                        <h3 class="m-t-0 m-b-5"><a href="blog-details.html">تبلیغات جدید شرکت اپل</a></h3>
-                                        <ul class="meta">
-                                            <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-label col-amber"></i>تکنولوژی</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="body">
-                                        <div class="img-post m-b-15">
-                                            <img src="assets/images/blog/blog-page-2.jpg" alt="تصویر">
-                                            <div class="social_share">
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                            </div>
-                                        </div>
-                                        <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                                        <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="card single_post">
-                                            <div class="body">
-                                                <h3 class="m-t-0 m-b-5"><a href="blog-details.html"> قوانین جدید ، اتومبیل های بیشتر ، مسابقات بیشتر </a></h3>
-                                                <ul class="meta">
-                                                    <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-label col-lime"></i>ورزشی</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="body">
-                                                <div class="img-post m-b-15">
-                                                    <img src="assets/images/blog/blog-page-3.jpg" alt="تصویر">
-                                                    <div class="social_share">
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                                    </div>
-                                                </div>
-                                                <p>کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
-                                                <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="card single_post">
-                                            <div class="body">
-                                                <h3 class="m-t-0 m-b-5"><a href="blog-details.html">نمونه های گاه شمار CSS از CodePen</a></h3>
-                                                <ul class="meta">
-                                                    <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-label col-green"></i>طراحی سایت</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="body">
-                                                <div class="img-post m-b-15">
-                                                    <img src="assets/images/blog/blog-page-2.jpg" alt="تصویر">
-                                                    <div class="social_share">
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                                        <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                                    </div>
-                                                </div>
-                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون  در ستون و سطرآنچنان که لازم است و برای شرایط فعلی و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
-                                                <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <ul class="pagination pagination-primary">
                                     <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -282,11 +211,11 @@
                                         <div class="cbp_tmlabel empty"> <span> فعالیتی وجود ندارد </span> </div>
                                     </li>
                                     <li>
-                                        <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>3:45 ق.ظ </span> <span>امروز</span></time>
+                                        <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>{{$course->start_at}} </span> <span></span></time>
                                         <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-label"></i></div>
                                         <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);">سجاد آقازاده </a> <span>یک استوس جدید ارسال کرد .</span></h2>
-                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی و کاربردهای متنوع با هدف بهبود ابزارها می باشد.</p>
+                                            <h2><a href="javascript:void(0);">{{$course->title}} </a> <span>یک استوس جدید ارسال کرد .</span></h2>
+                                            <p>{{$course->description}}</p>
                                         </div>
                                     </li>
                                     <li>
@@ -352,91 +281,91 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="usersettings">
-                                <div class="card">
-                                    <div class="header">
-                                        <h2>تنظیمات<strong> امنیتی </strong></h2>
-                                    </div>
-                                    <div class="body">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="نام کاربری">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="رمز عبور فعلی">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"placeholder="رمز عبور جدید">
-                                        </div>
-                                        <button class="btn btn-info btn-round">ذخیره تغییرات</button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="header">
-                                        <h2>تنظیمات <strong> حساب کاربری </strong> </h2>
-                                    </div>
-                                    <div class="body">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="نام">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="نام خانوادگی">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="شهر">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="ایمیل">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="کشور">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <textarea rows="4" class="form-control no-resize" placeholder="آدرس"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="checkbox">
-                                                    <input id="procheck1" type="checkbox">
-                                                    <label for="procheck1"> قابلیت مشاهده پروفایل برای همه </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <input id="procheck2" type="checkbox">
-                                                    <label for="procheck2"> اعلان های کار جدید </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <input id="procheck3" type="checkbox">
-                                                    <label for="procheck3">اعلان های درخواست دوست جدید</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <button class="btn btn-primary btn-round">ذخیره تغییرات</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div role="tabpanel" class="tab-pane" id="usersettings">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="header">--}}
+{{--                                        <h2>تنظیمات<strong> امنیتی </strong></h2>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="body">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="text" class="form-control" placeholder="نام کاربری">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="password" class="form-control" placeholder="رمز عبور فعلی">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="password" class="form-control"placeholder="رمز عبور جدید">--}}
+{{--                                        </div>--}}
+{{--                                        <button class="btn btn-info btn-round">ذخیره تغییرات</button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="header">--}}
+{{--                                        <h2>تنظیمات <strong> حساب کاربری </strong> </h2>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="body">--}}
+{{--                                        <div class="row clearfix">--}}
+{{--                                            <div class="col-lg-6 col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="نام">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-6 col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="نام خانوادگی">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-4 col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="شهر">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-4 col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="ایمیل">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-4 col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="کشور">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-12">--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <textarea rows="4" class="form-control no-resize" placeholder="آدرس"></textarea>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-12">--}}
+{{--                                                <div class="checkbox">--}}
+{{--                                                    <input id="procheck1" type="checkbox">--}}
+{{--                                                    <label for="procheck1"> قابلیت مشاهده پروفایل برای همه </label>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="checkbox">--}}
+{{--                                                    <input id="procheck2" type="checkbox">--}}
+{{--                                                    <label for="procheck2"> اعلان های کار جدید </label>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="checkbox">--}}
+{{--                                                    <input id="procheck3" type="checkbox">--}}
+{{--                                                    <label for="procheck3">اعلان های درخواست دوست جدید</label>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-12">--}}
+{{--                                                <button class="btn btn-primary btn-round">ذخیره تغییرات</button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->
+{{--    <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->--}}
+{{--    <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->--}}
+{{--    <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->--}}
 
-    <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script> <!-- Jquery Knob Plugin Js -->
-    <script src="{{asset('assets/js/pages/charts/jquery-knob.js')}}"></script>
+{{--    <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script> <!-- Jquery Knob Plugin Js -->--}}
+{{--    <script src="{{asset('assets/js/pages/charts/jquery-knob.js')}}"></script>--}}
 @endsection
