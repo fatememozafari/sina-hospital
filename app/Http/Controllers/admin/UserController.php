@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Enroll;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -65,7 +67,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user=User::query()->find($id);
-        return view('admin.users.show',compact('user'));
+        $course=User::find($id)->courses->where('user_id',$id);
+        return view('admin.users.show',compact('user','course'));
 
     }
 

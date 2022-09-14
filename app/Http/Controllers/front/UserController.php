@@ -65,7 +65,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user=User::query()->find($id);
-        return view('front.users.show',compact('user'));
+        $course=User::find($id)->courses->where('user_id',$id);
+
+        return view('front.users.show',compact('user','course'));
 
     }
 

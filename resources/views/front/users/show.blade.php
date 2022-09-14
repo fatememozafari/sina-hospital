@@ -35,7 +35,7 @@
                                 <strong>نام و نام خانوادگی</strong>
                                 <p>{{$user->name}}{{$user->family}}</p>
                                 <strong> شغل </strong>
-                                <p>متخصص UI UX</p>
+                                <p>{{$user->job}}</p>
                                 <strong> آدرس ایمیل </strong>
                                 <p>{{$user->email}}</p>
                                 <strong>تلفن</strong>
@@ -56,10 +56,22 @@
                                     <div class="stat-item col-2 col-blue">
                                         <h6>امتیاز: <b>{{$user->rate}}</b></h6></div>
                                     <div class="stat-item col-2 col-blush">
-                                        <h6>BP <b>112</b></h6>
+                                        <h6> <b></b></h6>
                                     </div>
                                 </div>
-                                <div id="real_time_chart" class="flot-chart" style="height: 105px;"></div>
+
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong> آموزش </strong></h2>
+                            </div>
+                            <div class="body">
+                                <ul class="dis list-unstyled">
+                                    @foreach($user->courses as $item)
+                                        <li>--{{$item->title}}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                         <div class="card">
@@ -72,8 +84,7 @@
                             <div role="tabpanel" class="tab-pane active" id="report">
                                 <div class="card">
                                     <div class="body">
-                                        <p class="text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
-                                        <p class="text-justify">کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد  </p>
+                                        <p class="text-justify">{{$user->description}}</p>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -83,25 +94,25 @@
                                     <div class="body">
                                         <ul class="list-unstyled">
                                             <li>
-                                                <div> فشار خون </div>
+                                                <div> </div>
                                                 <div class="progress m-b-20">
                                                     <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% کامل است (موفقیت)</span> </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div> ضربان قلب </div>
+                                                <div>  </div>
                                                 <div class="progress m-b-20">
                                                     <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> <span class="sr-only">20% کامل است</span> </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div> هموگلوبین </div>
+                                                <div>  </div>
                                                 <div class="progress m-b-20">
                                                     <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> <span class="sr-only"> 60% کامل است  (هشدار)</span> </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div>قند</div>
+                                                <div></div>
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> <span class="sr-only">80% کامل است (خطر)</span> </div>
                                                 </div>
@@ -109,20 +120,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="header">
-                                        <h2><strong> آموزش </strong></h2>
-                                    </div>
-                                    <div class="body">
-                                        <ul class="dis list-unstyled">
-                                            <li>لورم ایپسوم متن ساختگی</li>
-                                            <li> با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </li>
-                                            <li> با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </li>
-                                            <li>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</li>
-                                            <li>برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع</li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                             </div>
                             <div role="tabpanel" class="tab-pane" id="timeline">
                                 <div class="card">
@@ -135,48 +133,15 @@
                                                         <p>تخلیه</p>
                                                     </div>
                                                 </div>
-                                                <div class="timeline-item border-info">
-                                                    <div class="item-content">
-                                                        <div class="text-small">11:30</div>
-                                                        <p>چک آپ روزانه</p>
+                                                @foreach($user->courses as $item)
+                                                    <div class="timeline-item border-info">
+                                                        <div class="item-content">
+                                                            <div class="text-small"> تاریخ برگزاری: {{$item->start_at}}</div>
+                                                            <p>عنوان دوره: {{$item->title}}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="timeline-item border-warning border-l">
-                                                    <div class="item-content">
-                                                        <div class="text-small">10:30</div>
-                                                        <p> عملیات </p>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-item border-warning">
-                                                    <div class="item-content">
-                                                        <div class="text-small">3 روز پیش</div>
-                                                        <p>چک آپ روزانه</p>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-item border-danger">
-                                                    <div class="item-content">
-                                                        <div class="text--muted">سه شنبه ، 10 مهر</div>
-                                                        <p>چک آپ روزانه</p>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-item border-info">
-                                                    <div class="item-content">
-                                                        <div class="text-small">یک شنبه ، 5 مهر</div>
-                                                        <p>چک آپ روزانه</p>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-item border-danger">
-                                                    <div class="item-content">
-                                                        <div class="text-small"> جمعه ، 17 شهریور</div>
-                                                        <p>آزمایش خون</p>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-item border-info">
-                                                    <div class="item-content">
-                                                        <div class="text-small">شنبه ، 10 شهریور</div>
-                                                        <p> بستری در بخش بیمار. 21 </p>
-                                                    </div>
-                                                </div>
+                                                @endforeach
+
                                             </div>
                                         </div>
                                     </div>
