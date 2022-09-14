@@ -12,7 +12,12 @@ class Course extends Model
         'id_code','title','slug','type','start_at','description','file','teacher_id'
     ];
 
-    public function user()
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
+
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }

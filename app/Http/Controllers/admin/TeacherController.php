@@ -64,7 +64,7 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        $course=Course::query()->where('teacher_id',$id)->get();
+        $course=Teacher::find($id)->courses->where('teacher_id',$id);
 
         $teacher=Teacher::query()->find($id);
         return view('admin.teachers.show',compact('teacher','course'));

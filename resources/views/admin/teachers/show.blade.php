@@ -145,7 +145,7 @@
                     <div class="col-lg-8 col-md-12">
                         <div class="card">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">پست های من</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">بیوگرافی</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#timeline">جدول زمانی</a></li>
 {{--                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#usersettings">تنظیمات</a></li>--}}
                             </ul>
@@ -153,45 +153,13 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane blog-page active" id="mypost">
                                 <div class="card single_post">
-                                    <div class="body">
-                                        <h3 class="m-t-0 m-b-5"><a href="blog-details.html">لورم ایپسوم متن ساختگی</a></h3>
-                                        <ul class="meta">
-                                            <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>ارسال شده توسط : رضا قنبری</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-label col-red"></i>عکاسی</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>نظرات :3</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="body">
-                                        <div class="img-post m-b-15">
-                                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-1.jpg')}}" alt="First slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-2.jpg')}}" alt="Second slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block img-fluid" src="{{asset('assets/images/blog/blog-page-3.jpg')}}" alt="Third slide">
-                                                    </div>
-                                                </div>
-                                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">قبلی</span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">بعدی</span>
-                                                </a>
-                                            </div>
-                                            <div class="social_share">
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
-                                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
-                                            </div>
+                                    <div class="card">
+                                        <div class="header">
+                                            <h2><strong> بیوگرافی </strong></h2>
                                         </div>
-                                        <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                                        <a href="blog-details.html" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
+                                        <div class="body">
+                                            <p class="text-justify">{{$teacher->description}}</p>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -207,79 +175,21 @@
                             <div role="tabpanel" class="tab-pane" id="timeline">
                                 <ul class="cbp_tmtimeline">
                                     <li>
-                                        <time class="cbp_tmtime" datetime="1398-08-05T18:30"><span class="hidden">5/8/1398</span> <span class="large">اکنون</span></time>
+                                        <time class="cbp_tmtime" datetime="1398-08-05T18:30"><span class="hidden">{{ date("Y/m/d")}}</span> <span class="large">اکنون</span></time>
                                         <div class="cbp_tmicon"><i class="zmdi zmdi-account"></i></div>
-                                        <div class="cbp_tmlabel empty"> <span> فعالیتی وجود ندارد </span> </div>
+                                        <div class="cbp_tmlabel empty"> <span> تاریخ امروز </span> </div>
                                     </li>
+                                    @foreach($course as $item)
                                     <li>
-                                        <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>{{$course->start_at}} </span> <span></span></time>
+                                        <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>{{$item->start_at}} </span> <span></span></time>
                                         <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-label"></i></div>
                                         <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);">{{$course->title}} </a> <span>یک استوس جدید ارسال کرد .</span></h2>
-                                            <p>{{$course->description}}</p>
+                                            <h2><a href="javascript:void(0);">جسله کاری </a> <span>{{$item->title}}</span></h2>
+                                            <p>{{$item->description}}</p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <time class="cbp_tmtime" datetime="1398-08-04T13:22"><span>1:02  ب.ظ </span> <span>دیروز</span></time>
-                                        <div class="cbp_tmicon bg-green"> <i class="zmdi zmdi-case"></i></div>
-                                        <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);"> جلسه کاری </a></h2>
-                                            <p>امروز در <strong> دفتر آزمایشگاه </strong> جلسه ای دارید .</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <time class="cbp_tmtime" datetime="1398-07-20T12:13"><span>12:13  ب.ظ </span> <span>2 هفته قبل</span></time>
-                                        <div class="cbp_tmicon bg-blush"><i class="zmdi zmdi-pin"></i></div>
-                                        <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);"> سیما مطهری </a> <span>در جلسه </span> <a href="javascript:void(0);">نیویورک</a> <span>حضور داشت . </span></h2>
-                                            <blockquote>
-                                                <p class="blockquote blockquote-primary text-justify">
-                                                    "این یک واقعیت طولانی است که یک خواننده هنگام مشاهده طرح آن ، از مطالب خواندن یک صفحه پریشان می شود."
-                                                    <br>
-                                                    <small>
-                                                        - سارا صفرزاده
-                                                    </small>
-                                                </p>
-                                            </blockquote>
-                                            <div class="row clearfix">
-                                                <div class="col-lg-12">
-                                                    <div class="map m-t-10">
-                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91477011208!2d-74.11976308802028!3d40.69740344230033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1508039335245" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <time class="cbp_tmtime" datetime="1398-07-20T12:13"><span>12:13  ب.ظ </span> <span>2 هفته قبل</span></time>
-                                        <div class="cbp_tmicon bg-orange"><i class="zmdi zmdi-camera"></i></div>
-                                        <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);">بهزاد احمدی </a> 4 <span>عکس جدید را در آلبوم</span> <a href="javascript:void(0);">سفرهای تابستانی </a><span>بارگذاری کرد </span></h2>
-                                            <blockquote class="text-justify">کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد</blockquote>
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-6 col-6"><a href="javascript:void(0);"><img src="{{asset('assets/images/image1.jpg')}}" alt="" class="img-fluid img-thumbnail m-t-30"></a> </div>
-                                                <div class="col-lg-3 col-md-6 col-6"><a href="javascript:void(0);"> <img src="{{asset('assets/images/image2.jpg')}}" alt="" class="img-fluid img-thumbnail m-t-30"></a> </div>
-                                                <div class="col-lg-3 col-md-6 col-6"><a href="javascript:void(0);"> <img src="{{asset('assets/images/image3.jpg')}}" alt="" class="img-fluid img-thumbnail m-t-30"> </a> </div>
-                                                <div class="col-lg-3 col-md-6 col-6"><a href="javascript:void(0);"> <img src="{{asset('assets/images/image4.jpg')}}" alt="" class="img-fluid img-thumbnail m-t-30"> </a> </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <time class="cbp_tmtime" datetime="1398-08-04T13:22"><span>1:02  ب.ظ </span> <span>2 هفته قبل</span></time>
-                                        <div class="cbp_tmicon bg-green"> <i class="zmdi zmdi-case"></i></div>
-                                        <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);"> جلسه کاری </a></h2>
-                                            <p>امروز در <strong> دفتر آزمایشگاه </strong> جلسه ای دارید .</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <time class="cbp_tmtime" datetime="1398-07-20T12:13"><span>12:13  ب.ظ </span> <span>ماه قبل</span></time>
-                                        <div class="cbp_tmicon bg-blush"><i class="zmdi zmdi-pin"></i></div>
-                                        <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);"> سیما مطهری </a> <span>در جلسه </span> <a href="javascript:void(0);"> آزمایشگاه </a><span>حضور داشت . </span></h2>
-                                            <blockquote>مکان عالی ، احساس خانه بودن.</blockquote>
-                                        </div>
-                                    </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
 {{--                            <div role="tabpanel" class="tab-pane" id="usersettings">--}}
@@ -363,10 +273,10 @@
             </div>
         </section>
     </div>
-    <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->
+{{--    <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->--}}
+{{--    <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->--}}
+{{--    <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->--}}
 
-    <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script> <!-- Jquery Knob Plugin Js -->
-    <script src="{{asset('assets/js/pages/charts/jquery-knob.js')}}"></script>
+{{--    <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script> <!-- Jquery Knob Plugin Js -->--}}
+{{--    <script src="{{asset('assets/js/pages/charts/jquery-knob.js')}}"></script>--}}
 @endsection
