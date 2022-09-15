@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" width="30" alt="قطب نما"><span class="m-r-10">بیمارستان</span></a>
+            <a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo.svg')}}" width="30" alt=""><span class="m-r-10">بیمارستان سینا</span></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>

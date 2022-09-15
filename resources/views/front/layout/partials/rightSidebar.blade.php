@@ -3,10 +3,10 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <div class="image"><a href="profile.html"><img src="{{asset('assets/images/profile_av.jpg')}}" alt="کاربر"></a></div>
+                    <div class="image"><a href="profile.html"><img src="{{\Illuminate\Support\Facades\Auth::user()->avatar_path ?? asset('assets/images/profile_av.jpg')}}" alt="کاربر"></a></div>
                     <div class="detail">
-                        <h4>دکتر حمید محمدی</h4>
-                        <small>جراح قلب</small>
+{{--                        <h4>{{\Illuminate\Support\Facades\Auth::user()->name}}</h4>--}}
+{{--                        <small>جراح قلب</small>--}}
                     </div>
                     <a href="events.html" title="رویدادها"><i class="zmdi zmdi-calendar"></i></a>
                     <a href="mail-inbox.html" title="صندوق ورودی"><i class="zmdi zmdi-email"></i></a>
