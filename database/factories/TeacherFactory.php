@@ -24,7 +24,7 @@ class TeacherFactory extends Factory
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'password_verification' => 'password', // password
+            'password_confirmation' => 'password', // password
             'birthday' => fake()->date('Y-m-d'),
             'address' => fake()->address(),
             'type' => array_rand(['SUPERADMIN','ADMIN','USER']),

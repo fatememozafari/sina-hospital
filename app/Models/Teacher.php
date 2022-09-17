@@ -9,7 +9,7 @@ class Teacher extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type','rate'
+        'name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate'
     ];
     public function courses()
     {

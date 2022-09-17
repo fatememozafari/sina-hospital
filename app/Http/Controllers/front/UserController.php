@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type','rate']);
+        $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
         $inputs['rate'] = 0;
@@ -93,7 +93,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type','rate');
+        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
         $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))

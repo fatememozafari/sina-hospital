@@ -22,12 +22,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('password_verification');
+            $table->string('password_confirmation');
             $table->string('avatar_path')->nullable();
             $table->text('address')->nullable();
             $table->date('birthday')->nullable();
             $table->string('job')->nullable();
-            $table->enum('type',['SUPERADMIN','ADMIN','USER']);
             $table->string('rate');
             $table->enum('gender',['MALE',"FEMALE"])->nullable();
             $table->rememberToken();

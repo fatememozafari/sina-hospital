@@ -40,7 +40,7 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type']);
+        $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type']);
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
         $inputs['rate'] = 0;
@@ -92,7 +92,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_verification','address','avatar_path','type');
+        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type');
         $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))

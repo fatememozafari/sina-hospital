@@ -111,7 +111,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>تایید رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="text" name="password_verification" value="{{old('password_verification' ?? '')}}" class="form-control" placeholder="تایید رمز ورود">
+                                            <input type="text" name="password_confirmation" value="{{old('password_confirmation' ?? '')}}" class="form-control" placeholder="تایید رمز ورود">
                                         </div>
                                     </div>
                                 </div>
