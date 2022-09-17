@@ -5,7 +5,7 @@
                 <div class="user-info">
                     <div class="image"><a href="profile.html"><img src="{{\Illuminate\Support\Facades\Auth::user()->avatar_path ?? asset('assets/images/profile_av.jpg')}}" alt="کاربر"></a></div>
                     <div class="detail">
-{{--                        <h4>{{\Illuminate\Support\Facades\Auth::user()->name}}</h4>--}}
+                        <h4>{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->family}}</h4>
 {{--                        <small>جراح قلب</small>--}}
                     </div>
                     <a href="events.html" title="رویدادها"><i class="zmdi zmdi-calendar"></i></a>
