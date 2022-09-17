@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 class AsignController extends Controller
 {
@@ -18,20 +21,8 @@ class AsignController extends Controller
 
     public function index()
     {
-
-//        $titleCard = 'لیست';
-//        $th = ['شناسه', 'name', 'title', 'operation'];
-        $query = \Spatie\Permission\Models\Role::query()
-            ->orderBy('id', 'DESC')
-            ->get();
-
-        return view('admin.asigns.index',
-            [
-                'items' => $query,
-//                'th' => $th,
-//                'titleCard' => $titleCard,
-            ]
-        );
+        $query =  User::with('roles')->get();
+        return view('admin.asigns.index', ['items' => $query]);
     }
 
     public function create()
@@ -50,7 +41,7 @@ class AsignController extends Controller
         $role=\Spatie\Permission\Models\Role::find($role_id);
 
         $result= $user->assignRole($role);
-        return back()->with('success','با موفقیت ثبت شد');
+        return redirect('/admin/asigns')->with('success','با موفقیت ثبت شد');
 
 
     }

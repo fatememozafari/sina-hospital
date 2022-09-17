@@ -42,7 +42,7 @@
                             <p>{{$user->mobile}}</p>
                             <hr>
                             <strong>نقش</strong>
-                            <p>{{$user->type}}</p>
+                            <p>{{$user->roles->first()?->name}}</p>
                         </div>
                     </div>
                 </div>

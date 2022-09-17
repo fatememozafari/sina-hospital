@@ -15,7 +15,7 @@ class AsignPermissionSeeder extends Seeder
      */
     public function run()
     {
-        $roleAdmin = Role::where('name', 'admin')->first();
+        $roleAdmin = Role::where('name', 'ADMIN ')->first();
         $roleAdmin->givePermissionTo([
             'users_create',
             'users_read',
@@ -65,15 +65,15 @@ class AsignPermissionSeeder extends Seeder
             'teachers_update',
             'teachers_create',
 
-//            'newsletter_read',
-//            'newsletter_update',
-//            'newsletter_create',
-//            'newsletter_delete',
+//            'newsletters_read',
+//            'newsletters_update',
+//            'newsletters_create',
+//            'newsletters_delete',
 //
-            'enrolls_read',
-            'enrolls_update',
-            'enrolls_create',
-            'enrolls_delete',
+//            'enrolls_read',
+//            'enrolls_update',
+//            'enrolls_create',
+//            'enrolls_delete',
 //
 //            'variables_read',
 //            'variables_update',

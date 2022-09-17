@@ -91,8 +91,8 @@
                                         @foreach($items as $item)
                                             <tr>
                                                 <td>{{$item->id}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{$item->role}}</td>
+                                                <td>{{$item->name}} {{$item->family}}</td>
+                                                <td>{{$item->roles->first()?->name}}</td>
                                                 <td>
 
 {{--                                                    <form action="/admin/assign/{{$item->id}}" method="post">--}}

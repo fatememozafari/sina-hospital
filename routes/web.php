@@ -32,6 +32,9 @@ use App\Http\Controllers\admin\AsignController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 
 /*
@@ -41,6 +44,10 @@ Route::get('/', function () {
 |
 */
 //fortify package
+Route::get('redirects', '\App\Http\Controllers\auth\AuthController@index');
+
+Route::get('logout', [AuthController::class, 'logout']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,15 +57,15 @@ Route::get('/', function () {
 */
 
 
-//Route::prefix('admin')->middleware('auth')->group(function (){
+Route::prefix('admin')->middleware('auth')->group(function (){
 
-Route::get('asign', [RoleController::class, 'asignPermissionForm']);
-Route::post('asign', [RoleController::class, 'syncPermission']);
+Route::get('asigns', [RoleController::class, 'asignPermissionForm']);
+Route::post('asigns', [RoleController::class, 'syncPermission']);
 Route::resource('roles', RoleController::class)->names([
     'create'=>'role.create',
     'index'=>'role.list',
 ]);
-Route::resource('asign', AsignController::class)->names([
+Route::resource('asigns', AsignController::class)->names([
     'create'=>'asign.create',
     'index'=>'asign.list',
 ]);
@@ -67,7 +74,7 @@ Route::resource('permissions', PermissionController::class)->names([
     'index'=>'permission.list',
 ]);
 
-//});
+});
 
 /*
 |--------------------------------------------------------------------------

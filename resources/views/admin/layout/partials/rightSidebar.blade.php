@@ -5,14 +5,14 @@
                 <div class="user-info">
                     <div class="image"><a href="profile.html"><img src="{{asset('assets/images/profile_av.jpg')}}" alt="کاربر"></a></div>
                     <div class="detail">
-                        <h4>دکتر حمید محمدی</h4>
+                        <h4>{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->family}}</h4>
                         <small>جراح قلب</small>
                     </div>
                     <a href="events.html" title="رویدادها"><i class="zmdi zmdi-calendar"></i></a>
                     <a href="mail-inbox.html" title="صندوق ورودی"><i class="zmdi zmdi-email"></i></a>
                     <a href="contact.html" title="لیست مخاطبین"><i class="zmdi zmdi-account-box-phone"></i></a>
                     <a href="chat.html" title="برنامه چت"><i class="zmdi zmdi-comments"></i></a>
-                    <a href="sign-in.html" title="خروج از سیستم"><i class="zmdi zmdi-power"></i></a>
+                    <a href="{{route('logout')}}" title="خروج از سیستم"><i class="zmdi zmdi-power"></i></a>
                 </div>
             </li>
             <li class="header">اصلی</li>
@@ -74,22 +74,34 @@
 
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>rolesنقش ها</span> </a>
                 <ul class="ml-menu">
+                    @can('roles_read')
                     <li><a href="{{route('role.list')}}">لیست نقش ها</a></li>
+                    @endcan
+                        @can('roles_create')
                     <li><a href="{{route('role.create')}}">افزودن نقش  جدید</a></li>
+                        @endcan
                 </ul>
             </li>
 
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>permissionاختیارات</span> </a>
                 <ul class="ml-menu">
+                    @can('permissions_read')
                     <li><a href="{{route('permission.list')}}">لیست اختیارات</a></li>
+                    @endcan
+                    @can('permissions_create')
                     <li><a href="{{route('permission.create')}}">افزودن اختیارات جدید به نقش</a></li>
+                        @endcan
                 </ul>
             </li>
 
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>asignتخصیص</span> </a>
                 <ul class="ml-menu">
+                    @can('asigns_read')
                     <li><a href="{{route('asign.list')}}">لیست تخصیصات</a></li>
+                    @endcan
+                    @can('asigns_create')
                     <li><a href="{{route('asign.create')}}"> تخصیص نقش جدید به کاربر</a></li>
+                        @endcan
                 </ul>
             </li>
 

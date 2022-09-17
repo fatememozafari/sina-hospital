@@ -39,15 +39,15 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/asign" method="post" enctype="multipart/form-data">
+                            <form action="/admin/asigns" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="mb-3 col-sm-12">
                                         <label class="form-label" for="name">کاربر</label>
                                         <br>
                                         <select name="user_id" id="" class="form-control show-tick">
-                                            @foreach(\App\Models\User::all(['id','name']) as $item)
-                                                <option value="{{$item->id}}">{{$item->id}}-{{$item->name}}</option>
+                                            @foreach(\App\Models\User::all(['id','name','family']) as $item)
+                                                <option value="{{$item->id}}">{{$item->id}}-{{$item->name}} {{$item->family}}</option>
                                             @endforeach
                                         </select>
                                     </div>
