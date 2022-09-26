@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('slug');
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->foreignId('teacher_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->date('start_at')->format('Y/m/d');
-//            $table->date('year');
+            $table->date('year');
             $table->string('rate')->nullable();
             $table->string('description');
             $table->timestamps();
