@@ -22,8 +22,9 @@ class Course extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function scores()
+    public function score()
     {
-        return $this->hasOne(Score::class);
+        return $this->hasMany(Score::class);
     }
+
 }
