@@ -21,6 +21,8 @@ class AuthController extends Controller
             return redirect('/admin/dashboard');
         } else if ($user->hasRole('ADMIN')) {
             return redirect('/admin/dashboard');
+        } else if ($user->hasRole('DISABLE')){
+            return redirect('/access-denied');
         } else {
             return redirect('/dashboard');
         }

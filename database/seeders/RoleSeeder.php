@@ -27,5 +27,9 @@ class RoleSeeder extends Seeder
             'name'=>'USER',
             'guard_name'=>'web',
         ]);
+        Role::create([
+            'name'=>'DISABLE',
+            'guard_name'=>'web',
+        ]);
     }
 }
