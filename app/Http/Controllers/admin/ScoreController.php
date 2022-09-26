@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\CourseUser;
 use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ScoreController extends Controller
 {
+    public function courseList()
+    {
+        $course=Course::query()->get();
+        return view('admin.scores.course-list',compact('course'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +24,9 @@ class ScoreController extends Controller
      */
     public function index()
     {
-        $result=Result::query()->get();
-        return view('admin.scores.index',compact('result'));
+
+        $course=Course::query()->get();
+        return view('admin.scores.index',compact('course'));
     }
 
     /**
@@ -24,10 +34,11 @@ class ScoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('admin.scores.create');
-
+        Course::with(['users'])->get();
+        $course = Course::query()->where('id', $id)->first();
+        return view('admin.scores.create', compact('course'));
     }
 
     /**
@@ -38,9 +49,25 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','email','body']);
-        Result::create($inputs);
-        return redirect('admin.scores.index');
+        $inputs=$request->only(['user_id','course_id','score']);
+        $check=Score::query()
+            ->where([
+                ['course_id','=',$request->course_id],
+                ['user_id','=',$request->user_id]
+            ])->exists();
+
+        if (!$check) {
+            $result = Score::create($inputs);
+            if ($result) {
+                return back()->with('success','با موفقیت ثبت شد');
+            } else {
+                return back()->with('error');
+            }
+
+        } else {
+
+            return back()->with('error');
+        }
     }
 
     /**
@@ -51,8 +78,9 @@ class ScoreController extends Controller
      */
     public function show($id)
     {
-        $result=Result::query()->get($id);
-        return view('admin.scores.show',compact('result'));
+        $score=Score::query()->where('course_id',$id)->with(['user','course'])->get();
+
+        return view('admin.scores.show',compact('score'));
 
     }
 
@@ -64,8 +92,10 @@ class ScoreController extends Controller
      */
     public function edit($id)
     {
-        $inputs=Result::query()->where('id',$id)->first();
-        return view('admin.scores.edit',compact('inputs'));
+
+        $inputs=Score::query()->where('id',$id)->with(['user','course'])->first();
+//dd($score);
+        return view('admin.scores.edit', compact('inputs'));
 
     }
 
@@ -76,11 +106,14 @@ class ScoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data=$request->only('name','email','body');
-        Result::query()->where('id',$id)->update($data);
-        return redirect('admin.scores.index');
+        $data=$request->only('user_id','course_id','score');
+        Score::query()->where([
+            ['course_id','=',$request->course_id],
+            ['user_id','=',$request->user_id]
+        ])->update($data);
+        return redirect()->route('score.show', ['id' => $request->course_id]);
 
 
     }
