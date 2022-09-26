@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->foreignId('user_id')->nullable();
+
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->foreignId('teacher_id')->nullable();
             $table->enum('file_type',['pdf','video','voice']);
