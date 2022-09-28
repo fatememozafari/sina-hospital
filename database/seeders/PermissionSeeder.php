@@ -101,7 +101,10 @@ class PermissionSeeder extends Seeder
         $permission_roles_update = Permission::create(['name' => 'roles_update']);
         $permission_roles_delete = Permission::create(['name' => 'roles_delete']);
 
-
+        $permission_results_create = Permission::create(['name' => 'results_create']);
+        $permission_results_read = Permission::create(['name' => 'results_read']);
+        $permission_results_update = Permission::create(['name' => 'results_update']);
+        $permission_results_delete = Permission::create(['name' => 'results_delete']);
 
         $role_admin = Role::where('name','ADMIN')->first();
 
