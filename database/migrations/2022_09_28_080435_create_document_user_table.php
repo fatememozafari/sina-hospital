@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('document_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('document_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('document_id')->constrained();
             $table->timestamps();
         });
     }

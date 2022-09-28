@@ -19,15 +19,14 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
-            $table->foreignId('teacher_id')->nullable();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('teacher_id')->nullable()->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->date('start_at')->format('Y/m/d');
-            $table->date('year');
+            $table->integer('duration')->nullable();
             $table->string('rate')->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

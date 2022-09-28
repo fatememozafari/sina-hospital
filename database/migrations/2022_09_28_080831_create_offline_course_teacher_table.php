@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('document_teacher', function (Blueprint $table) {
+        Schema::create('offline_course_teacher', function (Blueprint $table) {
             $table->id();
-            $table->integer('document_id');
-            $table->integer('teacher_id');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document_teacher');
+        Schema::dropIfExists('offline_course_teacher');
     }
 };
