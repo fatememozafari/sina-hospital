@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -38,8 +39,9 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file','teacher_id']);
+        $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','file','teacher_id']);
         $inputs['rate'] = 0;
+        $inputs['user_id'] =Auth::id();
 
         if ($request->file('file'))
             $inputs['file'] = $this->uploadMedia($request->file('file'));
