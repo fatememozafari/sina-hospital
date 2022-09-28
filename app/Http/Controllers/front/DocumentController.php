@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Document;
+use App\Models\document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
 {
@@ -15,7 +16,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $document=Document::query()->get();
+        $id=Auth::id();
+        $document=Document::query()->where('user_id',$id)->get();
         return view('front.documents.index',compact('document'));
     }
 
@@ -38,8 +40,9 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id']);
+        $inputs=$request->only(['title','slug','type','start_at','description','file','duration','teacher_id','user_id']);
         $inputs['rate'] = 0;
+        $inputs['user_id'] =Auth::id();
 
         if ($request->file('file'))
             $inputs['file'] = $this->uploadMedia($request->file('file'));
@@ -47,7 +50,7 @@ class DocumentController extends Controller
         $result=Document::create($inputs);
 
         if ($result){
-            return redirect('front/documents');
+            return redirect('/documents');
         } else{
             return back();
         }
@@ -88,11 +91,11 @@ class DocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id');
+        $data=$request->only('title','slug','type','start_at','description','file','duration','teacher_id','user_id');
         if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
         Document::query()->where('id',$id)->update($data);
-        return redirect('front/documents');
+        return redirect('/documents');
 
 
     }
@@ -108,4 +111,5 @@ class DocumentController extends Controller
         Document::query()->where('id',$id)->delete();
         return back();
     }
+
 }
