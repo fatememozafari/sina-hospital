@@ -17,7 +17,7 @@
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right">لیست دوره های غیر حضوری</li>
+                            <li class="breadcrumb-item active float-right">لیست دوره هایی که قبلا گذرانده اید</li>
                         </ul>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2> <strong>دوره های غیر حضوری </strong></h2>
+                                <h2> <strong>دوره ها </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -101,23 +101,23 @@
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
                                                 <td class="sorting_1"><a href="/front/documents/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/front/documents/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
+                                                <td><a href="/front/documents/{{$item->id}}">{{$item->slug}}</a></td>
                                                 <td>{{__('custom.'.$item->type)}}
                                                     <br>{{$item->file_type}}</td>
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/front/documents/{{$item->id}}" class="btn btn-primary btn-round">دانلود
+                                                        <a href="/documents/{{$item->id}}" class="btn btn-primary btn-round">نمایش
                                                         </a>
-{{--                                                        <a href="/front/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش--}}
-{{--                                                        </a>--}}
-{{--                                                        <form action="/front/documents/{{$item->id}}" method="post">--}}
-{{--                                                            @csrf--}}
-{{--                                                            @method('delete')--}}
-{{--                                                            <button type="submit" class="btn btn-default btn-round btn-simple">--}}
-{{--                                                                حذف--}}
-{{--                                                            </button>--}}
-{{--                                                        </form>--}}
+                                                        <a href="/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
+                                                        </a>
+                                                        <form action="/documents/{{$item->id}}" method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-default btn-round btn-simple">
+                                                                حذف
+                                                            </button>
+                                                        </form>
 
                                                     </div>
                                                 </td>

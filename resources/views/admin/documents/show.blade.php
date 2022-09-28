@@ -2,42 +2,44 @@
 @section('content')
 
     <div class="theme-cyan">
-        <section class="content invoice">
+        <section class="content home">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
-                        <h2>نمایش اطلاعات دوره
-                            <small class="text-muted"> خوش آمدید</small>
+                        <h2>
+                            <small class="text-muted">خوش امدید</small>
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-left m-r-10"
+                                type="button">
+                            <i class="zmdi zmdi-plus"></i>
+                        </button>
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
-                                        class="zmdi zmdi-home"></i> خانه</a></li>
-                            <li class="breadcrumb-item float-right"><a href="javascript:void(0);">دوره های حضوری</a></li>
-                            <li class="breadcrumb-item active float-right">نمایش دوره</li>
+                                        class="zmdi zmdi-home"></i>
+                                    خانه</a></li>
+                            <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
                         </ul>
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid">
+                <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong> نمایش دوره{{$document->title}}
-                                        <p>شماره {{$document->id}}</p> </strong>
-                                </h2>
+                                <h2><strong>دوره های حضوری </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                                             aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">چاپ فاکتور</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                            <li><a href="javascript:void(0);">خروجی XLS</a></li>
-                                            <li><a href="javascript:void(0);">خروجی CSV</a></li>
-                                            <li><a href="javascript:void(0);">خروجی XML</a></li>
+                                        <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
+                                            <li><a href="javascript:void(0);">عملیات</a></li>
+                                            <li><a href="javascript:void(0);">عملیات دیگر</a></li>
+                                            <li><a href="javascript:void(0);">یک چیز دیگر</a></li>
                                         </ul>
                                     </li>
                                     <li class="remove">
@@ -46,98 +48,80 @@
                                 </ul>
                             </div>
                             <div class="body">
-                                <h3 class="m-b-0">امتیاز دوره:<strong class="text-primary">{{$document->rate}}</strong></h3>
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item inlineblock"><a class="nav-link active" data-toggle="tab"
-                                                                        href="#details" aria-expanded="true">جزئیات</a></li>
-                                    <li class="nav-item inlineblock"><a class="nav-link" data-toggle="tab" href="#notes"
-                                                                        aria-expanded="false">یادداشت</a></li>
-                                    <li class="nav-item inlineblock"><a class="nav-link" data-toggle="tab" href="#history"
-                                                                        aria-expanded="false">تاریخچه</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane in active" id="details" aria-expanded="true">
-                                <div class="card" id="details">
-                                    <div class="body">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> نام دوره: </h5>
-                                                        <p class="text-justify">{{$document->title}}</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> نام تخصصی دوره: </h5>
-                                                        <p class="text-justify">{{$document->slug}}</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> شناسه دوره: </h5>
-                                                        <p class="text-justify">{{$document->id_code}}</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> نوع دوره: </h5>
-                                                        <p class="text-justify">{{__('custom.'.$document->type)}}</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> نوع فایل: </h5>
-                                                        <p class="text-justify">{{$document->file_type}}</p>
-                                                    </div>
-                                                </div>
-{{--                                                <hr>--}}
-{{--                                                <div class="row">--}}
-{{--                                                    <div class="col-md-12">--}}
-{{--                                                        <h5> تاریخ برگزاری دوره: </h5>--}}
-{{--                                                        <p class="text-justify">{{$course->start_at}}</p>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> مدرس دوره: </h5>
-                                                        {{--                                                    <p class="text-justify">{{$course->teachers}}</p>--}}
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> توضیحات: </h5>
-                                                        <p class="text-justify">{{$document->description}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
-                                            <hr>
-                                            <div class="hidden-print col-md-12 text-left">
-                                                <a href="javascript:void(0);" class="btn btn-info btn-round"><i
-                                                        class="zmdi zmdi-print"></i></a>
-                                                <a href="/admin/documents/{{$document->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <table
+                                        class="table table-bordered table-striped table-hover dataTable js-exportable"
+                                        id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 44.062px;">ردیف
+                                            </th>
+                                            <th class="" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 166.453px;"> عنوان دوره
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 98.7031px;">عنوان تخصصی دوره
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 133.7031px;"> نوع دوره
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 125.062px;">مدت زمان دوره
+                                            </th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 233.453px;">تصویر مدرک
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1"> ردیف</th>
+                                            <th rowspan="1" colspan="1"> عنوان دوره</th>
+                                            <th rowspan="1" colspan="1">عنوان تخصصی دوره</th>
+                                            <th rowspan="1" colspan="1"> نوع دوره</th>
+                                            <th rowspan="1" colspan="1">مدت زمان دوره</th>
+                                            <th rowspan="1" colspan="1">تصویر مدرک</th>
+
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        @foreach($document as $item)
+                                            <tr role="row" class="even">
+                                                <td>{{$item->id}}</td>
+                                                <td class="sorting_1"><a
+                                                        href="/admin/documents/{{$item->id}}">{{$item->title}}</a></td>
+                                                <td><a href="/admin/documents/{{$item->id}}">{{$item->slug}}</a></td>
+                                                <td><a href="/admin/documents/{{$item->id}}">{{__('custom.'.$item->type)}}</a></td>
+                                                <td>{{$item->duration}} ساعت </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="col-md-12">
+                                                            <a href="{{$item->file }}"> <img src="{{$item->file }}" alt="{{$item->title}}" height="100px" width="100px"></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            <!-- #END# Exportable Table -->
 
         </section>
     </div>
-
-
 @endsection

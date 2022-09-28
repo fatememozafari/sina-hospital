@@ -1,5 +1,6 @@
 @extends('admin.layout.masterPage')
 @section('content')
+
     <div class="theme-cyan">
         <section class="content home">
             <div class="block-header">
@@ -15,9 +16,10 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>
+                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                                        class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right">لیست دوره های غیر حضوری</li>
+                            <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
                         </ul>
                     </div>
                 </div>
@@ -29,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2> <strong>دوره های غیر حضوری </strong></h2>
+                                <h2><strong>دوره های حضوری </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -55,74 +57,61 @@
                                         <tr role="row">
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="ردیف: activate to sort column ascending"
-                                                style="width: 41.5625px;">ردیف
+                                                style="width: 44.062px;">ردیف
+                                            </th>
+                                            <th class="" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 166.453px;"> نام و نام خانوادگی
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 98.7031px;">کد ملی
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 133.7031px;"> شماره موبایل
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                rowspan="1" colspan="1"
+                                                style="width: 125.062px;">ایمیل
                                             </th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1" aria-sort="ascending"
-                                                aria-label="نام دوره: activate to sort column descending"
-                                                style="width: 125.062px;">نام دوره
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" نام تخصصی : activate to sort column ascending"
-                                                style="width: 133.453px;"> نام تخصصی
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label=" نوع دوره و نوع فایل : activate to sort column ascending"
-                                                style="width: 66.3906px;"> نوع دوره و نوع فایل
-                                            </th>
-
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="امتیاز: activate to sort column ascending"
-                                                style="width: 44.7031px;">امتیاز
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="عملیات: activate to sort column ascending"
-                                                style="width: 233.828px;">عملیات
+                                                style="width: 233.453px;">عملیات
                                             </th>
                                         </tr>
                                         </thead>
                                         <tfoot>
                                         <tr>
-                                            <th rowspan="1" colspan="1">ردیف</th>
-                                            <th rowspan="1" colspan="1">نام دوره</th>
-                                            <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1"> نوع دوره و نوع فایل</th>
-                                            <th rowspan="1" colspan="1">امتیاز</th>
+                                            <th rowspan="1" colspan="1"> ردیف</th>
+                                            <th rowspan="1" colspan="1"> نام و نام خانوادگی</th>
+                                            <th rowspan="1" colspan="1">کد ملی</th>
+                                            <th rowspan="1" colspan="1"> شماره موبایل</th>
+                                            <th rowspan="1" colspan="1">ایمیل</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
+
                                         </tr>
                                         </tfoot>
                                         <tbody>
-                                        @foreach($document as $item)
+                                        @foreach($user as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/admin/documents/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/admin/documents/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
-                                                <td>{{__('custom.'.$item->type)}}
-                                                    <br>{{$item->file_type}}</td>
-                                                <td>{{$item->rate}}</td>
+                                                <td class="sorting_1"><a
+                                                        href="/admin/users/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td><a href="/admin/users/{{$item->id}}">{{$item->melli_code}}</a></td>
+                                                <td><a href="/admin/users/{{$item->id}}">{{$item->mobile}}</a></td>
+                                                <td>{{$item->email}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/admin/documents/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="/admin/documents/{{$item->id}}"
+                                                           class="btn btn-primary btn-round">نمایش
                                                         </a>
-                                                        <a href="/admin/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
-                                                        </a>
-                                                        <form action="/admin/documents/{{$item->id}}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-default btn-round btn-simple">
-                                                                حذف
-                                                            </button>
-                                                        </form>
 
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
+
                                         </tbody>
                                     </table>
 
@@ -136,5 +125,4 @@
 
         </section>
     </div>
-
 @endsection
