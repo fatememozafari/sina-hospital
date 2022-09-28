@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\CourseUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -16,8 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $rate=CourseUser::where('user_id',Auth::id())->count();
         $user=User::query()->orderBy('id','desc')->get();
-        return view('front.users.index',compact('user'));
+        return view('front.users.index',compact('user','rate'));
     }
 
     /**
@@ -39,10 +43,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
+        $inputs=$request->only(['user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
         $inputs['rate'] = 0;
+        $inputs['user_id'] =Auth::id();
 
         if ($request->file('avatar_path'))
             $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
@@ -64,10 +69,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user=User::query()->find($id);
-        $course=User::find($id)->courses->where('user_id',$id);
 
-        return view('front.users.show',compact('user','course'));
+        $id=Auth::user()->id;
+        $user=Auth::user();
+        $course=User::find($id)->courses->where('user_id',$id);
+        $rate=CourseUser::where('user_id',Auth::id())->count();
+
+        return view('front.users.show',compact('user','course','rate'));
 
     }
 
@@ -93,7 +101,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
+        $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
         $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))

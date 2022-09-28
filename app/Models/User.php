@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'gender','mobile','email','birthday',
         'job','password','password_confirmation',
         'address','avatar_path','role_id','rate',
+        'user_id',
     ];
 
     /**
@@ -45,10 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-//    public function courses()
-//    {
-//        return $this->belongsToMany(Course::class, 'user_courses','user_id','course_id');
-//    }
+
 
     public function courses()
     {
@@ -60,14 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Document::class);
     }
 
-    public function onlineExams()
-    {
-        return $this->hasMany(OnlineExam::class);
-    }
-
     public function scores()
     {
-        return $this->hasMany(Score::class);
+        return $this->belongsToMany(Score::class);
     }
     public function role()
     {
