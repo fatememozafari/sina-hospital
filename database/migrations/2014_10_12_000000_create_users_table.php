@@ -27,6 +27,9 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->date('birthday')->nullable();
             $table->string('job')->nullable();
+            $table->string('born_in')->nullable();
+            $table->string('personnel_number')->nullable();
+            $table->string('job_code')->nullable();
             $table->string('rate');
             $table->enum('gender',['MALE',"FEMALE"])->nullable();
             $table->rememberToken();
