@@ -9,6 +9,7 @@ use App\Models\Score;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ScoreController extends Controller
 {
@@ -49,25 +50,45 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['user_id','course_id','score']);
-        $check=Score::query()
-            ->where([
-                ['course_id','=',$request->course_id],
-                ['user_id','=',$request->user_id]
-            ])->exists();
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'user_id'=>['required'],
+            'course_id'=>['required'],
+            'score'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+        ],[
+            'user_id'=>'نام کاربر',
+            'course_id'=>'نام دوره',
+            'score'=>'نمره',
 
-        if (!$check) {
-            $result = Score::create($inputs);
-            if ($result) {
-                return back()->with('success','با موفقیت ثبت شد');
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
+            $inputs=$request->only(['user_id','course_id','score']);
+            $check=Score::query()
+                ->where([
+                    ['course_id','=',$request->course_id],
+                    ['user_id','=',$request->user_id]
+                ])->exists();
+
+            if (!$check) {
+                $result = Score::create($inputs);
+                if ($result) {
+                    return back()->with('success','با موفقیت ثبت شد');
+                } else {
+                    return back()->withErrors($validation);
+                }
+
             } else {
-                return back()->with('error');
+
+                return back()->withErrors('قبلا برای کاربر با این درس نمره ثبت شده است.');
             }
-
-        } else {
-
-            return back()->with('error');
         }
+
     }
 
     /**
@@ -113,7 +134,7 @@ class ScoreController extends Controller
             ['course_id','=',$request->course_id],
             ['user_id','=',$request->user_id]
         ])->update($data);
-        return redirect()->route('score.show', ['id' => $request->course_id]);
+        return redirect()->route('score.show', ['id' => $request->course_id])->with('success','با موفقیت ویرایش شد.');
 
 
     }
