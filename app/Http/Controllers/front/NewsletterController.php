@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsletterController extends Controller
 {
@@ -27,9 +28,9 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['email','title','message','file']);
-
+        $inputs=$request->only(['email','user_id','name']);
+$inputs['user_id']=Auth::id();
         Newsletter::create($inputs);
-        return back();
+        return back()->with('success','عضویت شما در خبرنامه ثبت شد.');
     }
 }
