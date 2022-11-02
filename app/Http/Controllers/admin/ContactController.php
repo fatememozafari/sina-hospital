@@ -13,10 +13,18 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contact=Contact::query()->orderBy('id','desc')->get();
-        return view('admin.contacts.index',compact('contact'));
+        $contact = Contact::query()->orderBy('id', 'DESC');
+
+        if ($request->get('q'))
+            $contact = $contact->where('name', 'like', '%' . $request->get('q') . '%')
+                ->orWhere('title', 'like', '%' . $request->get('q') . '%')
+                ->orWhere('message', 'like', '%' . $request->get('q') . '%')
+                ->orWhere('created_at', 'like', '%' . $request->get('q') . '%');
+        $contact = $contact->get();
+
+        return view('admin.contacts.index', compact('contact','request'));
     }
 
     /**
@@ -33,13 +41,13 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-      $inputs=$request->only(['name','title','message','file']);
-        if ($request->file('file')){
+        $inputs = $request->only(['name', 'title', 'message', 'file','user_id']);
+        if ($request->file('file')) {
             $inputs['file'] = $this->uploadMedia($request->file('file'));
         }
       Contact::create($inputs);
