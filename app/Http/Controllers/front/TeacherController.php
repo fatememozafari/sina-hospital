@@ -16,8 +16,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $course=Teacher::find($id)->courses->where('teacher_id',$id);
-
+//        $course=Teacher::find($id)->courses->where('teacher_id',$id);
         $teacher=Teacher::query()->get();
         return view('front.teachers.index',compact('teacher','course'));
     }
