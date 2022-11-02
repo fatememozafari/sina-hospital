@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\CourseUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use function Sodium\increment;
 
 class EnrollController extends Controller
@@ -29,7 +30,22 @@ class EnrollController extends Controller
 
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'user_id'=>['required'],
+            'course_id'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+        ],[
+            'user_id'=>'نام کاربر',
+            'course_id'=>'نام دوره',
 
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
         $inputs = $request->only(['user_id', 'course_id']);
         $inputs['user_id'] = Auth::user()->id;
         $check=CourseUser::query()
@@ -42,14 +58,15 @@ class EnrollController extends Controller
             $result = CourseUser::create($inputs);
             if ($result) {
 
-                return redirect('/enrolls');
+                return redirect('/enrolls')->with('success','با موفقیت ثبت شد.');
             } else {
-                return back();
+                return back()->withErrors($validation);
             }
 
         } else {
-            return back();
+            return back()->withErrors('شما قبلا در این درس ثبت نام کرده اید.');
         }
 
     }
+        }
 }
