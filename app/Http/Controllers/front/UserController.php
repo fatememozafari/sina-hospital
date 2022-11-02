@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -43,6 +44,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'name'=>['required'],
+            'family'=>['required'],
+            'mobile'=>['required','min:11','max:12'],
+            'email'=>['required'],
+            'password'=>['required','min:8'],
+            'password_confirmation'=>['required'],
+
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+            'min'=>'فیلد :attribute باید حداقل :min کاراکتر داشته باشد.'
+        ],[
+            'name'=>'نام',
+            'family'=>'نام خانوادگی',
+            'mobile'=>'شماره موبایل',
+            'email'=>'ایمیل',
+            'password'=>'رمز ورود',
+            'password_confirmation'=>'تایید رمز ورود',
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
         $inputs=$request->only(['user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
@@ -54,11 +80,11 @@ class UserController extends Controller
 
         $result=User::create($inputs);
         if ($result){
-            return redirect('front/users');
+            return redirect('/users')->with('success','با موفقیت ثبت شد.');
         } else{
-            return back();
+            return back()->withErrors($validation);
         }
-
+            }
     }
 
     /**
@@ -102,13 +128,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
-        $data['password'] = Hash::make($data['password']);
+//        $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))
             $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
 
         User::query()->where('id',$id)->update($data);
-        return redirect('front/users');
+        return redirect('/users/show')->with('success','با موفقیت ویرایش شد.');
 
 
     }
@@ -122,6 +148,16 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::query()->where('id',$id)->delete();
+        return back();
+    }
+
+    public function deletephoto($id)
+    {
+        $user = User::query()->find($id);
+        if($user){
+            $user->avatar_path= null;
+            $user->save();
+        }
         return back();
     }
 }
