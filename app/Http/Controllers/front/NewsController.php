@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news=News::query()->get();
+        $news=News::query()->with(['images'])->orderBy('id','desc')->get();
         return view('front.news',compact('news'));
     }
 
