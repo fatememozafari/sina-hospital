@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {
@@ -39,20 +40,41 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','file','teacher_id']);
-        $inputs['rate'] = 0;
-        $inputs['user_id'] =Auth::id();
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'title'=>['required'],
+            'slug'=>['required'],
+            'type'=>['required'],
+            'start_at'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+        ],[
+            'title'=>'عنوان دوره',
+            'slug'=>'نام تخصصی دوره',
+            'type'=>'نوع دوره',
+            'start_at'=>'تاریخ برگزاری',
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
+            $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','teacher_id']);
+            $inputs['rate'] = 0;
+            $inputs['user_id'] =Auth::id();
 
-        if ($request->file('file'))
-            $inputs['file'] = $this->uploadMedia($request->file('file'));
+            if ($request->file('file'))
+                $inputs['file'] = $this->uploadMedia($request->file('file'));
 
-        $result=Course::create($inputs);
+            $result=Course::create($inputs);
 
-        if ($result){
-            return redirect('admin/courses');
-        } else{
-            return back();
+            if ($result){
+                return redirect('admin/courses')->with('success','دوره جدید با موفقیت ثبت شد.');
+            } else{
+                return back()->withErrors($validation);
+            }
         }
+
     }
 
     /**
@@ -94,7 +116,7 @@ class CourseController extends Controller
         if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
         Course::query()->where('id',$id)->update($data);
-        return redirect('admin/courses');
+        return redirect('admin/courses')->with('success','با موفقیت ویرایش شد.');
 
 
     }
