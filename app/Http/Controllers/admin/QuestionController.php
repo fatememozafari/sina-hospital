@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
@@ -15,7 +16,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $question=Question::query()->get();
+        $question=Question::query()->orderBy('id','desc')->paginate(10);
         return view('admin.questions.index',compact('question'));
     }
 
@@ -38,14 +39,30 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'question'=>['required'],
+            'answer'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+        ],[
+            'question'=>'سوال',
+            'answer'=>'پاسخ',
+
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
         $inputs=$request->only(['question','answer','avatar_path']);
         if ($request->file('avatar_path')){
             $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
         }
         Question::create($inputs);
-        return redirect('/admin/questions');
+        return redirect('/admin/questions')->with('success','با موفقیت ثبت شد.');
     }
-
+        }
     /**
      * Display the specified resource.
      *
@@ -86,7 +103,7 @@ class QuestionController extends Controller
             $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
         }
         Question::query()->where('id',$id)->update($data);
-        return redirect('/admin/questions');
+        return redirect('/admin/questions')->with('success','با موفقیت ویرایش شد.');
 
 
     }
@@ -100,6 +117,6 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         Question::query()->where('id',$id)->delete();
-        return back();
+        return back()->with('success','با موفقیت حذف شد.');
     }
 }
