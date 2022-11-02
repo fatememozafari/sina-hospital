@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AboutController extends Controller
 {
@@ -37,9 +38,23 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['title','body']);
-        About::create($inputs);
-        return redirect('admin.about.index');
+        $data=$request->all();
+        $rules=[
+            'title'=>['required'],
+            'body'=>['required'],
+        ];
+        $messages=[
+            'required'=>'فیلد :attribute اجباری است.',
+        ];
+         $validation= Validator::make($data,$rules,$messages);
+         if ($validation->fails()){
+             return back()->withErrors($validation);
+         }else{
+             $inputs=$request->only(['title','body']);
+             About::create($inputs);
+             return redirect('admin.about.index')->with('success','با موفقیت ثبت شد');
+         }
+
     }
 
     /**
