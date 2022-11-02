@@ -8,6 +8,7 @@ use App\Models\OfflineCourse;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class OfflineCourseController extends Controller
 {
@@ -42,20 +43,48 @@ class OfflineCourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at']);
-        $inputs['rate'] = 0;
-        $inputs['user_id'] =Auth::id();
+        $data=$request->all();
+        $rules=[];
+        $request->validate([
+            'title'=>['required'],
+            'slug'=>['required'],
+            'type'=>['required'],
+            'start_at'=>['required'],
+            'file'=>['required','mimes:pdf,mp3,mp4,mkv'],
+            'file_type'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+            'mimes'=>'فقط فایل با فرمت pdf,mp3,mp4,mkv مجاز است.'
 
-        if ($request->file('file'))
-            $inputs['file'] = $this->uploadMedia($request->file('file'));
+        ],[
+            'title'=>'عنوان دوره',
+            'slug'=>'عنوان تخصصی دوره',
+            'type'=>'نوع دوره',
+            'start_at'=>'تاریخ برگزاری',
+            'file'=>'آپلود فایل',
+            'file_type'=>'نوع فایل',
 
-        $result=OfflineCourse::create($inputs);
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
+            $inputs=$request->only(['id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at']);
+            $inputs['rate'] = 0;
+            $inputs['user_id'] =Auth::id();
 
-        if ($result){
-            return redirect('/admin/offline-courses');
-        } else{
-            return back();
+            if ($request->file('file'))
+                $inputs['file'] = $this->uploadMedia($request->file('file'));
+
+            $result=OfflineCourse::create($inputs);
+
+            if ($result){
+                return redirect('/admin/offline-courses')->with('success','دوره جدید با موفقیت ثبت شد.');
+            } else{
+                return back()->withErrors($validation);
+            }
         }
+
     }
 
     /**
@@ -99,7 +128,7 @@ class OfflineCourseController extends Controller
         if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
         OfflineCourse::query()->where('id',$id)->update($data);
-        return redirect('/admin/offline-courses');
+        return redirect('/admin/offline-courses')->with('success','با موفقیت ویرایش شد.');
 
 
     }
