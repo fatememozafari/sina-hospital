@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\News;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
@@ -15,7 +18,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news=News::query()->orderBy('id','desc')->get();
+        $news=News::query()->with(['images'])->orderBy('id','desc')->get();
         return view('admin.news.index',compact('news'));
     }
 
@@ -38,23 +41,48 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['title','body','writer','photographer','feedback','avatar_path1','avatar_path2','avatar_path3','instagram','facebook','twitter',
+        $rules=[];
+        $request->validate([
+            'title'=>['required'],
+            'body'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+
+        ],[
+           'title'=>'عنوان',
+            'body'=>'محتوای خبر',
         ]);
-        if ($request->file('avatar_path1')){
-            $inputs['avatar_path1'] = $this->uploadMedia($request->file('avatar_path1'));
+        $data=$request->all();
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        } else{
 
+            $news=new News([
+                'title'=> $request->title,
+                'body'=> $request->body,
+                'writer'=> $request->writer,
+                'photographer'=> $request->photographer,
+                'feedback'=> $request->feedback,
+                'instagram'=> $request->instagram,
+                'facebook'=> $request->facebook,
+                'twitter'=> $request->twitter,
+            ]);
+            $news->save();
+            if ($request->hasFile('images')){
+                $files=$request->file('images');
+                foreach ($files as $file){
+                    $imageName=time().'_'.$file->getClientOriginalName();
+                    $request['news_id']=$news->id;
+                    $request['image']=$imageName;
+                    $file->move(\public_path('/images'),$imageName);
+                    Image::create($request->all());
+                }
+            }
+
+            return redirect('/admin/news')->with('success','با موفقیت ثبت شد.');
         }
-        if ($request->file('avatar_path2')){
-            $inputs['avatar_path2'] = $this->uploadMedia($request->file('avatar_path2'));
 
-        }
-        if ($request->file('avatar_path3')){
-            $inputs['avatar_path3'] = $this->uploadMedia($request->file('avatar_path3'));
-
-        }
-
-        News::create($inputs);
-        return redirect('/admin/news');
     }
 
     /**
@@ -78,7 +106,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $inputs=News::query()->where('id',$id)->first();
+        $inputs=News::query()->findOrFail($id);
         return view('admin.news.edit',compact('inputs'));
 
     }
@@ -92,18 +120,27 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('title','body','writer','photographer','feedback','avatar_path1','avatar_path2','avatar_path3','instagram','facebook','twitter',
-        );
-        if ($request->file('avatar_path1')){
-            $data['avatar_path1'] = $this->uploadMedia($request->file('avatar_path1'));
+        $news=News::query()->findOrFail($id);
+        $news->update([
+            'title'=> $request->title,
+            'body'=> $request->body,
+            'writer'=> $request->writer,
+            'photographer'=> $request->photographer,
+            'feedback'=> $request->feedback,
+            'instagram'=> $request->instagram,
+            'facebook'=> $request->facebook,
+            'twitter'=> $request->twitter,
+        ]);
+        if ($request->hasFile('images')){
+            $files=$request->file('images');
+            foreach ($files as $file){
+                $imageName=time().'_'.$file->getClientOriginalName();
+                $request['news_id']=$news->id;
+                $request['image']=$imageName;
+                $file->move(\public_path('images'),$imageName);
+                Image::create($request->all());
+            }
         }
-        if ($request->file('avatar_path2')){
-            $data['avatar_path2'] = $this->uploadMedia($request->file('avatar_path2'));
-        }
-        if ($request->file('avatar_path3')){
-            $data['avatar_path3'] = $this->uploadMedia($request->file('avatar_path3'));
-        }
-        News::query()->where('id',$id)->update($data);
         return redirect('/admin/news');
 
 
@@ -117,7 +154,25 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::query()->where('id',$id)->delete();
+        $news=News::query()->findOrFail($id);
+        $images=Image::query()->where('news_id',$news->id)->get();
+        foreach ($images as $image){
+           if (\Illuminate\Support\Facades\File::exists('images/'.$image->image)){
+               \Illuminate\Support\Facades\File::delete('images/'.$image->image);
+           }
+        }
+        $news->delete();
+        return back();
+    }
+
+    public function deleteImage($id)
+    {
+        $images=Image::query()->findOrFail($id);
+            if (\Illuminate\Support\Facades\File::exists('images/'.$images->image)){
+                \Illuminate\Support\Facades\File::delete('images/'.$images->image);
+            }
+            Image::query()->find($id)->delete();
+
         return back();
     }
 }
