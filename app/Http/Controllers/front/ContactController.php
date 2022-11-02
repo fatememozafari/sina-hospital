@@ -5,6 +5,8 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -29,12 +31,38 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['name','title','message','file']);
-        if ($request->file('file'))
-            $inputs['file'] = $this->uploadMedia($request->file('file'));
+        $data=$request->all();
+        $rules=[
+            'name'=>['required'],
+            'title'=>['required'],
+            'message'=>['required'],
 
-        Contact::create($inputs);
-        return back();
+        ];
+        $request->validate([
+            'name'=>['required'],
+            'title'=>['required'],
+            'message'=>['required'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+        ],[
+            'name'=>'نام و نام خانوادگی',
+            'title'=>'عنوان پیام',
+            'message'=>'متن پیام',
+
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
+            $inputs=$request->only(['name','title','message','file','user_id']);
+            $inputs['user_id']=Auth::id();
+            if ($request->file('file'))
+                $inputs['file'] = $this->uploadMedia($request->file('file'));
+
+            Contact::create($inputs);
+            return back()->with('success',' پیام شما با موفقیت ارسال شد.');
+        }
+
     }
 
 
