@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class DocumentController extends Controller
 {
@@ -40,6 +41,32 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules=[];
+
+        $request->validate([
+            'title'=>['required'],
+            'slug'=>['required'],
+            'type'=>['required'],
+            'start_at'=>['required'],
+            'file'=>['required','mimes:png,jpg'],
+        ],[
+            'required'=>'فیلد :attribute اجباری است.',
+            'mimes'=>'فقط فایل با فرمت jpg و png مجاز است.'
+
+        ],[
+            'title'=>'عنوان دوره',
+            'slug'=>'عنوان تخصصی دوره',
+            'type'=>'نوع دوره',
+            'start_at'=>'تاریخ برگزاری',
+            'file'=>'آپلود فایل',
+
+
+        ]);
+        $validation= Validator::make($data,$rules);
+        if ($validation->fails()){
+            return back()->withErrors($validation);
+        }else{
         $inputs=$request->only(['title','slug','type','start_at','description','file','duration','teacher_id','user_id']);
         $inputs['rate'] = 0;
         $inputs['user_id'] =Auth::id();
@@ -54,6 +81,7 @@ class DocumentController extends Controller
         } else{
             return back();
         }
+    }
     }
 
     /**
@@ -95,7 +123,7 @@ class DocumentController extends Controller
         if ($request->file('file'))
             $data['file'] = $this->uploadMedia($request->file('file'));
         Document::query()->where('id',$id)->update($data);
-        return redirect('/documents');
+        return redirect('/documents')->with('success','با موفقیت ویرایش شد.');
 
 
     }
