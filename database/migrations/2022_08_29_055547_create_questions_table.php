@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('question');
             $table->string('answer');
-            $table->string('avatar_path');
+            $table->string('avatar_path')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
