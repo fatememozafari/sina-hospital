@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('writer');
             $table->string('photographer')->nullable();
             $table->string('feedback')->nullable();
-            $table->string('avatar_path1');
-            $table->string('avatar_path2')->nullable();
-            $table->string('avatar_path3')->nullable();
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
