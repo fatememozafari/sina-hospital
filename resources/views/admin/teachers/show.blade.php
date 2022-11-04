@@ -145,13 +145,13 @@
                     <div class="col-lg-8 col-md-12">
                         <div class="card">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">بیوگرافی</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#timeline">جدول زمانی</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#timeline">جدول زمانی</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#mypost">بیوگرافی</a></li>
 {{--                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#usersettings">تنظیمات</a></li>--}}
                             </ul>
                         </div>
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane blog-page active" id="mypost">
+                            <div role="tabpanel" class="tab-pane blog-page " id="mypost">
                                 <div class="card single_post">
                                     <div class="card">
                                         <div class="header">
@@ -164,15 +164,9 @@
                                 </div>
 
 
-                                <ul class="pagination pagination-primary">
-                                    <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">بعدی</a></li>
-                                </ul>
+
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="timeline">
+                            <div role="tabpanel" class="tab-pane active" id="timeline">
                                 <ul class="cbp_tmtimeline">
                                     <li>
                                         <time class="cbp_tmtime" datetime="1398-08-05T18:30"><span class="hidden">{{ date("Y/m/d")}}</span> <span class="large">اکنون</span></time>
@@ -191,6 +185,12 @@
                                     @endforeach
 
                                 </ul>
+                            </div>
+                            <hr>
+                            <div class="hidden-print col-md-12 text-left">
+                                <a href="javascript:void(0);" class="btn btn-info btn-round"><i
+                                        class="zmdi zmdi-print"></i></a>
+                                <a href="/admin/teachers/{{$teacher->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
                             </div>
 {{--                            <div role="tabpanel" class="tab-pane" id="usersettings">--}}
 {{--                                <div class="card">--}}

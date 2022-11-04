@@ -130,7 +130,7 @@
                                             <div class="timeline-item">
                                                 <div class="item-content">
                                                     <div class="text-small">اکنون</div>
-                                                    <p>تخلیه</p>
+                                                    <p>{{date('Y/m/d')}}</p>
                                                 </div>
                                             </div>
                                             @foreach($user->courses as $item)
@@ -146,6 +146,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <hr>
+                        <div class="hidden-print col-md-12 text-left">
+                            <a href="javascript:void(0);" class="btn btn-info btn-round"><i
+                                    class="zmdi zmdi-print"></i></a>
+                            <a href="/admin/users/{{$user->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
                         </div>
                     </div>
                 </div>
