@@ -24,15 +24,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2> اطلاعات <strong>پایه</strong> <small>متن توضیحات در اینجا ...</small> </h2>
+                            <h2>  <strong></strong> <small></small> </h2>
                             <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <li><a href="javascript:void(0);">ویرایش</a></li>
-                                        <li><a href="javascript:void(0);">حذف</a></li>
-                                        <li><a href="javascript:void(0);">گزارش</a></li>
-                                    </ul>
-                                </li>
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
