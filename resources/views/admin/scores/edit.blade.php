@@ -24,15 +24,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2> اطلاعات <strong>پایه</strong> <small>متن توضیحات در اینجا ...</small> </h2>
+                            <h2>  <strong></strong> <small></small> </h2>
                             <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <li><a href="javascript:void(0);">ویرایش</a></li>
-                                        <li><a href="javascript:void(0);">حذف</a></li>
-                                        <li><a href="javascript:void(0);">گزارش</a></li>
-                                    </ul>
-                                </li>
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
@@ -47,12 +40,6 @@
                                         <label class="form-label" for="name">کاربر</label>
                                         <br>
                                         <div class="form-group">
-{{--                                            <select class="form-control show-tick" name="user_id" id="">--}}
-{{--                                                <option value=""></option>--}}
-{{--                                                @foreach($users as $item)--}}
-{{--                                                    <option value="{{$item->id}}">{{$item->id}}-{{$item->user->name}} {{$item->user->family}}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
                                             <input type="hidden" class="form-control" name="user_id" value="{{$inputs->user_id}}">
                                             <input type="text" class="form-control" name="" value="{{$inputs->user_id}}-{{$inputs->user->name}} {{$inputs->user->family}}" readonly>
                                         </div>
@@ -70,7 +57,13 @@
                                     <div class="mb-3 col-sm-12">
                                         <label class="form-label" for="name">ثبت نمره</label>
                                         <br>
-                                        <input type="text" class="form-control" name="score" value="{{$inputs->score}}">
+                                        <input type="text" class="form-control" name="score" value="{{$inputs->score}}"
+                                               @error('score')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('score')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
