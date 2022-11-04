@@ -24,15 +24,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2> اطلاعات <strong>پایه</strong> <small>متن توضیحات در اینجا ...</small> </h2>
+                            <h2>  <strong></strong> <small></small> </h2>
                             <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <li><a href="javascript:void(0);">ویرایش</a></li>
-                                        <li><a href="javascript:void(0);">حذف</a></li>
-                                        <li><a href="javascript:void(0);">گزارش</a></li>
-                                    </ul>
-                                </li>
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
@@ -44,7 +37,13 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>عنوان خبر</b>
                                         <div class="form-group">
-                                            <input type="text" name="title" value="{{old('title') ?? ''}}" class="form-control" placeholder="عنوان خبر">
+                                            <input type="text" name="title" value="{{old('title') ?? ''}}" class="form-control" placeholder="عنوان خبر"
+                                                   @error('title')
+                                                   style="border: 1px solid red"
+                                                @enderror>
+                                            @error('title')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -67,24 +66,11 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>آپلود تصویر</b>
                                         <div class="form-group">
-                                            <input type="file" name="avatar_path1" value="{{old('avatar_path1' ?? '')}}" class="form-control" placeholder="آپلود تصویر">
+                                            <input type="file" name="images[]"  class="form-control" placeholder="آپلود تصویر" multiple>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>آپلود تصویر</b>
-                                        <div class="form-group">
-                                            <input type="file" name="avatar_path2" value="{{old('avatar_path2' ?? '')}}" class="form-control" placeholder="آپلود تصویر">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>آپلود تصویر</b>
-                                        <div class="form-group">
-                                            <input type="file" name="avatar_path3" value="{{old('avatar_path3' ?? '')}}" class="form-control" placeholder="آپلود تصویر">
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>فیسبوک</b>
                                         <div class="form-group">
@@ -106,21 +92,17 @@
                                         </div>
                                     </div>
                                 </div>
-
-{{--                                <div class="col-lg-12 col-md-12 col-sm-12"><b>آپلود تصویر</b>--}}
-{{--                                    <div class="dz-message">--}}
-{{--                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>--}}
-{{--                                        <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
-{{--                                        <em> <strong></strong></em> </div>--}}
-{{--                                    <div class="fallback">--}}
-{{--                                        <input name="avatar_path" type="file" value="{{old('avatar_path' ?? '')}}" multiple />--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                                 <hr>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>محتوای خبر</b>
                                         <div class="form-group">
-                                            <textarea class="form-control" name="body" value="" placeholder="آدرس">{{old('محتوای خبر' ?? '')}}</textarea>
+                                            <textarea class="form-control" name="body" value="" placeholder="محتوای خبر"
+                                                      @error('body')
+                                                      style="border: 1px solid red"
+                                                @enderror>{{old('body' ?? '')}}</textarea>
+                                            @error('body')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
