@@ -24,15 +24,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2> اطلاعات <strong>پایه</strong> <small>متن توضیحات در اینجا ...</small> </h2>
+                            <h2>  <strong></strong> <small></small> </h2>
                             <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <li><a href="javascript:void(0);">ویرایش</a></li>
-                                        <li><a href="javascript:void(0);">حذف</a></li>
-                                        <li><a href="javascript:void(0);">گزارش</a></li>
-                                    </ul>
-                                </li>
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
@@ -44,7 +37,13 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>نام</b>
                                         <div class="form-group">
-                                            <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام">
+                                            <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام"
+                                                   @error('name')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('name')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -52,98 +51,150 @@
 
                                     <div class="col-sm-12"><b>نام خانوادگی</b>
                                         <div class="form-group">
-                                            <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی">
+                                            <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی"
+                                                   @error('family')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('family')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>کدملی</b>
                                         <div class="form-group">
-                                            <input type="text" name="melli_code" value="{{old('melli_code' ?? '')}}" class="form-control" placeholder="کد ملی">
+                                            <input type="text" name="melli_code" value="{{old('melli_code' ?? '')}}" class="form-control" placeholder="کد ملی"
+                                                   @error('melli_code')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('melli_code')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <select class="form-control show-tick" name="gender">
+                                            <select class="form-control show-tick" name="gender"
+                                                    @error('gender')
+                                                    style="border: 1px solid red"
+                                                @enderror>
                                                 <option value="">- جنسیت -</option>
                                                 <option value="FEMALE">خانم</option>
                                                 <option value="MALE">آقا</option>
                                             </select>
+                                            @error('gender')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                {{--                                <div class="row clearfix">--}}
-                                {{--                                    <div class="form-group">--}}
-                                {{--                                        <div class="radio inlineblock m-l-20">--}}
-                                {{--                                            <input type="radio" name="gender" id="male" class="with-gap" value="option1">--}}
-                                {{--                                            <label for="MALE">آقا</label>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="radio inlineblock">--}}
-                                {{--                                            <input type="radio" name="gender" id="Female" class="with-gap" value="option2" checked="">--}}
-                                {{--                                            <label for="FEMAIL">خانم</label>--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>شماره موبایل</b>
                                         <div class="form-group">
-                                            <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل">
+                                            <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل"
+                                                   @error('mobile')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('mobile')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>ایمیل</b>
                                         <div class="form-group">
-                                            <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل">
+                                            <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل" @error('email')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('email')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود">
+                                            <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود"
+                                                   @error('password')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('password')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>تایید رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="text" name="password_confirmation" value="{{old('password_confirmation' ?? '')}}" class="form-control" placeholder="تایید رمز ورود">
+                                            <input type="text" name="password_confirmation" value="{{old('password_confirmation' ?? '')}}" class="form-control" placeholder="تایید رمز ورود"
+                                                   @error('password_confirmation')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('password_confirmation')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>تخصص</b>
                                         <div class="form-group">
-                                            <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل">
+                                            <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل"
+                                                   @error('job')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('job')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>تاریخ تولد</b>
                                         <div class="form-group">
-                                            <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد">
+                                            <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد"
+                                                   @error('birthday')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('birthday')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-12 col-md-12 col-sm-12"><b>آپلود تصویر</b>
                                     <div class="dz-message">
                                         <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
                                         <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
                                         <em> <strong></strong></em> </div>
                                     <div class="fallback">
-                                        <input name="avatar_path" type="file" value="{{old('avatar_path' ?? '')}}" multiple />
+                                        <input name="avatar_path" class="form-control" type="file" value="{{old('avatar_path' ?? '')}}" multiple
+                                               @error('avatar_path')
+                                        style="border: 1px solid red"
+                                        @enderror>
+                                        @error('avatar_path')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>آدرس</b>
                                         <div class="form-group">
-                                            <textarea class="form-control" name="address" value="" placeholder="آدرس">{{old('address' ?? '')}}</textarea>
+                                            <textarea class="form-control" name="address" value="" placeholder="آدرس"
+                                                      @error('address')
+                                            style="border: 1px solid red"
+                                            @enderror>
+                                                {{old('address' ?? '')}}</textarea>
+                                            @error('address')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
