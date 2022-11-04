@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('personnel_number')->nullable();
             $table->string('job_code')->nullable();
             $table->string('rate');
+            $table->string('user_id')->nullable();
             $table->enum('gender',['MALE',"FEMALE"])->nullable();
             $table->rememberToken();
             $table->timestamps();
