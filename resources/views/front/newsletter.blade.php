@@ -17,7 +17,9 @@
                 </div>
             </div>
         </div>
+
         <div class="container-fluid">
+            @include('alert')
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
@@ -27,6 +29,8 @@
                         <div class="body widget newsletter">
                             <form action="/newsletter" method="post">
                                 @csrf
+                                <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                                <br>
                                 <div class="input-group">
                                     <input type="text" name="email" class="form-control" placeholder="ایمیل را وارد کنید">
                                     <span class="input-group-addon">
