@@ -1,5 +1,6 @@
 @extends('front.layout.masterPage')
 @section('content')
+
     <div class="theme-cyan">
         <section class="content home">
             <div class="block-header">
@@ -35,10 +36,11 @@
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                                             aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                        <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                            <li><a href="javascript:void(0);">عملیات</a></li>
-                                            <li><a href="javascript:void(0);">عملیات دیگر</a></li>
-                                            <li><a href="javascript:void(0);">یک چیز دیگر</a></li>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li role="presentation" class="divider"></li>
+                                            <li><a href="javascript:void(0);">خروجی XLS</a></li>
+                                            <li><a href="javascript:void(0);">خروجی CSV</a></li>
+                                            <li><a href="javascript:void(0);">خروجی XML</a></li>
                                         </ul>
                                     </li>
                                     <li class="remove">
@@ -109,10 +111,13 @@
                                                 <td>{{$item->start_at}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/front/courses/{{$item->id}}" class="btn btn-primary btn-round">ثبتنام
-                                                        </a>
-
-
+                                                        {{--                                                        <a href="/enrolls/{{$item->id}}/create" class="btn btn-primary btn-round">ثبتنام--}}
+                                                        {{--                                                        </a>--}}
+                                                        <form action="/enrolls" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="course_id" value="{{$item->id}}">
+                                                            <button type="submit" class="btn btn-primary btn-round">ثبتنام</button>
+                                                        </form>
 
                                                     </div>
                                                 </td>
