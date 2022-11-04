@@ -19,6 +19,7 @@
             </div>
         </div>
         <div class="container-fluid">
+            @include('alert')
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card action_bar">
