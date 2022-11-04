@@ -35,15 +35,19 @@
                             <div class="img-post m-b-15">
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active">
-                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path1)}}" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path2)}}" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="{{asset($item->avatar_path3)}}" alt="Third slide">
-                                        </div>
+                                        @foreach($item->images as $img)
+                                            @if($loop->first)
+                                                <div class="carousel-item active">
+                                                    <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                         alt="slide">
+                                                </div>
+                                            @else
+                                                <div class="carousel-item ">
+                                                    <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                         alt="slide">
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -60,7 +64,8 @@
                                     <a href="{{$item->instagram}}"> <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button></a>
                                 </div>
                             </div>
-                            <p>{{$item->body}} </p>
+                            <br>
+                            <div class="" style="overflow:visible; max-width: 100%; min-height: 50px">{{$item->body}}</div>
                             <a href="#" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
                         </div>
                     </div>
