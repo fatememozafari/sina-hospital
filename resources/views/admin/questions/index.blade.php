@@ -18,6 +18,7 @@
             </div>
         </div>
         <div class="container-fluid">
+            @include('alert')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -37,6 +38,11 @@
                         </div>
                     </div>
                 </div>
+                <ul class="">
+                    <li class="">
+                        <a class="btn btn-info" href="{{route('question.create')}}">ایجاد خبر جدید</a>
+                    </li>
+                </ul>
                 <div class="col-md-12">
                     @foreach($question as $item)
                         <div class="card">
@@ -44,7 +50,9 @@
                                 <h6 class="m-t-0"><a href="javascript:void(0);"> {{$item->question}} </a></h6>
                                 <p class="text-justify">{{$item->answer}}</p>
                                 <br>
+                                @if(isset($item->avatar_path))
                                 <a href="{{$item->avatar_path }}"> <img src="{{$item->avatar_path }}" alt="{{$item->title}}" height="300px" width="500px"></a>
+                                @endif
                             </div>
                             <a href="/admin/questions/{{$item->id}}/edit" title="ویرایش مطلب" class="btn btn-round btn-info"> ویرایش مطلب </a>
                             <form action="/admin/questions/{{$item->id}}" method="post">
@@ -57,14 +65,10 @@
 
                         </div>
                     @endforeach
-                    <ul class="pagination pagination-primary m-t-20">
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">قبلی</a></li>
-                        <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">بعدی</a></li>
-                    </ul>
                 </div>
+{{--                <span class="clearfix" style="padding: 0 20%;">--}}
+{{--								 {{$question->links()}}--}}
+{{--								</span>--}}
             </div>
         </div>
     </section>
