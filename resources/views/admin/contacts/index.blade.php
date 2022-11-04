@@ -23,14 +23,20 @@
                 <div class="card action_bar">
                     <div class="body">
                         <div class="row clearfix">
-
                             <div class="col-lg-12 col-md-12 col-12">
+                                <form action="/admin/contacts" method="get">
+                                    @csrf
                                 <div class="input-group search">
-                                    <input type="text" class="form-control" placeholder="جستجو...">
+                                    <input type="text" name="q" value="{{$request->get('q')}}" class="form-control" placeholder="جستجو...">
+
                                     <span class="input-group-addon">
+                                        <button type="submit" class="btn btn-info btn-round" style="height: 40px; width: 100px">
                                         <i class="zmdi zmdi-search"></i>
+                                      </button>
                                     </span>
+
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -62,14 +68,13 @@
                                     </div>
                                 </td>
                                 <td>
-{{--                                    <img src="{{\Illuminate\Support\Facades\Auth::user()->avatar_path}}" class="rounded-circle avatar" alt="">--}}
                                     <p class="c_name">{{$item->name}}</p>
                                 </td>
                                 <td>
                                     <span>{{$item->title}}</span>
                                 </td>
                                 <td>
-{{--                                    <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-l-5"></i> {{$item->message}}</a></span>--}}
+                                    <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-l-5"></i> {{substr($item->message ,0,30) }}</a></span>
                                 </td>
                                 <td>
                                     <img src="{{$item->file}}" width="200px"  class="rounded-circle avatar" alt="">
@@ -90,9 +95,6 @@
                         <ul class="pagination pagination-primary m-b-0">
                             <li class="page-item"><a class="page-link" href="#"><i class="zmdi zmdi-arrow-right"></i></a></li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
                             <li class="page-item"><a class="page-link" href="#"><i class="zmdi zmdi-arrow-left"></i></a></li>
                         </ul>
                     </div>
