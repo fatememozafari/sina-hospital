@@ -24,15 +24,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2> اطلاعات <strong>پایه</strong> <small>متن توضیحات در اینجا ...</small> </h2>
+                            <h2>  <strong></strong> <small></small> </h2>
                             <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <li><a href="javascript:void(0);">ویرایش</a></li>
-                                        <li><a href="javascript:void(0);">حذف</a></li>
-                                        <li><a href="javascript:void(0);">گزارش</a></li>
-                                    </ul>
-                                </li>
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
@@ -44,7 +37,13 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12"><b>شناسه دوره</b>
                                     <div class="form-group">
-                                        <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره">
+                                        <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره"
+                                               @error('id_code')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('id_code')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -52,21 +51,45 @@
 
                                 <div class="col-sm-12"><b>عنوان دوره</b>
                                     <div class="form-group">
-                                        <input type="text" name="title" class="form-control" placeholder="عنوان دوره">
+                                        <input type="text" name="title" class="form-control" placeholder="عنوان دوره"
+                                               @error('title')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('title')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
-                                        <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره">
+                                        <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره"
+                                               @error('slug')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('slug')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-sm-12"><b>نام مدرس</b>
                                     <div class="form-group">
-                                        <input type="text" name="teacher_id" class="form-control" placeholder="نام مدرس">
+                                        <select class="form-control show-tick" name="teacher_id"
+                                                @error('teacher_id')
+                                                style="border: 1px solid red"
+                                            @enderror>
+                                            <option> یک مورد را انتخاب کنید</option>
+                                            @foreach(\App\Models\Teacher::all() as $teacher)
+                                                <option value="{{$teacher->id}}">{{$teacher->id}}
+                                                    -{{$teacher->name}} {{$teacher->family}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('teacher_id')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +97,13 @@
 
                                 <div class="col-lg-12 col-md-6"><b> تاریخ برگزاری</b>
                                     <div class="form-group">
-                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری ">
+                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری "
+                                               @error('start_at')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('start_at')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -82,30 +111,31 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <select class="form-control show-tick" name="type">
+                                        <select class="form-control show-tick" name="type"
+                                                @error('type')
+                                        style="border: 1px solid red"
+                                            @enderror>
                                             <option value="">- نوع دوره -</option>
                                             <option> یک مورد را انتخاب کنید </option>
                                             <option value="SPECIALISED">تخصصی</option>
                                             <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
                                             <option value="GENERAL">عمومی</option>
                                         </select>
+                                        @error('type')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="col-lg-12 col-md-12 col-sm-12">--}}
-{{--                                <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">--}}
-{{--                                    <div class="dz-message">--}}
-{{--                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>--}}
-{{--                                        <h3> پرونده ها را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
-{{--                                        <em> <strong></strong></em> </div>--}}
-{{--                                    <div class="fallback">--}}
-{{--                                        <input name="file" type="file" multiple />--}}
-{{--                                    </div>--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
                             <div class="col-sm-12"><b>توضیحات</b>
                                 <div class="form-group">
-                                    <textarea rows="4" name="description" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."></textarea>
+                                    <textarea rows="4" name="description" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."
+                                              @error('description')
+                                              style="border: 1px solid red"
+                                            @enderror></textarea>
+                                    @error('description')
+                                    <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12">
