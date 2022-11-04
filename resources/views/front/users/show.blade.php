@@ -5,8 +5,8 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
-                        <h2>پروفایل {{$user->name}}{{$user->family}}
-                            <small class="text-muted"> خوش آمدید</small>
+                        <h2> پروفایل   {{$user->name}} {{$user->family}}
+                            <small class="text-muted"> </small>
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="body">
                                 <strong>نام و نام خانوادگی</strong>
-                                <p>{{$user->name}}{{$user->family}}</p>
+                                <p>{{$user->name}} {{$user->family}}</p>
                                 <strong> شغل </strong>
                                 <p>{{$user->job}}</p>
                                 <strong> آدرس ایمیل </strong>
@@ -54,7 +54,7 @@
                             <div class="body">
                                 <div class="stats-row row m-b-20">
                                     <div class="stat-item col-2 col-blue">
-                                        <h6>امتیاز: <b>{{$user->rate}}</b></h6></div>
+                                        <h6>امتیاز: <b>{{$rate}}</b></h6></div>
                                     <div class="stat-item col-2 col-blush">
                                         <h6> <b></b></h6>
                                     </div>
@@ -130,7 +130,7 @@
                                                 <div class="timeline-item">
                                                     <div class="item-content">
                                                         <div class="text-small">اکنون</div>
-                                                        <p>تخلیه</p>
+                                                        <p>{{date('Y/m/d')}}</p>
                                                     </div>
                                                 </div>
                                                 @foreach($user->courses as $item)
