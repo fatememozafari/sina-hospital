@@ -9,6 +9,11 @@ class News extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'title','body','writer','photographer','feedback','avatar_path1','avatar_path2','avatar_path3','instagram','facebook','twitter',
+        'title','body','writer','photographer','feedback','instagram','facebook','twitter',
         ];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
