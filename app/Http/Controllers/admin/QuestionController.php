@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\QuestionRequest;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -37,24 +38,8 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        $data=$request->all();
-        $rules=[];
-        $request->validate([
-            'question'=>['required'],
-            'answer'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-        ],[
-            'question'=>'سوال',
-            'answer'=>'پاسخ',
-
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
         $inputs=$request->only(['question','answer','avatar_path']);
         if ($request->file('avatar_path')){
             $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
@@ -62,7 +47,7 @@ class QuestionController extends Controller
         Question::create($inputs);
         return redirect('/admin/questions')->with('success','با موفقیت ثبت شد.');
     }
-        }
+
     /**
      * Display the specified resource.
      *
@@ -96,7 +81,7 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionRequest $request, $id)
     {
         $data=$request->only('question','answer','avatar_path');
         if ($request->file('avatar_path')){

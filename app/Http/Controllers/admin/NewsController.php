@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\NewsRequest;
 use App\Models\Image;
 use App\Models\News;
 use Illuminate\Http\File;
@@ -39,24 +40,8 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        $rules=[];
-        $request->validate([
-            'title'=>['required'],
-            'body'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-
-        ],[
-           'title'=>'عنوان',
-            'body'=>'محتوای خبر',
-        ]);
-        $data=$request->all();
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        } else{
 
             $news=new News([
                 'title'=> $request->title,
@@ -81,7 +66,6 @@ class NewsController extends Controller
             }
 
             return redirect('/admin/news')->with('success','با موفقیت ثبت شد.');
-        }
 
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\EnrollRequest;
 use App\Models\Course;
 use App\Models\CourseUser;
 use App\Models\User;
@@ -34,24 +35,8 @@ class EnrollController extends Controller
         return view('admin.enrolls.create', compact('course', 'user'));
     }
 
-    public function store(Request $request)
+    public function store(EnrollRequest $request)
     {
-        $data=$request->all();
-        $rules=[];
-        $request->validate([
-            'user_id'=>['required'],
-            'course_id'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-        ],[
-            'user_id'=>'نام کاربر',
-            'course_id'=>'نام دوره',
-
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
             $inputs = $request->only(['user_id', 'course_id']);
             $check=CourseUser::query()
                 ->where([
@@ -65,7 +50,7 @@ class EnrollController extends Controller
                     return back()->with('success','با موفقیت ثبت شد.');
 //                return redirect('/admin/enrolls');
                 } else {
-                    return back()->withErrors($validation);
+                    return back()->withErrors($this->validate());
                 }
 
             } else {
@@ -73,6 +58,6 @@ class EnrollController extends Controller
             }
 
         }
-        }
+
 
 }

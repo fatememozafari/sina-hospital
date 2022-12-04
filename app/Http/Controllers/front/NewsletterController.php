@@ -29,7 +29,7 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         $inputs=$request->only(['email','user_id','name']);
-$inputs['user_id']=Auth::id();
+        $inputs['user_id']=Auth::id();
         Newsletter::create($inputs);
         return back()->with('success','عضویت شما در خبرنامه ثبت شد.');
     }

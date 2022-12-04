@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,31 +30,8 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $data=$request->all();
-        $rules=[
-            'name'=>['required'],
-            'title'=>['required'],
-            'message'=>['required'],
-
-        ];
-        $request->validate([
-            'name'=>['required'],
-            'title'=>['required'],
-            'message'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-        ],[
-            'name'=>'نام و نام خانوادگی',
-            'title'=>'عنوان پیام',
-            'message'=>'متن پیام',
-
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
             $inputs=$request->only(['name','title','message','file','user_id']);
             $inputs['user_id']=Auth::id();
             if ($request->file('file'))
@@ -61,7 +39,7 @@ class ContactController extends Controller
 
             Contact::create($inputs);
             return back()->with('success',' پیام شما با موفقیت ارسال شد.');
-        }
+
 
     }
 

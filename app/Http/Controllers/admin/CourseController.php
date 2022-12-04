@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\CourseRequest;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,27 +39,9 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        $data=$request->all();
-        $rules=[];
-        $request->validate([
-            'title'=>['required'],
-            'slug'=>['required'],
-            'type'=>['required'],
-            'start_at'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-        ],[
-            'title'=>'عنوان دوره',
-            'slug'=>'نام تخصصی دوره',
-            'type'=>'نوع دوره',
-            'start_at'=>'تاریخ برگزاری',
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
+
             $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','teacher_id']);
             $inputs['rate'] = 0;
             $inputs['user_id'] =Auth::id();
@@ -71,9 +54,9 @@ class CourseController extends Controller
             if ($result){
                 return redirect('admin/courses')->with('success','دوره جدید با موفقیت ثبت شد.');
             } else{
-                return back()->withErrors($validation);
+                return back()->withErrors($this->validate());
             }
-        }
+
 
     }
 
@@ -110,7 +93,7 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CourseRequest $request, $id)
     {
         $data=$request->only('id_code','title','slug','type','start_at','description','file','teacher_id');
         if ($request->file('file'))

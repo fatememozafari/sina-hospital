@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\ResultRequest;
+use App\Http\Requests\Requests\ScoreRequest;
 use App\Models\Course;
 use App\Models\CourseUser;
 use App\Models\Score;
@@ -43,26 +45,8 @@ class ResultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResultRequest $request)
     {
-        $data=$request->all();
-        $rules=[];
-        $request->validate([
-            'user_id'=>['required'],
-            'course_id'=>['required'],
-            'score'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-        ],[
-            'user_id'=>'نام کاربر',
-            'course_id'=>'نام دوره',
-            'score'=>'نمره',
-
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
             $inputs=$request->only(['user_id','course_id','score']);
             $check=Score::query()
                 ->where([
@@ -82,7 +66,6 @@ class ResultController extends Controller
 
                 return back()->withErrors('قبلا برای کاربر با این درس نمره ثبت شده است.');
             }
-        }
 
     }
 
@@ -129,7 +112,7 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(ResultRequest $request)
     {
         $data=$request->only('user_id','course_id','score');
         Score::query()->where([

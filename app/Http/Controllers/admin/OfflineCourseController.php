@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\OfflineRequest;
 use App\Models\Course;
 use App\Models\OfflineCourse;
 use App\Models\Teacher;
@@ -41,34 +42,9 @@ class OfflineCourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OfflineRequest $request)
     {
-        $data=$request->all();
-        $rules=[];
-        $request->validate([
-            'title'=>['required'],
-            'slug'=>['required'],
-            'type'=>['required'],
-            'start_at'=>['required'],
-            'file'=>['required','mimes:pdf,mp3,mp4,mkv'],
-            'file_type'=>['required'],
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-            'mimes'=>'فقط فایل با فرمت pdf,mp3,mp4,mkv مجاز است.'
 
-        ],[
-            'title'=>'عنوان دوره',
-            'slug'=>'عنوان تخصصی دوره',
-            'type'=>'نوع دوره',
-            'start_at'=>'تاریخ برگزاری',
-            'file'=>'آپلود فایل',
-            'file_type'=>'نوع فایل',
-
-        ]);
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
             $inputs=$request->only(['id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at']);
             $inputs['rate'] = 0;
             $inputs['user_id'] =Auth::id();
@@ -81,9 +57,8 @@ class OfflineCourseController extends Controller
             if ($result){
                 return redirect('/admin/offline-courses')->with('success','دوره جدید با موفقیت ثبت شد.');
             } else{
-                return back()->withErrors($validation);
+                return back()->withErrors($this->validate());
             }
-        }
 
     }
 
@@ -122,7 +97,7 @@ class OfflineCourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OfflineRequest $request, $id)
     {
         $data=$request->only('id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at');
         if ($request->file('file'))

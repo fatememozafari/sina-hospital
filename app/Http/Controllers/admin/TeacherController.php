@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Requests\TeacherRequest;
 use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -40,34 +41,8 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {$data=$request->all();
-        $rules=[];
-        $request->validate([
-            'name'=>['required'],
-            'family'=>['required'],
-            'mobile'=>['required','min:11','max:12'],
-            'email'=>['required'],
-            'password'=>['required','min:8'],
-            'password_confirmation'=>['required'],
-
-        ],[
-            'required'=>'فیلد :attribute اجباری است.',
-            'min'=>'فیلد :attribute باید حداقل :min کاراکتر داشته باشد.'
-
-        ],[
-            'name'=>'نام',
-            'family'=>'نام خانوادگی',
-            'mobile'=>'شماره موبایل',
-            'email'=>'ایمیل',
-            'password'=>'رمز ورود',
-            'password_confirmation'=>'تایید رمز ورود',
-        ]);
-
-        $validation= Validator::make($data,$rules);
-        if ($validation->fails()){
-            return back()->withErrors($validation);
-        }else{
+    public function store(TeacherRequest $request)
+    {
             $inputs=$request->only(['name','family','melli_code','gender','mobile','email',
                 'birthday','job','password','password_confirmation','address','avatar_path',
                 'type','user_id']);
@@ -83,9 +58,9 @@ class TeacherController extends Controller
             if ($result){
                 return redirect('/admin/teachers')->with('success','با موفقیت ثبت شد.');
             } else{
-                return back()->withErrors($validation);
+                return back()->withErrors($this->validate());
             }
-        }
+
 
     }
 
@@ -123,7 +98,7 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeacherRequest $request, $id)
     {
         $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type');
 //        $data['password'] = Hash::make($data['password']);
