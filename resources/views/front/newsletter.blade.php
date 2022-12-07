@@ -27,7 +27,7 @@
                             <h2>خبرنامه <strong>ایمیل</strong> <small>   اخبار ما را زودتر از دیگران دریافت کنید ، بیایید در تماس باشیم. </small></h2>
                         </div>
                         <div class="body widget newsletter">
-                            <form action="/newsletter" method="post">
+                            <form action="{{route('front.newsletter.store')}}" method="post">
                                 @csrf
                                 <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
                                 <br>
