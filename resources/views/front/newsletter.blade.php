@@ -30,6 +30,9 @@
                             <form action="{{route('front.newsletter.store')}}" method="post">
                                 @csrf
                                 <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                                @error('name')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                                 <br>
                                 <div class="input-group">
                                     <input type="text" name="email" class="form-control" placeholder="ایمیل را وارد کنید">
@@ -37,6 +40,9 @@
                                     <i class="zmdi zmdi-mail-send"></i>
                                 </span>
                                 </div>
+                                @error('email')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                                 <button type="submit" class="btn btn-warning btn-round waves-effect m-t-20">ارسال</button>
                             </form>
 

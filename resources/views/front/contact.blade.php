@@ -4,7 +4,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>ایجاد ایمیل
+                    <h2>تماس با ما
                         <small class="text-muted"> خوش آمدید</small>
                     </h2>
                 </div>
@@ -19,13 +19,10 @@
             </div>
         </div>
         <div class="container-fluid">
-            @include('alert')
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card action_bar">
-                        <div class="body">
-
-                        </div>
+                            @include('alert')
                     </div>
                 </div>
             </div>
@@ -36,7 +33,7 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xl-12">
-                                    <form action="/contact" method="post" enctype="multipart/form-data">
+                                    <form action="/contacts" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-md-12 col-lg-12 col-xl-12">
 
@@ -44,14 +41,23 @@
                                                 <input type="text" name="name" class="form-control"
                                                        placeholder="نام و نام خانوادگی :">
                                             </div>
+                                            @error('name')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                             <div class="form-group form-float">
                                                 <input type="text" name="title" class="form-control"
                                                        placeholder="موضوع">
                                             </div>
+                                            @error('title')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="col-md-12 col-lg-12 col-xl-12">
                                             <strong> متن پیام: </strong>
                                             <textarea id="" class="form-control" name="message" rows="10"></textarea>
+                                            @error('message')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                             <input type="file" name="file"
                                                    class="btn btn-dark btn-round waves-effect m-t-20"
                                                    placeholder="آپلود فایل">
