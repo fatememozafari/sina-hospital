@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Filters\ContactFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -17,12 +18,13 @@ class ContactController extends Controller
     {
         $contact = Contact::query()->orderBy('id', 'DESC');
 
-        if ($request->get('q'))
-            $contact = $contact->where('name', 'like', '%' . $request->get('q') . '%')
-                ->orWhere('title', 'like', '%' . $request->get('q') . '%')
-                ->orWhere('message', 'like', '%' . $request->get('q') . '%')
-                ->orWhere('created_at', 'like', '%' . $request->get('q') . '%');
-        $contact = $contact->get();
+//        if ($request->get('q'))
+//            $contact = $contact->where('name', 'like', '%' . $request->get('q') . '%')
+//                ->orWhere('title', 'like', '%' . $request->get('q') . '%')
+//                ->orWhere('message', 'like', '%' . $request->get('q') . '%')
+//                ->orWhere('created_at', 'like', '%' . $request->get('q') . '%');
+//        $contact = $contact->get();
+        $contact = $contact->filter(new ContactFilter())->get();
 
         return view('admin.contacts.index', compact('contact','request'));
     }
