@@ -27,7 +27,8 @@
                                 <form action="/admin/contacts" method="get">
                                     @csrf
                                 <div class="input-group search">
-                                    <input type="text" name="q" value="{{$request->get('q')}}" class="form-control" placeholder="جستجو...">
+{{--                                    <input type="text" name="q" value="{{$request->get('q')}}" class="form-control" placeholder="جستجو...">--}}
+                                    <input type="text" name="search" class="form-control" placeholder="جستجو...">
 
                                     <span class="input-group-addon">
                                         <button type="submit" class="btn btn-info btn-round" style="height: 40px; width: 100px">
