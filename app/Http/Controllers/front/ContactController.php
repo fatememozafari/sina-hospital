@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Constants\Constant;
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Requests\ContactRequest;
 use App\Models\Contact;
+use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class ContactController extends Controller
+class ContactController extends BaseController
 {
 
 
@@ -27,22 +30,26 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ContactRequest $request)
     {
-            $inputs=$request->only(['name','title','message','file','user_id']);
-            $inputs['user_id']=Auth::id();
-            if ($request->file('file'))
-                $inputs['file'] = $this->uploadMedia($request->file('file'));
+        $inputs = $request->only(['name', 'title', 'message', 'user_id']);
+        $inputs['user_id'] = Auth::id();
+        $contacts = Contact::create($inputs);
 
-            Contact::create($inputs);
-            return back()->with('success',' پیام شما با موفقیت ارسال شد.');
+        if ($request->file('file')) {
+            $contacts->files()->create([
+                'name' => $this->uploadFile(request('name'), Constant::CONTACT_FILE_UPLOAD_PATH),
+
+            ]);
+        }
+
+        return back()->with('success', ' پیام شما با موفقیت ارسال شد.');
 
 
     }
-
 
 
 }
