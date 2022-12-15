@@ -1,11 +1,11 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <section class="content blog-page">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <h2>عضویت در خبرنامه
-                        <small> خوش آمدید</small>
+                    <h2>
+                        <small> </small>
                     </h2>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -24,7 +24,9 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2>خبرنامه <strong>ایمیل</strong> <small>   اخبار ما را زودتر از دیگران دریافت کنید ، بیایید در تماس باشیم. </small></h2>
+                            <h2> <strong>عضویت در خبرنامه</strong>
+                                 <small>   اخبار ما را زودتر از دیگران دریافت کنید ، بیایید در تماس باشیم. </small>
+                            </h2>
                         </div>
                         <div class="body widget newsletter">
                             <form action="{{route('front.newsletter.store')}}" method="post">

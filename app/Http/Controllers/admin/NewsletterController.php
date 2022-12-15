@@ -25,4 +25,16 @@ class NewsletterController extends Controller
         Newsletter::query()->where('id',$id)->delete();
         return back();
     }
+
+    public function create()
+    {
+        return view('admin.newsletters.create');
+
+    }
+
+    public function store()
+    {
+
+    }
+
 }
