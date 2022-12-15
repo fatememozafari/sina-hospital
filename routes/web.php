@@ -47,7 +47,7 @@ Route::get('/home', function () {
 */
 //fortify package
 Route::get('redirects', '\App\Http\Controllers\auth\AuthController@index');
-Route::get('logout', [AuthController::class, 'logout']);
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::view('access-denied', 'access-denied')->name('access-denied');
 
 

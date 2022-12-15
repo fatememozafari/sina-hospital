@@ -33,10 +33,12 @@ Route::view('dashboard', 'front.dashboard')->name('front.dashboard');
 Route::resource('about', \App\Http\Controllers\front\AboutController::class)->names([
     'show' => 'front.about.show',
     'index' => 'front.about.list',
+    'create' => 'front.about.create',
 ]);
 Route::resource('contacts', \App\Http\Controllers\front\ContactController::class)->names([
     'create' => 'front.contact.create',
 ]);
+
 Route::resource('courses', \App\Http\Controllers\front\CourseController::class)->names([
     'create' => 'front.course.create',//ثبتنام در دوره
     'edit' => 'front.course.edit',
@@ -93,7 +95,7 @@ Route::resource('offline-courses', \App\Http\Controllers\front\OfflineCourseCont
 Route::get('results', [\App\Http\Controllers\front\ScoreController::class, 'index'])->name('front.result.list');
 Route::get('/enrolls', [\App\Http\Controllers\front\EnrollController::class, 'index']);
 //Route::get('/enrolls/{id}/create',[\App\Http\Controllers\front\EnrollController::class,'create']);
-Route::post('/enrolls', [\App\Http\Controllers\front\EnrollController::class, 'store']);
+Route::post('/enrolls', [\App\Http\Controllers\front\EnrollController::class, 'store'])->name('front.enroll.store');
 
 
 //});
