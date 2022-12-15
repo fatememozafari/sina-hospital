@@ -1,10 +1,10 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <section class="content">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>سوالات متداول
+                    <h2>
                         <small class="text-muted"> خوش آمدید</small>
                     </h2>
                 </div>
@@ -21,11 +21,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        <div class="header">
+                            <h2><strong>سوالات متداول</strong></h2>
+                        </div>
                         <div class="body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="جستجو...">
-                                <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
-                            </div>
+                            <form method="get" action="" class="input-group">
+                                @csrf
+                                <input type="text" name="search" class="form-control" placeholder="جستجو...">
+                                <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
+                            </form>
                             <div class="">
                                 <p>جستجو های محبوب :</p>
                                 <span class="badge badge-default">جدیدترین سوالات</span>
@@ -44,7 +48,7 @@
                             <h6 class="m-t-0"><a href="javascript:void(0);"> {{$item->question}} </a></h6>
                             <p class="text-justify">{{$item->answer}}</p>
                             <br>
-                            <a href="{{$item->avatar_path }}"> <img src="{{$item->avatar_path }}" alt="{{$item->title}}" height="300px" width="500px"></a>
+                            <a href="{{$item->file }}"> <img src="{{$item->file }}" alt="{{$item->title}}" height="300px" width="500px"></a>
                         </div>
                     </div>
                     @endforeach
