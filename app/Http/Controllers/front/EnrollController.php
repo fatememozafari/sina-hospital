@@ -32,18 +32,18 @@ class EnrollController extends Controller
     public function store(EnrollRequest $request)
     {
         $inputs = $request->only(['user_id', 'course_id']);
-        $inputs['user_id'] = Auth::user()->id;
+        $inputs['user_id'] = \request('user_id');
         $check=CourseUser::query()
             ->where([
                 ['course_id','=',$request->course_id],
-                ['user_id','=',Auth::id()]
+                ['user_id','=',\request('user_id')]
             ])->exists();
 
         if (!$check) {
             $result = CourseUser::create($inputs);
             if ($result) {
 
-                return redirect('/enrolls')->with('success','با موفقیت ثبت شد.');
+                return back()->with('success','با موفقیت ثبت شد.');
             } else {
                 return back()->withErrors($this->validate());
             }

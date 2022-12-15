@@ -32,7 +32,7 @@ class EnrollRequest extends FormRequest
     public function messages()
     {
         return [
-            'user_id.required'=>'فیلد نام کاربر اجباری است.',
+            'user_id.required'=>'برای ثبت نام ابتدا باید وارد سایت شوید.',
             'course_id.required'=>'فیلد نام دوره اجباری است.',
         ];
     }
