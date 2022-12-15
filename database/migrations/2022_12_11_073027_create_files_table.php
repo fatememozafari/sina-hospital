@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('scores', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('course_id');
-            $table->float('score');
+        Schema::create('files', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->enum('deleted',['DELETED','UN-DELETED'])->default('UN-DELETED');
+            $table->bigInteger('fileable_id');
+            $table->string('fileable_type');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scores');
+        Schema::dropIfExists('files');
     }
 };
