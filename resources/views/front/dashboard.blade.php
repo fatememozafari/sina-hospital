@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
 
 @endsection

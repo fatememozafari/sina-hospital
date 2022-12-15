@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
 
     <div class="theme-cyan">

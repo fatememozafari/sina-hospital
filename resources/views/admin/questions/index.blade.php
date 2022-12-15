@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
     <section class="content">
         <div class="block-header">

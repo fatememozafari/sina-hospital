@@ -1,4 +1,4 @@
-@extends('auth.layout.masterPage')
+@extends('layouts.authMasterPage')
 @section('content')
         <div class="container">
             <div class="col-md-12 content-center">

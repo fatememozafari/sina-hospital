@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <section class="content home">
         <div class="block-header">

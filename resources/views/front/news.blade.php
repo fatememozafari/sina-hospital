@@ -1,12 +1,12 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <div class="theme-blush">
         <section class="content blog-page">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
-                        <h2>لیست اخبار
-                            <small> خوش آمدید</small>
+                        <h2>
+                             اخبار سایت
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -100,9 +100,7 @@
                                 <form class="input-group m-b-0" action="" method="get">
                                     @csrf
                                     <input type="text" class="form-control" name="search" placeholder="جستجو...">
-                                    <span class="input-group-addon">
-                            <i class="zmdi zmdi-search"></i>
-                            </span>
+                                    <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
                                 </form>
 
                             </div>

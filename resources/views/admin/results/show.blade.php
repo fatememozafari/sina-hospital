@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
 <section class="content home container" style="width: 80%;">
     <div class="block-header flex-column ">

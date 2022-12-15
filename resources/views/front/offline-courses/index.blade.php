@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <div class="theme-cyan">
         <section class="content home">
@@ -10,10 +10,6 @@
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
-                        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-left m-r-10"
-                                type="button">
-                            <i class="zmdi zmdi-plus"></i>
-                        </button>
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>

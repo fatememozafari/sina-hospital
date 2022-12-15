@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <section class="content home container" style="width: 80%;">
         <div class="block-header flex-column ">

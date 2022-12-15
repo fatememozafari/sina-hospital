@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
     <div class="theme-cyan">
         <section class="content home">

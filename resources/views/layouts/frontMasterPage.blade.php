@@ -2,10 +2,15 @@
 <html class="no-js " lang="en">
 
 <head>
-@include('admin.layout.partials.head')
-
+    @include('layouts.partials.front.head')
 </head>
-<body class="theme-cyan">
+
+<style>
+    a{
+     color: black;
+    }
+</style>
+<body class="theme-cyan container">
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
@@ -15,14 +20,12 @@
 </div>
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
-@can('users_read')
-<!-- Top Bar -->
-@include('admin.layout.partials.header')
+
+    <!-- Top Bar -->
+@include('layouts.partials.front.header')
 <!--Top Bar -->
-<!-- Right Sidebar -->
-@include('admin.layout.partials.rightSidebar')
-<!-- Left Sidebar -->
-@include('admin.layout.partials.leftSidebar')
+
+@include('layouts.partials.front.leftSidebar')
 
 <!-- Chat-launcher -->
 
@@ -30,8 +33,8 @@
 <!-- Main Content -->
 @yield('content')
 <!-- Jquery Core Js -->
-@include('admin.layout.partials.script')
-@endcan
+@include('layouts.partials.front.script')
+
 </body>
 
 </html>

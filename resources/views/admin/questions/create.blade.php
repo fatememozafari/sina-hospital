@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
     <section class="content home">
         <div class="block-header">
@@ -67,7 +67,7 @@
 
                                     <div class="col-sm-12"><b>آپلود تصویر</b>
                                         <div class="form-group">
-                                            <input type="file"  name="avatar_path" value="{{old('avatar_path')}}" class="form-control" placeholder="پاسخ">
+                                            <input type="file"  name="file" value="{{old('avatar_path')}}" class="form-control" placeholder="پاسخ">
                                         </div>
                                     </div>
                                 </div>

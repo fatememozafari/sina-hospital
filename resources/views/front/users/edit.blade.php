@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <section class="content home">
         <div class="block-header">
@@ -102,9 +102,9 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12"><b> رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="hidden" name="password" value="{{$inputs->password}}" class="form-control" placeholder="رمز ورود"
+                                            <input type="text" name="password" class="form-control" placeholder="رمز ورود"
                                              @error('password')
                                                    style="border: 1px solid red"
                                                 @enderror>
@@ -112,10 +112,9 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b> رمز ورود</b>
+                                    <div class="col-sm-12"><b>تایید رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="text" name="password_confirmation" value="{{$inputs->password_confirmation}}" class="form-control" placeholder="تایید رمز ورود"
-                                                   readonly
+                                            <input type="text" name="password_confirmation" class="form-control" placeholder="تایید رمز ورود"
                                              @error('password_confirmation')
                                                    style="border: 1px solid red"
                                                 @enderror>

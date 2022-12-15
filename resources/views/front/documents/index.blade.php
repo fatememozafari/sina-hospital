@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <div class="theme-cyan">
         <section class="content home">
@@ -10,10 +10,6 @@
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
-                        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-left m-r-10"
-                                type="button">
-                            <i class="zmdi zmdi-plus"></i>
-                        </button>
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
@@ -29,21 +25,12 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2> <strong>دوره ها </strong></h2>
+                                <h2> <strong>دوره هایی که قبلا گذرانده اید </strong></h2>
                                 <ul class="header-dropdown">
-                                    <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
-                                                            data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                            aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">چاپ فاکتور</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                            <li><a href="javascript:void(0);">خروجی XLS</a></li>
-                                            <li><a href="javascript:void(0);">خروجی CSV</a></li>
-                                            <li><a href="javascript:void(0);">خروجی XML</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="remove">
-                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    <li class="dropdown">
+                                        <a href="{{route('front.document.create')}}" class="btn btn-info">
+                                            ثبت دوره جدید
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

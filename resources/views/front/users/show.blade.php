@@ -1,7 +1,7 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
     <div class="theme-cyan">
-        <section class="content profile-page">
+        <section class=" profile-page">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
@@ -76,12 +76,12 @@
                         </div>
                         <div class="card">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#report">بیوگرافی</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#timeline">جدول زمانی</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#timeline"> جدول زمانی دروس</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#report">بیوگرافی</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="report">
+                            <div role="tabpanel" class="tab-pane " id="report">
                                 <div class="card">
                                     <div class="body">
                                         <p class="text-justify">{{$user->description}}</p>
@@ -122,7 +122,7 @@
                                 </div>
 
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="timeline">
+                            <div role="tabpanel" class="tab-pane active" id="timeline">
                                 <div class="card">
                                     <div class="body">
                                         <div class="timeline-body">

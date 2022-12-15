@@ -1,4 +1,4 @@
-@extends('front.layout.masterPage')
+@extends('layouts.frontMasterPage')
 @section('content')
 
     <div class="theme-cyan">
@@ -11,10 +11,6 @@
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
-                        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-left m-r-10"
-                                type="button">
-                            <i class="zmdi zmdi-plus"></i>
-                        </button>
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
@@ -27,6 +23,8 @@
 
             <div class="container-fluid">
                 <!-- Exportable Table -->
+                @include('error')
+                @include('alert')
                 <div class="row clearfix">
                     <div class="col-lg-12">
                         <div class="card">
@@ -113,9 +111,10 @@
                                                     <div>
                                                         {{--                                                        <a href="/enrolls/{{$item->id}}/create" class="btn btn-primary btn-round">ثبتنام--}}
                                                         {{--                                                        </a>--}}
-                                                        <form action="/enrolls" method="post">
+                                                        <form action="{{route('front.enroll.store')}}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="course_id" value="{{$item->id}}">
+                                                            <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
                                                             <button type="submit" class="btn btn-primary btn-round">ثبتنام</button>
                                                         </form>
 

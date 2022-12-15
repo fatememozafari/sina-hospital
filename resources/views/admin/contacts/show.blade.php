@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
     <section class="content inbox">
         <div class="block-header">
@@ -71,8 +71,9 @@
                             <hr>
                             <br>
                             <div class="col-md-12">
-                                <a href="{{$contact->file }}"> <img src="{{$contact->file }}" alt="{{$contact->title}}" height="300px" width="500px"></a>
+                                <a href="{{$contact->present()->file }}">       {!! $contact->present()->file !!}</a>
                             </div>
+
                         </div>
                     </div>
                     <div class="card">

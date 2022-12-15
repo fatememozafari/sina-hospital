@@ -1,4 +1,4 @@
-@extends('admin.layout.masterPage')
+@extends('layouts.adminMasterPage')
 @section('content')
 <section class="content contact">
     <div class="block-header">
@@ -60,7 +60,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($contact as $item)
+                            @foreach($contacts as $item)
                             <tr>
                                 <td>
                                     <div class="">
@@ -78,8 +78,7 @@
                                     <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-l-5"></i> {{substr($item->message ,0,30) }}</a></span>
                                 </td>
                                 <td>
-                                    <img src="{{$item->file}}" width="200px"  class="rounded-circle avatar" alt="">
-
+                                    {!! $item->present()->file !!}
                                 </td>
                                 <td>
                                     <a href="/admin/contacts/{{$item->id}}" title="ادامه مطلب" class="btn btn-round btn-info"> نمایش پیام </a>
