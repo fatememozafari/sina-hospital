@@ -102,11 +102,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
-//        $data['password'] = Hash::make($data['password']);
+        $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','birthday','job','address','avatar_path','type','rate');
 
+        if (!is_null(\request('password')) ){
+            $data['password'] = Hash::make(\request('password'));
+            $data['password_confirmation'] = \request('password_confirmation');
+        }
         if ($request->file('avatar_path'))
             $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
 

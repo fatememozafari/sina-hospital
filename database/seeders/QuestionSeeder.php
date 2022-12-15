@@ -18,7 +18,7 @@ class QuestionSeeder extends Seeder
      Question::create([
          'question'=> 'چطور از امکانات سایت استفاده کنم؟',
          'answer'=> 'برای هرکاری ابتدا باید در سایت ثبتنام کرده و سپس از قسمت login وارد شوید',
-         'avatar_path'=> '/assets/images/blog/1.jpg',
+         'file'=> '/assets/images/blog/1.jpg',
      ]);
     }
 }

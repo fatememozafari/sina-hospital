@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Filters\NewsFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Requests\NewsRequest;
 use App\Models\Image;
