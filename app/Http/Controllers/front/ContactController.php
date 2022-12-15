@@ -41,7 +41,7 @@ class ContactController extends BaseController
 
         if ($request->file('file')) {
             $contacts->files()->create([
-                'name' => $this->uploadFile(request('name'), Constant::CONTACT_FILE_UPLOAD_PATH),
+                'file' => $this->uploadFile(request('file'), Constant::CONTACT_FILE_UPLOAD_PATH),
 
             ]);
         }

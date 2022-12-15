@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('file'); // best peractice : name
             $table->enum('deleted',['DELETED','UN-DELETED'])->default('UN-DELETED');
             $table->bigInteger('fileable_id');
             $table->string('fileable_type');
