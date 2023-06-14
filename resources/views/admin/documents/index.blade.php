@@ -19,7 +19,7 @@
                             <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
+                            <li class="breadcrumb-item active float-right">لیست دوره های گذرانده شده</li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong>دوره های حضوری </strong></h2>
+                                <h2><strong>دوره های گذرانده شده </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -98,10 +98,9 @@
                                         @foreach($user as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a
-                                                        href="/admin/users/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
-                                                <td><a href="/admin/users/{{$item->id}}">{{$item->melli_code}}</a></td>
-                                                <td><a href="/admin/users/{{$item->id}}">{{$item->mobile}}</a></td>
+                                                <td class="sorting_1">{{$item->name}} {{$item->family}}</td>
+                                                <td>{{$item->melli_code}}</td>
+                                                <td>{{$item->mobile}}</td>
                                                 <td>{{$item->email}}</td>
                                                 <td>
                                                     <div>

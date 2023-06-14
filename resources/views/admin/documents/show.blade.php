@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
                         <h2>
-                            <small class="text-muted">خوش امدید</small>
+{{--                            <small class="text-muted">خوش امدید</small>--}}
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -19,7 +19,7 @@
                             <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
+                            <li class="breadcrumb-item active float-right">لیست دوره های گذرانده شده</li>
                         </ul>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong>دوره های حضوری </strong></h2>
+                                <h2><strong>دوره های گذرانده شده </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -97,15 +97,15 @@
                                         @foreach($document as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a
-                                                        href="/admin/documents/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/admin/documents/{{$item->id}}">{{$item->slug}}</a></td>
-                                                <td><a href="/admin/documents/{{$item->id}}">{{__('custom.'.$item->type)}}</a></td>
+                                                <td class="sorting_1">{{$item->title}}</td>
+                                                <td>{{$item->slug}}</td>
+                                                <td>{{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->duration}} ساعت </td>
                                                 <td>
                                                     <div>
                                                         <div class="col-md-12">
-                                                            <a href="{{$item->file }}"> <img src="{{$item->file }}" alt="{{$item->title}}" height="100px" width="100px"></a>
+                                                            <img src="{{asset('/uploads/documents/'.$item->file)}}" class="img-responsive"
+                                                                 style="max-width: 100px; max-height: 100px" alt="">
                                                         </div>
                                                     </div>
                                                 </td>

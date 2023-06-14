@@ -1,4 +1,5 @@
 @extends('layouts.frontMasterPage')
+{{--@dd($errors->all())--}}
 @section('content')
     <div class="theme-cyan">
         <section class="content home">
@@ -6,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
                         <h2>
-                            <small class="text-muted">خوش امدید</small>
+{{--                            <small class="text-muted">خوش امدید</small>--}}
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -28,7 +29,9 @@
                                 <h2> <strong>دوره هایی که قبلا گذرانده اید </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="dropdown">
+
                                         <a href="{{route('front.document.create')}}" class="btn btn-info">
+                                            <i class="fa fa-plus"></i>
                                             ثبت دوره جدید
                                         </a>
                                     </li>

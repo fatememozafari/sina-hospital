@@ -34,27 +34,22 @@ class DocumentController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(DocumentRequest $request)
     {
-        $inputs=$request->only(['title','slug','type','start_at','description','file','duration','teacher_id','user_id']);
+        dd($request);
+        $inputs=$request->all();
         $inputs['rate'] = 0;
         $inputs['user_id'] =Auth::id();
 
         if ($request->file('file'))
-            $inputs['file'] = $this->uploadMedia($request->file('file'));
+            $inputs['file'] = $this->uploadFile($request->file('file'), 'uploads/documents');
 
         $result=Document::create($inputs);
 
         if ($result){
-            return redirect('/documents');
+            return redirect()->route('front.document.list')->with('success','با موفقیت ثبت شد.');
         } else{
-            return back();
+            return back()->with('error','با خطا مواجه شد.');
         }
     }
 
