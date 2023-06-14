@@ -105,10 +105,10 @@
                                         @foreach($teacher as $item)
                                             <tr role="row" class="even">
                                                 <td class="sorting_1">{{$item->id}}</td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td>{{$item->name}} {{$item->family}}</td>
                                                 <td>{{$item->job}}</td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->mobile}}</a></td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->email}}</a></td>
+                                                <td>{{$item->mobile}}</td>
+                                                <td>{{$item->email}}</td>
                                                 <td>
                                                     <div>
                                                         <a href="/admin/teachers/{{$item->id}}" class="btn btn-primary btn-round">نمایش
