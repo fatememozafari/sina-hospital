@@ -25,7 +25,7 @@
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class=" card patient-profile">
-                            <img src="{{$user->avatar_path}}" class="img-fluid img-thumbnail" alt="">
+                            <img src="{{asset('profile/image/'.$user->avatar_path)}}" class="img-fluid img-thumbnail" width="400px" height="300px">
                         </div>
                         <div class="card">
                             <div class="header">
@@ -130,13 +130,18 @@
                                                 <div class="timeline-item">
                                                     <div class="item-content">
                                                         <div class="text-small">اکنون</div>
-                                                        <p>{{date('Y/m/d')}}</p>
+                                                        <p>
+                                                            {{ Morilog\Jalali\Jalalian::forge(date('Y/m/d H:i:s')) }}
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 @foreach($user->courses as $item)
                                                     <div class="timeline-item border-info">
                                                         <div class="item-content">
-                                                            <div class="text-small"> تاریخ برگزاری: {{$item->start_at}}</div>
+                                                            <div class="text-small"> تاریخ برگزاری:
+                                                                {{ Morilog\Jalali\Jalalian::forge($item->start_at)->format('%d %B ، %Y -  H:i:s') }}
+
+                                                            </div>
                                                             <p>عنوان دوره: {{$item->title}}</p>
                                                         </div>
                                                     </div>

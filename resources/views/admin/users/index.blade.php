@@ -104,9 +104,9 @@
                                         @foreach($user as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/admin/users/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
-                                                <td><a href="/admin/users/{{$item->id}}">{{$item->melli_code}}</a></td>
-                                                <td><a href="/admin/users/{{$item->id}}">{{$item->mobile}}</a></td>
+                                                <td class="sorting_1">{{$item->name}} {{$item->family}}</td>
+                                                <td>{{$item->melli_code}}</td>
+                                                <td>{{$item->mobile}}</td>
 {{--                                                <td>{{$item->email}}</td>--}}
                                                 <td>{{$item->rate}}</td>
                                                 <td>

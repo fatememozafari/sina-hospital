@@ -36,7 +36,7 @@
                             <form action="/admin/users" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>نام</b>
+                                    <div class="col-sm-6"><b>نام</b>
                                         <div class="form-group">
                                             <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام"
                                                    @error('name')
@@ -47,10 +47,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-12"><b>نام خانوادگی</b>
+                                    <div class="col-sm-6"><b>نام خانوادگی</b>
                                         <div class="form-group">
                                             <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی"
                                                    @error('family')
@@ -62,8 +59,9 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>کدملی</b>
+                                    <div class="col-sm-6"><b>کدملی</b>
                                         <div class="form-group">
                                             <input type="text" name="melli_code" value="{{old('melli_code' ?? '')}}" class="form-control" placeholder="کد ملی"
                                                    @error('melli_code')
@@ -74,9 +72,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <select class="form-control show-tick" name="gender"
                                                     @error('gender')
@@ -92,8 +88,9 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>شماره موبایل</b>
+                                    <div class="col-sm-6"><b>شماره موبایل</b>
                                         <div class="form-group">
                                             <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل"
                                                    @error('mobile')
@@ -104,9 +101,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>ایمیل</b>
+                                    <div class="col-sm-6"><b>ایمیل</b>
                                         <div class="form-group">
                                             <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل" @error('email')
                                             style="border: 1px solid red"
@@ -118,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>رمز ورود</b>
+                                    <div class="col-sm-6"><b>رمز ورود</b>
                                         <div class="form-group">
                                             <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود"
                                                    @error('password')
@@ -129,9 +124,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>تایید رمز ورود</b>
+                                    <div class="col-sm-6"><b>تایید رمز ورود</b>
                                         <div class="form-group">
                                             <input type="text" name="password_confirmation" value="{{old('password_confirmation' ?? '')}}" class="form-control" placeholder="تایید رمز ورود"
                                                    @error('password_confirmation')
@@ -144,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>تخصص</b>
+                                    <div class="col-sm-6"><b>تخصص</b>
                                         <div class="form-group">
                                             <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل"
                                                    @error('job')
@@ -155,9 +148,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>تاریخ تولد</b>
+                                    <div class="col-sm-6"><b>تاریخ تولد</b>
                                         <div class="form-group">
                                             <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد"
                                                    @error('birthday')
@@ -169,24 +160,26 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12"><b>آپلود تصویر</b>
-                                    <div class="dz-message">
-                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
-                                        <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
-                                        <em> <strong></strong></em> </div>
-                                    <div class="fallback">
-                                        <input name="avatar_path" class="form-control" type="file" value="{{old('avatar_path' ?? '')}}" multiple
-                                               @error('avatar_path')
-                                               style="border: 1px solid red"
-                                            @enderror>
-                                        @error('avatar_path')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
                                 <hr>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>آدرس</b>
+                                    <div class="col-lg-6 col-md-6 col-sm-6"><b>آپلود تصویر</b>
+                                        <div class="dz-message">
+                                            <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
+{{--                                            <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
+                                            <em> <strong></strong></em>
+                                        </div>
+                                        <div class="fallback">
+                                            <input name="avatar_path" class="form-control" type="file" value="{{old('avatar_path' ?? '')}}" multiple
+                                                   @error('avatar_path')
+                                                   style="border: 1px solid red"
+                                                @enderror>
+                                            @error('avatar_path')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6"><b>آدرس</b>
                                         <div class="form-group">
                                             <textarea class="form-control" name="address" value="" placeholder="آدرس"
                                                       @error('address')

@@ -46,14 +46,14 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
 
-        $inputs=$request->only(['user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
+        $inputs=$request->all();
         $inputs['password'] = Hash::make($inputs['password']);
         $inputs['type'] = 'USER';
         $inputs['rate'] = 0;
         $inputs['user_id'] =Auth::id();
 
         if ($request->file('avatar_path'))
-            $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+            $inputs['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'profile/image');
 
         $result=User::create($inputs);
         if ($result){
@@ -111,7 +111,7 @@ class UserController extends Controller
             $data['password_confirmation'] = \request('password_confirmation');
         }
         if ($request->file('avatar_path'))
-            $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+            $data['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'profile/image');
 
         User::query()->where('id',$id)->update($data);
         return redirect('/users/show')->with('success','با موفقیت ویرایش شد.');
