@@ -9,7 +9,7 @@
             </li>
             <li class="hidden-sm-down">
                 <div class="input-group">
-                    <input type="text" class="form-control" style="border-color: #E3E3E3 !important;"
+                    <input type="text" name="search" class="form-control" style="border-color: #E3E3E3 !important;"
                            placeholder="جستجو...">
                     <span class="input-group-addon">
                         <i class="zmdi zmdi-search"></i>

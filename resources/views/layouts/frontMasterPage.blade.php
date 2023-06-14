@@ -10,7 +10,7 @@
      color: black;
     }
 </style>
-<body class="theme-cyan container">
+<body class="theme-cyan container" style="background-color: #eaeaea">
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">

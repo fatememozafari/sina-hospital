@@ -6,18 +6,24 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Http\UploadedFile;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function uploadMedia($file)
+
+
+    public function uploadFile($file, $uploadPath)
     {
-        $path = '\images';
-        $fileName = uniqid() . '-' . $file->getClientOriginalName();
-        $destination = public_path() . '/' . $path;
+
+        $fileName = uniqid() . '-' . time() . '.'. $file->getClientOriginalName();
+        $destination = public_path() . '/' . $uploadPath;
         $file->move($destination, $fileName);
 
-        return $path . '/' . $fileName;
+        return $fileName;
     }
 
     public function checkPermission($permission){

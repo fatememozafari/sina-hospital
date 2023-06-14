@@ -5,7 +5,7 @@
 @include('layouts.partials.admin.head')
 
 </head>
-<body class="theme-cyan">
+<body class="theme-cyan" style="background-color: #eaeaea">
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">

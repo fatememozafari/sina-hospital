@@ -76,14 +76,18 @@ Route::delete('/deletephoto/{id}', [\App\Http\Controllers\front\UserController::
 
 Route::resource('scores', ResultController::class)->names([
     'create' => 'front.result.create',
+    'store' => 'front.result.store',
     'edit' => 'front.result.edit',
+    'update' => 'front.result.update',
     'show' => 'front.result.show',
     'index' => 'front.result.list',
 ]);
 
 Route::resource('documents', \App\Http\Controllers\front\DocumentController::class)->names([
     'create' => 'front.document.create',
+    'store' => 'front.document.store',
     'edit' => 'front.document.edit',
+    'update' => 'front.document.update',
     'show' => 'front.document.show',
     'index' => 'front.document.list',
 ]);
@@ -96,8 +100,7 @@ Route::get('results', [\App\Http\Controllers\front\ScoreController::class, 'inde
 Route::get('/enrolls', [\App\Http\Controllers\front\EnrollController::class, 'index']);
 //Route::get('/enrolls/{id}/create',[\App\Http\Controllers\front\EnrollController::class,'create']);
 Route::post('/enrolls', [\App\Http\Controllers\front\EnrollController::class, 'store'])->name('front.enroll.store');
-
-
 //});
 
 
+Route::get('/download/{file}',[\App\Http\Controllers\Controller::class,'getDownload'])->name('front.downloadFile');
