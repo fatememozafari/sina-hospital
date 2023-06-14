@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>  ایجاد سوال
-                        <small class="text-muted">خوش امدید</small>
+{{--                        <small class="text-muted">خوش امدید</small>--}}
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -53,7 +53,7 @@
 
                                     <div class="col-sm-12"><b>پاسخ</b>
                                         <div class="form-group">
-                                            <textarea type="text" rows="5" name="answer" value="" class="form-control" placeholder="پاسخ"
+                                            <textarea type="text" rows="5" name="answer" value="{{old('answer')}}" class="form-control" placeholder="پاسخ"
                                                       @error('answer')
                                                       style="border: 1px solid red"
                                             @enderror>{{old('answer')}}</textarea>
@@ -67,7 +67,7 @@
 
                                     <div class="col-sm-12"><b>آپلود تصویر</b>
                                         <div class="form-group">
-                                            <input type="file"  name="file" value="{{old('avatar_path')}}" class="form-control" placeholder="پاسخ">
+                                            <input type="file"  name="file" value="{{old('file')}}" class="form-control" placeholder="پاسخ">
                                         </div>
                                     </div>
                                 </div>

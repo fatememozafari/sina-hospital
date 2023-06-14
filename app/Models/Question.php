@@ -10,6 +10,6 @@ class Question extends Model
 {
     use HasFactory , Filterable;
     protected $fillable=[
-        'question', 'answer', 'avatar_path'
+        'question', 'answer', 'file'
     ];
 }

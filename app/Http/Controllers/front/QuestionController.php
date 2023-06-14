@@ -17,7 +17,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $question=Question::query()->filter(new QuestionFilter())->get();
+        $question=Question::query()->filter(new QuestionFilter())->orderBy('id','desc')->paginate(10);
         return view('front.question',compact('question'));
     }
 

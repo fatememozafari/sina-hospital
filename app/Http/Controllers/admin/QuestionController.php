@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Filters\QuestionFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Requests\QuestionRequest;
 use App\Models\Question;
@@ -17,7 +18,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $question=Question::query()->orderBy('id','desc')->paginate(10);
+        $question=Question::query()->filter(new QuestionFilter())->orderBy('id','desc')->paginate(10);
         return view('admin.questions.index',compact('question'));
     }
 
@@ -40,11 +41,13 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        $inputs=$request->only(['question','answer','avatar_path']);
-        if ($request->file('avatar_path')){
-            $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+        $inputs=$request->only(['question','answer','file']);
+
+        if ($request->file('file')){
+            $inputs['file'] = $this->uploadFile($request->file('file'),'uploads/question');
         }
-        Question::create($inputs);
+        $d=Question::create($inputs);
+
         return redirect('/admin/questions')->with('success','با موفقیت ثبت شد.');
     }
 
@@ -83,9 +86,9 @@ class QuestionController extends Controller
      */
     public function update(QuestionRequest $request, $id)
     {
-        $data=$request->only('question','answer','avatar_path');
-        if ($request->file('avatar_path')){
-            $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+        $data=$request->only('question','answer','file');
+        if ($request->file('file')){
+            $data['file'] = $this->uploadFile($request->file('file'),'uploads/question');
         }
         Question::query()->where('id',$id)->update($data);
         return redirect('/admin/questions')->with('success','با موفقیت ویرایش شد.');

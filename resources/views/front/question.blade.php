@@ -5,7 +5,8 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>
-                        <small class="text-muted"> خوش آمدید</small>
+{{--                        <small class="text-muted"> خوش آمدید</small>--}}
+                        سوالات متداول
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -22,13 +23,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>سوالات متداول</strong></h2>
+                            <h2><strong>جستجو</strong></h2>
                         </div>
                         <div class="body">
                             <form method="get" action="" class="input-group">
-                                @csrf
                                 <input type="text" name="search" class="form-control" placeholder="جستجو...">
-                                <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
+                                <button class="input-group-addon" type="submit"><i class="zmdi zmdi-search"></i></button>
                             </form>
                             <div class="">
                                 <p>جستجو های محبوب :</p>
@@ -48,17 +48,19 @@
                             <h6 class="m-t-0"><a href="javascript:void(0);"> {{$item->question}} </a></h6>
                             <p class="text-justify">{{$item->answer}}</p>
                             <br>
-                            <a href="{{$item->file }}"> <img src="{{$item->file }}" alt="{{$item->title}}" height="300px" width="500px"></a>
+                            @if(isset($item->file))
+                                <a href="{{$item->file }}"> <img src="{{asset('uploads/question/'.$item->file) }}" alt="{{$item->title}}" class="img-fluid"></a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
-                    <ul class="pagination pagination-primary m-t-20">
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">قبلی</a></li>
-                        <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">بعدی</a></li>
-                    </ul>
+{{--                    <ul class="pagination pagination-primary m-t-20">--}}
+{{--                        <li class="page-item"><a class="page-link" href="javascript:void(0);">قبلی</a></li>--}}
+{{--                        <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>--}}
+{{--                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>--}}
+{{--                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>--}}
+{{--                        <li class="page-item"><a class="page-link" href="javascript:void(0);">بعدی</a></li>--}}
+{{--                    </ul>--}}
                 </div>
             </div>
         </div>
