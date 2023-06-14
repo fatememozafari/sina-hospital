@@ -7,6 +7,7 @@ use App\Http\Requests\requests\NewsletterRequest;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class NewsletterController extends Controller
 {
@@ -24,14 +25,27 @@ class NewsletterController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(NewsletterRequest $request)
+    public function store(Request $request)
     {
-        $inputs=$request->only(['email','user_id','name']);
+        $inputs=$request->all();
         $inputs['user_id']=Auth::id();
-        Newsletter::create($inputs);
+
+        $data=Validator::make( $inputs,
+            [
+            'name'=>['required'],
+            'email'=>['required'],
+            'user_id'=>['required'],
+        ],[
+            'name.required'=>'وارد کردن نام اجباری است.',
+            'email.required'=>'وارد کردن ایمیل اجباری است.',
+            'user_id.required'=>'برای عضویت ابتدا باید وارد سایت شوید',
+        ]);
+
+        Newsletter::query()->create([$data]);
         return back()->with('success','عضویت شما در خبرنامه ثبت شد.');
     }
 }
