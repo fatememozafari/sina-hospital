@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="body">
                                     <div class="img-post m-b-15">
-                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div id="carouselExampleControls{{$item->id}}" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner" role="listbox">
                                                 @foreach($item->images as $img)
                                                     @if($loop->first)
@@ -53,12 +53,12 @@
                                                     @endif
                                                 @endforeach
                                             </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleControls"
+                                            <a class="carousel-control-prev" href="#carouselExampleControls{{$item->id}}"
                                                role="button" data-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">قبلی</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls"
+                                            <a class="carousel-control-next" href="#carouselExampleControls{{$item->id}}"
                                                role="button" data-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">بعدی</span>
@@ -86,19 +86,18 @@
                                 </div>
                             </div>
                         @endforeach
-                        <ul class="pagination pagination-primary">
-                            <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">بعدی</a></li>
-                        </ul>
+{{--                        <ul class="pagination pagination-primary">--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">قبلی</a></li>--}}
+{{--                            <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">بعدی</a></li>--}}
+{{--                        </ul>--}}
                     </div>
                     <div class="col-lg-4 col-md-12 right-box">
                         <div class="card">
                             <div class="body search">
                                 <form class="input-group m-b-0" action="" method="get">
-                                    @csrf
                                     <input type="text" class="form-control" name="search" placeholder="جستجو...">
                                     <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
                                 </form>

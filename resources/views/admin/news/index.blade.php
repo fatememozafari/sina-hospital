@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <h2>لیست اخبار
-                            <small> خوش آمدید</small>
+{{--                            <small> خوش آمدید</small>--}}
                         </h2>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -19,13 +19,17 @@
                             <li class="breadcrumb-item active float-right">لیست اخبار</li>
                         </ul>
                     </div>
+                    <div class="col-12" style="text-align: left">
+                        <a class="btn btn-info" href="/admin/news/create">
+                            <i class="fa fa-plus mx-2"></i>
+                            ایجاد خبر جدید
+
+                        </a>
+                    </div>
                 </div>
             </div>
-            <ul class="">
-                <li class="">
-                    <a class="btn btn-info" href="/admin/news/create">ایجاد خبر جدید</a>
-                </li>
-            </ul>
+
+            <br>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 left-box">
@@ -43,29 +47,29 @@
                                 </div>
                                 <div class="body">
                                     <div class="img-post m-b-15">
-                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div id="carouselExampleControls{{$item->id}}" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner" role="listbox">
                                                 @foreach($item->images as $img)
                                                     @if($loop->first)
                                                         <div class="carousel-item active">
                                                             <img class="d-block img-fluid" src="/images/{{$img->image}}"
-                                                                 alt="slide">
+                                                                 width="800px" height="700px" alt="slide">
                                                         </div>
                                                     @else
                                                         <div class="carousel-item ">
                                                             <img class="d-block img-fluid" src="/images/{{$img->image}}"
-                                                                 alt="slide">
+                                                                 width="800px" height="700px" alt="slide">
                                                         </div>
                                                     @endif
                                                 @endforeach
                                             </div>
 
-                                            <a class="carousel-control-prev" href="#carouselExampleControls"
+                                            <a class="carousel-control-prev" href="#carouselExampleControls{{$item->id}}"
                                                role="button" data-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">قبلی</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls"
+                                            <a class="carousel-control-next" href="#carouselExampleControls{{$item->id}}"
                                                role="button" data-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">بعدی</span>
@@ -101,11 +105,11 @@
                                 </div>
                             </div>
                         @endforeach
-                        <ul class="pagination pagination-primary">
-                            <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">بعدی</a></li>
-                        </ul>
+{{--                        <ul class="pagination pagination-primary">--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">قبلی</a></li>--}}
+{{--                            <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">بعدی</a></li>--}}
+{{--                        </ul>--}}
                     </div>
 
                 </div>
