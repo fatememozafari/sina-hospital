@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
                         <h2>
-                            <small class="text-muted">خوش امدید</small>
+{{--                            <small class="text-muted">خوش امدید</small>--}}
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -105,17 +105,9 @@
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/offline-courses/{{$item->id}}" class="btn btn-primary btn-round">دانلود
+                                                        <a href="uploads/offlineCourse/{{$item->file->file }}" class="btn btn-primary btn-round"
+                                                        download="{{$item->file->file}}">دانلود
                                                         </a>
-{{--                                                        <a href="/front/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش--}}
-{{--                                                        </a>--}}
-{{--                                                        <form action="/front/documents/{{$item->id}}" method="post">--}}
-{{--                                                            @csrf--}}
-{{--                                                            @method('delete')--}}
-{{--                                                            <button type="submit" class="btn btn-default btn-round btn-simple">--}}
-{{--                                                                حذف--}}
-{{--                                                            </button>--}}
-{{--                                                        </form>--}}
 
                                                     </div>
                                                 </td>

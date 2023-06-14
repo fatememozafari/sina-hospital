@@ -106,13 +106,13 @@
                                         @foreach($course as $item)
                                         <tr role="row" class="even">
                                             <td>{{$item->id}}</td>
-                                            <td class="sorting_1"><a href="/admin/courses/{{$item->id}}">{{$item->title}}</a></td>
-                                            <td><a href="/admin/courses/{{$item->id}}">{{$item->slug}} <br>{{$item->id_code}}</a></td>
-                                            <td><a href="/admin/teachers/{{$item->teacher_id}}">{{$item->teacher_id}}</a>
+                                            <td class="sorting_1">{{$item->title}}</td>
+                                            <td>{{$item->slug}} <br>{{$item->id_code}}</td>
+                                            <td>{{$item->teacher_id}}
                                                     <br> {{__('custom.'.$item->type)}}</td>
                                             <td>{{$item->start_at}}</td>
                                             <td>
-                                                <div>
+                                                <div style="display: flex">
                                                     <a href="/admin/offline-courses/{{$item->id}}" class="btn btn-primary btn-round">نمایش
                                                     </a>
                                                     <a href="/admin/offline-courses/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش

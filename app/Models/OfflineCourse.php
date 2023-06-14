@@ -9,6 +9,12 @@ class OfflineCourse extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'id_code','title','slug','type','start_at','description','file','rate','file_type','teacher_id','user_id'
+        'id_code','title','slug','type','start_at','description','rate','file_type','teacher_id','user_id'
     ];
+    protected $guarded=['id'];
+
+    public function file()
+    {
+        return $this->morphOne(File::class, 'fileable');
+    }
 }

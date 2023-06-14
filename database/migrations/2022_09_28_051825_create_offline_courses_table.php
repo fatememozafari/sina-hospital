@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->foreignId('teacher_id')->nullable()->constrained();
-            $table->enum('file_type',['pdf','video','voice']);
+//            $table->enum('file_type',['pdf','video','voice']);
             $table->string('rate');
             $table->date('start_at')->format('Y/m/d');
             $table->string('description')->nullable();

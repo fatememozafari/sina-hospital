@@ -36,46 +36,39 @@
                                 @csrf
                                 @method('put')
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>شناسه دوره</b>
+                                <div class="col-sm-6"><b>شناسه دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="id_code" value="{{$inputs->id_code}}" class="form-control" placeholder="شناسه دوره">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
+                                <div class="col-sm-6"><b>تاریخ برگزاری</b>
+                                    <div class="form-group">
+                                        <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ برگزاری">
+                                    </div>
+                                </div>
                             </div>
+
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>نام مدرس</b>
+                                    <div class="col-sm-6"><b>نام مدرس</b>
                                         <select class="form-control show-tick" name="teacher_id" >
                                             @foreach($teacher as $inputs)
                                                 <option value="{{$inputs->id}}">{{$inputs->id}} {{$inputs->name}} {{$inputs->family}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-12"><b>تاریخ برگزاری</b>
-                                        <div class="form-group">
-                                            <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ برگزاری">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-12"><b>نوع فایل</b>
+                                    <div class="col-sm-6"><b>نوع فایل</b>
                                         <div class="form-group">
                                             <select class="form-control show-tick" name="type">
                                                 <option value="">- نوع فایل -</option>
@@ -88,32 +81,19 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>فایل دوره</b>
+                                    <div class="col-sm-6"><b>فایل دوره</b>
                                         <div class="form-group">
                                             <input type="file" name="file" class="form-control" placeholder="فایل دوره" value="{{$inputs->file}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"><b>توضیحات</b>
+                                        <div class="form-group">
+                                            <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="row clearfix">
-
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <select class="form-control show-tick" name="type">
-                                            <option value="">- نوع دوره -</option>
-                                            <option value="SPECIALISED">تخصصی</option>
-                                            <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
-                                            <option value="GENERAL">عمومی</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12"><b>توضیحات</b>
-                                <div class="form-group">
-                                    <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
-                                </div>
-                            </div>
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
                             </div>

@@ -27,8 +27,7 @@ class OfflineRequest extends FormRequest
             'title'=>['required'],
             'slug'=>['required'],
             'type'=>['required'],
-            'file'=>['required','mimes:pdf,mp3,mp4,mkv'],
-            'file_type'=>['required'],
+            'file'=>['required','mimes:pdf,mp3,mp4,mkv,docs'],
         ];
     }
 
@@ -39,7 +38,6 @@ class OfflineRequest extends FormRequest
             'slug.required'=>'فیلد عنوان تخصصی دوره اجباری است.',
             'type.required'=>'فیلد نوع دوره اجباری است.',
             'file.required'=>'فیلد آپلود فایل اجباری است.',
-            'file_type.required'=>'فیلد نوع فایل اجباری است.',
             'file.mimes'=>'فقط فایل با فرمت pdf,mp3,mp4,mkv مجاز است.'
         ];
     }
