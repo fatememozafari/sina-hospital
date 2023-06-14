@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Filters\contracts\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
     protected $fillable=[
         'id_code','title','slug','type','start_at','description','file','teacher_id','user_id','duration'
     ];

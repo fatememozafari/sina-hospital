@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2> ویرایش دوره
-                        <small class="text-muted">خوش امدید</small>
+{{--                        <small class="text-muted">خوش امدید</small>--}}
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -36,29 +36,31 @@
                                 @csrf
                                 @method('put')
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>شناسه دوره</b>
+                                <div class="col-sm-6"><b>شناسه دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="id_code" value="{{$inputs->id_code}}" class="form-control" placeholder="شناسه دوره">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
+                                <div class="col-sm-6"><b>تاریخ برگزاری</b>
+                                    <div class="form-group">
+                                        <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع ">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>نام مدرس</b>
+                                <div class="col-sm-6"><b>نام مدرس</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="teacher_id"
                                                 @error('teacher_id')
@@ -74,22 +76,9 @@
                                         <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
                                         @enderror                                    </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12"><b>تاریخ برگزاری</b>
-                                    <div class="form-group">
-                                        <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع ">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12">
+                                <div class="col-sm-6"><b>نوع دوره</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="type">
-                                            <option value="">- نوع دوره -</option>
                                             <option value="SPECIALISED">تخصصی</option>
                                             <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
                                             <option value="GENERAL">عمومی</option>

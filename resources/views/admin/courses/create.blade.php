@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2> ثبت دوره جدید
-                        <small class="text-muted">خوش امدید</small>
+{{--                        <small class="text-muted">خوش امدید</small>--}}
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -35,7 +35,7 @@
                             <form action="/admin/courses" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>شناسه دوره</b>
+                                <div class="col-sm-6"><b>شناسه دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره"
                                                @error('id_code')
@@ -46,10 +46,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="title" class="form-control" placeholder="عنوان دوره"
                                                @error('title')
@@ -61,8 +58,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره"
                                                @error('slug')
@@ -73,9 +71,21 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری</b>
+                                    <div class="form-group">
+                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری "
+                                               @error('start_at')
+                                               style="border: 1px solid red"
+                                            @enderror>
+                                        @error('start_at')
+                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>نام مدرس</b>
+                                <div class="col-sm-6"><b>نام مدرس</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="teacher_id"
                                                 @error('teacher_id')
@@ -92,30 +102,12 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-lg-12 col-md-6"><b> تاریخ برگزاری</b>
-                                    <div class="form-group">
-                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری "
-                                               @error('start_at')
-                                               style="border: 1px solid red"
-                                            @enderror>
-                                        @error('start_at')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12">
+                                <div class="col-sm-6"><b>نوع دوره</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="type"
                                                 @error('type')
                                         style="border: 1px solid red"
                                             @enderror>
-                                            <option value="">- نوع دوره -</option>
                                             <option> یک مورد را انتخاب کنید </option>
                                             <option value="SPECIALISED">تخصصی</option>
                                             <option value="SEMI_SPECIALISED">نیمه تخصصی</option>

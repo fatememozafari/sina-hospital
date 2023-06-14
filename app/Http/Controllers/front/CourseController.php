@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Filters\CourseFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $course=Course::query()->get();
+        $course=Course::query()->filter(new CourseFilter())->get();
         return view('front.courses.index',compact('course'));
     }
 
