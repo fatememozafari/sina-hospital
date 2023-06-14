@@ -52,7 +52,11 @@
                                             <p class="m-b-0">
                                                 <strong class="text-muted m-l-5"> فرستنده پیام: </strong>
                                                 <a href="javascript:void(0);" class="text-default">{{$contact->name}}</a>
-                                                <span class="text-muted text-sm float-left">{{$contact->created_at}}</span>
+                                                <span class="text-muted text-sm float-left">
+{{--                                                    {{$contact->created_at}}--}}
+                                                    {{ Morilog\Jalali\Jalalian::forge($contact->created_at)->format('%d %B ، %Y -  H:i:s') }}
+
+                                                </span>
                                             </p>
 
                                             <p class="m-b-0">

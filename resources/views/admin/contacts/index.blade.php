@@ -25,7 +25,6 @@
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-12">
                                 <form action="/admin/contacts" method="get">
-                                    @csrf
                                 <div class="input-group search">
 {{--                                    <input type="text" name="q" value="{{$request->get('q')}}" class="form-control" placeholder="جستجو...">--}}
                                     <input type="text" name="search" class="form-control" placeholder="جستجو...">
@@ -54,7 +53,7 @@
                                 <th>#</th>
                                 <th>نام</th>
                                 <th data-breakpoints="xs">موضوع</th>
-                                <th data-breakpoints="xs sm md">پیام</th>
+                                <th>تاریخ ارسال پیام</th>
                                 <th data-breakpoints="xs sm md">فایل</th>
                                 <th data-breakpoints="xs">عملیات</th>
                             </tr>
@@ -75,7 +74,9 @@
                                     <span>{{$item->title}}</span>
                                 </td>
                                 <td>
-                                    <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-l-5"></i> {{substr($item->message ,0,30) }}</a></span>
+{{--                                    <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-l-5"></i> {{substr($item->message ,0,30) }}</a></span>--}}
+                                    <span>{{ Morilog\Jalali\Jalalian::forge($item->created_at)->format('%d %B ، %Y -  H:i:s') }}</span>
+
                                 </td>
                                 <td>
                                     {!! $item->present()->file !!}
