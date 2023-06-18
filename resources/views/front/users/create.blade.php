@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right"> ثبت کاربر جدید </li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/front/users" method="post" enctype="multipart/form-data">
+                            <form action="{{route('front.users.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-sm-12"><b>نام</b>
@@ -173,7 +173,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12"><b>آپلود تصویر</b>
                                     <div class="dz-message">
                                         <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
-                                        <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>
+{{--                                        <h3> تصویر را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
                                         <em> <strong></strong></em> </div>
                                     <div class="fallback">
                                         <input name="avatar_path" type="file" value="{{old('avatar_path' ?? '')}}" multiple

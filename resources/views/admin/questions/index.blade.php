@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> داشبورد</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> داشبورد</a></li>
                         <li class="breadcrumb-item float-right"><a href="javascript:void(0);">صفحات</a></li>
                         <li class="breadcrumb-item active float-right">لیست سوالات</li>
                     </ul>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-12" style="text-align: left">
-                    <a class="btn btn-info" href="{{route('question.create')}}">
+                    <a class="btn btn-info" href="{{route('admin.questions.create')}}">
                         <i class="fa fa-plus mx-2"></i>
                         ایجاد سوال جدید
 
@@ -68,12 +68,11 @@
                             </div>
                             <div style="display: flex" class="mb-5 float-left">
                                 <div>
-                                    <a href="/admin/questions/{{$item->id}}/edit" title="ویرایش مطلب" class="btn btn-round btn-info"> ویرایش مطلب </a>
+                                    <a href="{{route('admin.questions.edit',$item->id)}}" title="ویرایش مطلب" class="btn btn-round btn-info"> ویرایش مطلب </a>
                                 </div>
                                 <div>
-                                    <form action="/admin/questions/{{$item->id}}" method="post">
+                                    <form action="{{route('admin.questions.delete',$item->id)}}" method="post">
                                         @csrf
-                                        @method('delete')
                                         <button type="submit" class="btn btn-default btn-round btn-simple">
                                             حذف
                                         </button>

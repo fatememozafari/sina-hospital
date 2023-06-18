@@ -30,7 +30,7 @@
                                 <ul class="header-dropdown">
                                     <li class="dropdown">
 
-                                        <a href="{{route('front.document.create')}}" class="btn btn-info">
+                                        <a href="{{route('front.documents.create')}}" class="btn btn-info">
                                             <i class="fa fa-plus"></i>
                                             ثبت دوره جدید
                                         </a>
@@ -92,18 +92,18 @@
                                         @foreach($document as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/front/documents/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/front/documents/{{$item->id}}">{{$item->slug}}</a></td>
+                                                <td class="sorting_1">{{$item->title}}</td>
+                                                <td>{{$item->slug}}</td>
                                                 <td>{{__('custom.'.$item->type)}}
                                                     <br>{{$item->file_type}}</td>
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/documents/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="{{route('front.documents.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
                                                         </a>
-                                                        <a href="/documents/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
+                                                        <a href="{{route('front.documents.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
                                                         </a>
-                                                        <form action="/documents/{{$item->id}}" method="post">
+                                                        <form action="{{route('front.documents.destroy',$item->id)}}" method="post">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" class="btn btn-default btn-round btn-simple">

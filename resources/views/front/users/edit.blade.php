@@ -33,7 +33,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/users/{{$inputs->id}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('front.users.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
 

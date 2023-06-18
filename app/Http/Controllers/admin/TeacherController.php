@@ -52,7 +52,7 @@ class TeacherController extends Controller
             $inputs['user_id'] = Auth::id();
 
             if ($request->file('avatar_path'))
-                $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+                $inputs['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'uploads/teachers');
 
             $result=Teacher::create($inputs);
             if ($result){
@@ -104,7 +104,7 @@ class TeacherController extends Controller
 //        $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))
-            $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+            $data['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'uploads/teachers');
 
         Teacher::query()->where('id',$id)->update($data);
         return redirect('/admin/teachers')->with('success','با موفقیت ویرایش شد.');

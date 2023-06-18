@@ -22,7 +22,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>خانه</a></li>
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i>خانه</a></li>
                             <li class="breadcrumb-item float-right"><a href="javascript:void(0);">مدرسان</a></li>
                             <li class="breadcrumb-item active float-right">پروفایل مدرس</li>
                         </ul>
@@ -178,7 +178,7 @@
                                         <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>{{$item->start_at}} </span> <span></span></time>
                                         <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-label"></i></div>
                                         <div class="cbp_tmlabel">
-                                            <h2><a href="javascript:void(0);">جسله کاری </a> <span>{{$item->title}}</span></h2>
+                                            <h2><a href="javascript:void(0);">جلسه کاری </a> <span>{{$item->title}}</span></h2>
                                             <p>{{$item->description}}</p>
                                         </div>
                                     </li>
@@ -190,7 +190,7 @@
                             <div class="hidden-print col-md-12 text-left">
                                 <a href="javascript:void(0);" class="btn btn-info btn-round"><i
                                         class="zmdi zmdi-print"></i></a>
-                                <a href="/admin/teachers/{{$teacher->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
+                                <a href="{{route('admin.teachers.edit',$teachers->id)}}" class="btn btn-primary btn-round">ویرایش</a>
                             </div>
 {{--                            <div role="tabpanel" class="tab-pane" id="usersettings">--}}
 {{--                                <div class="card">--}}

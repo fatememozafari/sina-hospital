@@ -103,15 +103,15 @@
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
                                                 <td class="sorting_1"><a href="/front/courses/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/front/courses/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
-                                                <td><a href="/front/teachers/{{$item->id}}">{{$item->teacher_id}}</a>
+                                                <td>{{$item->slug}} {{$item->id_code}}</td>
+                                                <td><a href="{{route('front.teachers.show',$item->teacher_id)}}">{{$item->teacher_id}}</a>
                                                     <br> {{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->start_at}}</td>
                                                 <td>
                                                     <div>
                                                         {{--                                                        <a href="/enrolls/{{$item->id}}/create" class="btn btn-primary btn-round">ثبتنام--}}
                                                         {{--                                                        </a>--}}
-                                                        <form action="{{route('front.enroll.store')}}" method="post">
+                                                        <form action="{{route('front.enrolls.store')}}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="course_id" value="{{$item->id}}">
                                                             <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">

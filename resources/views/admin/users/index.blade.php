@@ -15,7 +15,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست کاربران</li>
                         </ul>
@@ -32,7 +32,7 @@
                                 <h2> <strong>لیست کاربران </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a class="btn btn-info" href="{{route('user.create')}}">ایجاد کاربر جدید</a>
+                                        <a class="btn btn-info" href="{{route('admin.users.create')}}">ایجاد کاربر جدید</a>
                                     </li>
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -111,9 +111,9 @@
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/admin/users/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="{{route('admin.users.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
                                                         </a>
-                                                        <a href="/admin/users/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
+                                                        <a href="{{route('admin.users.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
                                                         </a>
 
 

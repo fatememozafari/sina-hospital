@@ -52,7 +52,7 @@ class ContactController extends Controller
     {
         $inputs = $request->only(['name', 'title', 'message', 'file','user_id']);
         if ($request->file('file')) {
-            $inputs['file'] = $this->uploadMedia($request->file('file'));
+            $inputs['file'] = $this->uploadFile($request->file('file'),'uploads/contacts');
         }
       Contact::create($inputs);
       return redirect('/admin/contacts');
@@ -95,7 +95,7 @@ class ContactController extends Controller
     {
         $data=$request->only('name','title','message','file');
         if ($request->file('file')){
-            $data['file'] = $this->uploadMedia($request->file('file'));
+            $data['file'] = $this->uploadFile($request->file('file'),'uploads/contacts');
         }
         Contact::query()->where('id',$id)->update($data);
         return redirect('/admin/contacts');

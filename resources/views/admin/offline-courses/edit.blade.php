@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right"> ویرایش دوره غیرحضوری</li>
                     </ul>
                 </div>
@@ -32,9 +32,8 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/offline-courses/{{$inputs->id}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.offline-courses.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
                             <div class="row clearfix">
                                 <div class="col-sm-6"><b>شناسه دوره</b>
                                     <div class="form-group">

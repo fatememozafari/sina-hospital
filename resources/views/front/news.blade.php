@@ -13,7 +13,7 @@
                         <ul class="breadcrumb float-md-left">
                             <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i> داشبورد</a></li>
-                            <li class="breadcrumb-item float-right"><a href="{{route('front.news.list')}}">اخبار</a>
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.news.index')}}">اخبار</a>
                             </li>
                             <li class="breadcrumb-item active float-right">لیست اخبار</li>
                         </ul>
@@ -42,12 +42,12 @@
                                                 @foreach($item->images as $img)
                                                     @if($loop->first)
                                                         <div class="carousel-item active">
-                                                            <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                            <img class="d-block img-fluid" src="/uploads/news/{{$img->image}}"
                                                                  alt="slide">
                                                         </div>
                                                     @else
                                                         <div class="carousel-item ">
-                                                            <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                            <img class="d-block img-fluid" src="/uploads/news/{{$img->image}}"
                                                                  alt="slide">
                                                         </div>
                                                     @endif
@@ -81,7 +81,7 @@
                                     </div>
                                     <br>
                                     <div class=""
-                                         style="overflow:visible; max-width: 100%; min-height: 50px">{{$item->body}}</div>
+                                         style="overflow:visible; max-width: 100%; min-height: 50px">{{substr($item->body,0,30)}}</div>
                                     <a href="#" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                         کنید ، بیایید در تماس باشیم. </small></h2>
                             </div>
                             <div class="body widget newsletter">
-                                <form class="input-group" method="post" action="{{route('front.newsletter.store')}}">
+                                <form class="input-group" method="post" action="{{route('front.newsletters.store')}}">
                                     @csrf
                                     <input type="text" name="email" class="form-control" placeholder="ایمیل را وارد کنید">
                                     @error('email')

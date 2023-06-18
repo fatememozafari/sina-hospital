@@ -22,65 +22,65 @@
                     </div>
                 </li>
                 <li class="header">اصلی</li>
-                <li class="active open"><a href="{{route('dashboard')}}"><i
+                <li class="active open"><a href="{{route('admin.dashboard')}}"><i
                             class="zmdi zmdi-home"></i><span>داشبورد</span></a></li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i
                             class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('teachers.list')}}">لیست مدرس</a></li>
-                        <li><a href="/admin/teachers/create">افزودن مدرس</a></li>
+                        <li><a href="{{route('admin.teachers.index')}}">لیست مدرس</a></li>
+                        <li><a href="{{route('admin.teachers.create')}}">افزودن مدرس</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i
                             class="zmdi zmdi-account-o"></i><span>کاربران</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('user.list')}}">تمامی کاربران</a></li>
-                        <li><a href="{{route('user.create')}}">افزودن کاربر جدید</a></li>
+                        <li><a href="{{route('admin.users.index')}}">تمامی کاربران</a></li>
+                        <li><a href="{{route('admin.users.create')}}">افزودن کاربر جدید</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i
                             class="zmdi zmdi-account-o"></i><span>امور مربوط به کاربران</span> </a>
                     <ul class="ml-menu">
 
-                        <li><a href="{{route('enroll-course-list')}}">ثبت نام در دوره</a></li>
-                        <li><a href="{{route('score.list')}}">نمره دهی</a></li>
-                        <li><a href="{{route('result.list')}}">کارنامه</a></li>
+                        <li><a href="{{route('admin.enroll-course-list')}}">ثبت نام در دوره</a></li>
+                        <li><a href="{{route('admin.scores.index')}}">نمره دهی</a></li>
+                        <li><a href="{{route('admin.results.index')}}">کارنامه</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های حضوری</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('course.list')}}">لیست دوره های حضوری</a></li>
-                        <li><a href="{{route('course.create')}}">افزودن دوره حضوری جدید</a></li>
+                        <li><a href="{{route('admin.courses.index')}}">لیست دوره های حضوری</a></li>
+                        <li><a href="{{route('admin.courses.create')}}">افزودن دوره حضوری جدید</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره های غیرحضوری</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('offline.list')}}">لیست دوره های غیرحضوری </a></li>
-                        <li><a href="{{route('offline.create')}}">افزودن دوره ی جدید غیرحضوری</a></li>
+                        <li><a href="{{route('admin.offline-courses.index')}}">لیست دوره های غیرحضوری </a></li>
+                        <li><a href="{{route('admin.offline-courses.create')}}">افزودن دوره ی جدید غیرحضوری</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره هایی که کاربر قبلا گذرانده</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('document.list')}}">لیست دوره هایی که کاربر قبلا گذرانده </a></li>
+                        <li><a href="{{route('admin.documents.index')}}">لیست دوره هایی که کاربر قبلا گذرانده </a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>آزمون آنلاین</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('online_exam.list')}}">لیست آزمونهای آنلاین </a></li>
-                        <li><a href="{{route('online_exam.create')}}">افزودن آزمون آنلاین</a></li>
+                        <li><a href="{{route('admin.online_exams.index')}}">لیست آزمونهای آنلاین </a></li>
+                        <li><a href="{{route('admin.online_exams.create')}}">افزودن آزمون آنلاین</a></li>
                     </ul>
                 </li>
                 @can('roles_read')
                     <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>rolesنقش ها</span>
                         </a>
                         <ul class="ml-menu">
-                            <li><a href="{{route('role.list')}}">لیست نقش ها</a></li>
+                            <li><a href="{{route('admin.roles.index')}}">لیست نقش ها</a></li>
                             @can('roles_create')
-                                <li><a href="{{route('role.create')}}">افزودن نقش جدید</a></li>
+                                <li><a href="{{route('admin.roles.create')}}">افزودن نقش جدید</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -89,9 +89,9 @@
                     <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>permissionاختیارات</span>
                         </a>
                         <ul class="ml-menu">
-                            <li><a href="{{route('permission.list')}}">لیست اختیارات</a></li>
+                            <li><a href="{{route('admin.permissions.index')}}">لیست اختیارات</a></li>
                             @can('permissions_create')
-                                <li><a href="{{route('permission.create')}}">افزودن اختیارات جدید به نقش</a></li>
+                                <li><a href="{{route('admin.permissions.create')}}">افزودن اختیارات جدید به نقش</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -100,9 +100,9 @@
                     <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>asignتخصیص</span>
                         </a>
                         <ul class="ml-menu">
-                            <li><a href="{{route('asign.list')}}">لیست تخصیصات</a></li>
+                            <li><a href="{{route('admin.assign.index')}}">لیست تخصیصات</a></li>
                             @can('asigns_create')
-                                <li><a href="{{route('asign.create')}}"> تخصیص نقش جدید به کاربر</a></li>
+                                <li><a href="{{route('admin.assign.create')}}"> تخصیص نقش جدید به کاربر</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -112,37 +112,37 @@
                     <ul class="ml-menu">
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> گالری تصاویر </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('gallery.list')}}">لیست تصاویر </a></li>
-                                <li><a href="{{route('gallery.create')}}">افزودن تصویر جدید</a></li>
+                                <li><a href="{{route('admin.gallery.index')}}">لیست تصاویر </a></li>
+                                <li><a href="{{route('admin.gallery.create')}}">افزودن تصویر جدید</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> درباره ما </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('about.list')}}">نمایش درباره ما </a></li>
-                                <li><a href="{{route('about.create')}}">ویرایش درباره ما</a></li>
+                                <li><a href="{{route('admin.about.index')}}">نمایش درباره ما </a></li>
+                                <li><a href="{{route('admin.about.create')}}">ویرایش درباره ما</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> تماس با ما </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('contacts.list')}}">لیست پیام های ارسال شده </a></li>
+                                <li><a href="{{route('admin.contacts.index')}}">لیست پیام های ارسال شده </a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> سوالات متداول </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('question.list')}}">لیست سوالات </a></li>
-                                <li><a href="{{route('question.create')}}">افزودن سوال جدید</a></li>
+                                <li><a href="{{route('admin.questions.index')}}">لیست سوالات </a></li>
+                                <li><a href="{{route('admin.questions.create')}}">افزودن سوال جدید</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> اخبار </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('news.list')}}">لیست اخبار </a></li>
-                                <li><a href="/admin/news/create">افزودن خبر جدید</a></li>
+                                <li><a href="{{route('admin.news.index')}}">لیست اخبار </a></li>
+                                <li><a href="{{route('admin.news.create')}}">افزودن خبر جدید</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><span> خبرنامه </span> </a>
                             <ul class="ml-menu">
-                                <li><a href="{{route('newsletter.list')}}">لیست اعضای خبرنامه </a></li>
-                                <li><a href="/admin/newsletters/create">ارسال پیام به اعضا</a></li>
+                                <li><a href="{{route('admin.newsletters.index')}}">لیست اعضای خبرنامه </a></li>
+                                <li><a href="{{route('admin.newsletters.index')}}">ارسال پیام به اعضا</a></li>
                             </ul>
                         </li>
                     </ul>

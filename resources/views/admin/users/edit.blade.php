@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right"> ویرایش کاربر </li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/users/{{$inputs->id}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.users.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="row clearfix">
@@ -96,17 +96,17 @@
                                 </div>
 
                                 <div class="row clearfix">
-{{--                                    <div class="col-sm-6">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <input type="text" name="password" value="{{$inputs->password}}" class="form-control" placeholder="رمز ورود"--}}
-{{--                                                   @error('password')--}}
-{{--                                                   style="border: 1px solid red"--}}
-{{--                                                @enderror>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" name="password" value="" class="form-control" placeholder="رمز ورود"
+                                                   @error('password')
+                                                   style="border: 1px solid red"
+                                                @enderror>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6"><b> رمز ورود</b>
                                         <div class="form-group">
-                                            <input type="text" name="password_confirmation" value="{{$inputs->password_confirmation}}" class="form-control" placeholder="تایید رمز ورود"
+                                            <input type="text" name="password_confirmation" value="" class="form-control" placeholder="تایید رمز ورود"
                                                    readonly
                                                    @error('password_confirmation')
                                                    style="border: 1px solid red"

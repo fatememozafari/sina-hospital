@@ -78,7 +78,7 @@ class OfflineCourseController extends Controller
         $data=$request->only('id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at');
 
         if ($request->file('file'))
-            $data['file'] = $this->uploadMedia($request->file('file'));
+            $data['file'] = $this->uploadFile($request->file('file'), 'uploads/offlineCourse');
 
         OfflineCourse::query()->where('id',$id)->update($data);
 

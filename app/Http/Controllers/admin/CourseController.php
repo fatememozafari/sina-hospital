@@ -47,7 +47,7 @@ class CourseController extends Controller
             $inputs['user_id'] =Auth::id();
 
             if ($request->file('file'))
-                $inputs['file'] = $this->uploadMedia($request->file('file'));
+                $inputs['file'] = $this->uploadFile($request->file('file'),'uploads/courses');
 
             $result=Course::create($inputs);
 
@@ -97,7 +97,7 @@ class CourseController extends Controller
     {
         $data=$request->only('id_code','title','slug','type','start_at','description','file','teacher_id');
         if ($request->file('file'))
-            $data['file'] = $this->uploadMedia($request->file('file'));
+            $data['file'] = $this->uploadFile($request->file('file'),'uploads/courses');
         Course::query()->where('id',$id)->update($data);
         return redirect('admin/courses')->with('success','با موفقیت ویرایش شد.');
 

@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="index.html"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item float-right"><a href="javascript:void(0);"> صندوق ورودی </a></li>
                         <li class="breadcrumb-item active float-right">مشاهده پیام</li>
                     </ul>

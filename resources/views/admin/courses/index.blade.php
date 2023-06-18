@@ -16,7 +16,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
@@ -35,7 +35,7 @@
                                 <h2><strong>دوره های حضوری </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a class="btn btn-info" href="{{route('course.create')}}">ایجاد دوره حضوری جدید</a>
+                                        <a class="btn btn-info" href="{{route('admin.courses.create')}}">ایجاد دوره حضوری جدید</a>
                                     </li>
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -115,13 +115,12 @@
                                             <td>{{$item->start_at}}</td>
                                             <td>
                                                 <div style="display: flex">
-                                                    <a href="/admin/courses/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                    <a href="{{route('admin.courses.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
                                                     </a>
-                                                    <a href="/admin/courses/{{$item->id}}/edit" class="btn btn-primary btn-round">ویرایش
+                                                    <a href="{{route('admin.courses.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
                                                     </a>
-                                                    <form action="/admin/courses/{{$item->id}}" method="post">
+                                                    <form action="{{route('admin.courses.delete',$item->id)}}" method="post">
                                                         @csrf
-                                                        @method('delete')
                                                         <button type="submit" class="btn btn-default btn-round btn-simple">
                                                             حذف
                                                         </button>

@@ -185,7 +185,7 @@
                                             <time class="cbp_tmtime" datetime="1398-08-05T03:45"><span>{{$item->start_at}} </span> <span></span></time>
                                             <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-label"></i></div>
                                             <div class="cbp_tmlabel">
-                                                <h2><a href="javascript:void(0);">جسله کاری </a> <span>{{$item->title}}</span></h2>
+                                                <h2><a href="javascript:void(0);">جلسه کاری </a> <span>{{$item->title}}</span></h2>
                                                 <p>{{$item->description}}</p>
                                             </div>
                                         </li>

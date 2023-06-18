@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                     class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item float-right"><a href="javascript:void(0);">دوره های حضوری</a></li>
                         <li class="breadcrumb-item active float-right">نمایش دوره</li>
@@ -91,7 +91,9 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h5> تاریخ برگزاری دوره: </h5>
-                                                    <p class="text-justify">{{$course->start_at}}</p>
+                                                    <p class="text-justify">
+                                                        {{ Morilog\Jalali\Jalalian::forge($course->start_at)->format('Y/m/d H:i:s') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -114,7 +116,7 @@
                                     <div class="hidden-print col-md-12 text-left">
                                         <a href="javascript:void(0);" class="btn btn-info btn-round"><i
                                                 class="zmdi zmdi-print"></i></a>
-                                        <a href="/admin/courses/{{$course->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
+                                        <a href="{{route('admin.courses.edit',$course->id)}}" class="btn btn-primary btn-round">ویرایش</a>
                                     </div>
                                 </div>
                             </div>

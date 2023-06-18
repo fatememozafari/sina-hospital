@@ -122,7 +122,7 @@
                                     <div class="hidden-print col-md-12 text-left">
                                         <a href="javascript:void(0);" class="btn btn-info btn-round"><i
                                                 class="zmdi zmdi-print"></i></a>
-                                        <a href="/documents/{{$document->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
+                                        <a href="{{route('front.documents.edit',$document->id)}}" class="btn btn-primary btn-round">ویرایش</a>
                                     </div>
                                 </div>
                             </div>

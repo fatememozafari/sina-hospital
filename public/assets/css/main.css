@@ -16749,7 +16749,9 @@ img {
 .menu_dark .sidebar {
     background: #212121
 }
-
+/*.menu_dark body{*/
+/*    background: #212121*/
+/*}*/
 .menu_dark .sidebar .user-info {
     border-bottom: 1px solid #37474f
 }

@@ -94,14 +94,14 @@
                                         @foreach($enrolls as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/front/courses/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/front/courses/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
+                                                <td class="sorting_1"><a href="{{route('front.courses.show',$item->id)}}">{{$item->title}}</a></td>
+                                                <td>{{$item->slug}} {{$item->id_code}}</td>
                                                 <td> {{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->start_at}}</td>
                                                 <td>
                                                     <div>
                                                      <span class="badge badge-success">ثبت نام شده</span>
-                                                    <form action="/courses/{{$item->id}}" method="post">
+                                                    <form action="{{route('front.courses.destroy',$item->id)}}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-default btn-round btn-simple">

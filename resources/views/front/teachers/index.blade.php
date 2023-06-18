@@ -15,7 +15,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>
+                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست مدرسان</li>
                         </ul>
@@ -87,12 +87,12 @@
                                         @foreach($teacher as $item)
                                             <tr role="row" class="even">
                                                 <td class="sorting_1">{{$item->id}}</td>
-                                                <td><a href="/teachers/{{$item->id}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td><a href="{{route('front.teachers.show',$item->id)}}">{{$item->name}} {{$item->family}}</a></td>
                                                 <td>{{$item->job}}</td>
-                                                <td><a href="/teachers/{{$item->id}}">{{$item->email}}</a></td>
+                                                <td>{{$item->email}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/teachers/{{$item->id}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="{{route('front.teachers.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
                                                         </a>
 
                                                     </div>

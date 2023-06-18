@@ -12,15 +12,15 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i> داشبورد</a></li>
-                            <li class="breadcrumb-item float-right"><a href="{{route('front.news.list')}}">اخبار</a>
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.news.index')}}">اخبار</a>
                             </li>
                             <li class="breadcrumb-item active float-right">لیست اخبار</li>
                         </ul>
                     </div>
                     <div class="col-12" style="text-align: left">
-                        <a class="btn btn-info" href="/admin/news/create">
+                        <a class="btn btn-info" href="{{route('admin.news.create')}}">
                             <i class="fa fa-plus mx-2"></i>
                             ایجاد خبر جدید
 
@@ -52,12 +52,12 @@
                                                 @foreach($item->images as $img)
                                                     @if($loop->first)
                                                         <div class="carousel-item active">
-                                                            <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                            <img class="d-block img-fluid" src="/uploads/news/{{$img->image}}"
                                                                  width="800px" height="700px" alt="slide">
                                                         </div>
                                                     @else
                                                         <div class="carousel-item ">
-                                                            <img class="d-block img-fluid" src="/images/{{$img->image}}"
+                                                            <img class="d-block img-fluid" src="/uploads/news/{{$img->image}}"
                                                                  width="800px" height="700px" alt="slide">
                                                         </div>
                                                     @endif
@@ -92,11 +92,10 @@
                                         </div>
                                     </div>
                                     <div class="" style="overflow:visible; max-width: 100%; min-height: 50px">{{$item->body}}</div>
-                                    <a href="/admin/news/{{$item->id}}/edit" title="ادامه مطلب"
+                                    <a href="{{route('admin.news.edit',$item->id)}}"
                                        class="btn btn-round btn-info"> ویرایش مطلب </a>
-                                    <form action="/admin/news/{{$item->id}}" method="post">
+                                    <form action="{{route('admin.news.delete',$item->id)}}" method="post">
                                         @csrf
-                                        @method('delete')
                                         <button type="submit" class="btn btn-default btn-round btn-simple">
                                             حذف
                                         </button>

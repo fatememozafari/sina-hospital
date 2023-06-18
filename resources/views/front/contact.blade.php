@@ -36,7 +36,7 @@
                     <div class="body">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12">
-                                <form action="/contacts" method="post" enctype="multipart/form-data">
+                                <form action="{{route('front.contacts.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="col-md-12 col-lg-12 col-xl-12">
 

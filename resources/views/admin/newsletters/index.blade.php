@@ -16,7 +16,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
@@ -34,7 +34,7 @@
                                 <h2><strong>اعضای خبرنامه </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a class="btn btn-info" href="{{route('newsletter.create')}}">ارسال ایمیل</a>
+                                        <a class="btn btn-info" href="{{route('admin.newsletters.create')}}">ارسال ایمیل</a>
                                     </li>
                                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                             data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -102,9 +102,8 @@
                                                         <a href="#" class="btn btn-primary btn-round">ارسال
                                                         </a>
 
-                                                        <form action="/admin/newsletters/{{$item->id}}" method="post">
+                                                        <form action="{{route('admin.newsletters.delete',$item->id)}}" method="post">
                                                             @csrf
-                                                            @method('delete')
                                                             <button type="submit" class="btn btn-default btn-round btn-simple">
                                                                 حذف
                                                             </button>

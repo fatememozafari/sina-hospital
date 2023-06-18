@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right">   ثبتنام در دوره </li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="body">
-                            <form action="/admin/enrolls" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.enrolls.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="mb-3 col-sm-12">

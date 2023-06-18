@@ -15,7 +15,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
@@ -103,17 +103,17 @@
                                         @foreach($course as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/admin/courses/{{$item->id}}">{{$item->title}}</a></td>
-                                                <td><a href="/admin/courses/{{$item->id}}">{{$item->slug}} {{$item->id_code}}</a></td>
-                                                <td><a href="/admin/teachers/{{$item->id}}">{{$item->teacher_id}}</a>
+                                                <td class="sorting_1"><a href="{{route('admin.courses.show',$item->id)}}">{{$item->title}}</a></td>
+                                                <td>{{$item->slug}} {{$item->id_code}}</td>
+                                                <td><a href="/admin/teachers/{{$item->teacher_id}}">{{$item->teacher_id}}</a>
                                                     <br> {{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->start_at}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="/admin/scores/{{$item->id}}/create" class="btn btn-warning btn-round">
+                                                        <a href="{{route('admin.scores.create',$item->id)}}" class="btn btn-warning btn-round">
                                                             ثبت نمره
                                                         </a>
-                                                        <a href="/admin/scores/{{$item->id}}" class="btn btn-warning btn-round">
+                                                        <a href="{{route('admin.scores.show',$item->id)}}" class="btn btn-warning btn-round">
                                                             نمایش نمرات
                                                         </a>
 

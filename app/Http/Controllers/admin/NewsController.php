@@ -61,7 +61,7 @@ class NewsController extends Controller
                     $imageName=time().'_'.$file->getClientOriginalName();
                     $request['news_id']=$news->id;
                     $request['image']=$imageName;
-                    $file->move(\public_path('/images'),$imageName);
+                    $file->move(\public_path('/uploads/news'),$imageName);
                     Image::create($request->all());
                 }
             }
@@ -122,7 +122,7 @@ class NewsController extends Controller
                 $imageName=time().'_'.$file->getClientOriginalName();
                 $request['news_id']=$news->id;
                 $request['image']=$imageName;
-                $file->move(\public_path('images'),$imageName);
+                $file->move(\public_path('uploads/news'),$imageName);
                 Image::create($request->all());
             }
         }

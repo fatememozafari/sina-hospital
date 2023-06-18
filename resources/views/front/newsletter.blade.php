@@ -13,7 +13,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <ul class="breadcrumb float-md-left">
                         <li class="breadcrumb-item float-right"><a href="{{route('front.dashboard')}}"><i class="zmdi zmdi-home"></i> داشبورد</a></li>
-                        <li class="breadcrumb-item float-right"><a href="{{route('front.newsletter.create')}}">خبرنامه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('front.newsletters.create')}}">خبرنامه</a></li>
                         <li class="breadcrumb-item active float-right">عضویت در خبرنامه</li>
                     </ul>
                 </div>
@@ -31,7 +31,7 @@
                             </h2>
                         </div>
                         <div class="body widget newsletter">
-                            <form action="{{route('front.newsletter.store')}}" method="post">
+                            <form action="{{route('front.newsletters.store')}}" method="post">
                                 @csrf
                                 <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
                                 @error('name')

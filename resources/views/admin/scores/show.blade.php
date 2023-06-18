@@ -15,7 +15,7 @@
                             <i class="zmdi zmdi-plus"></i>
                         </button>
                         <ul class="breadcrumb float-md-left">
-                            <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                            <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
                             <li class="breadcrumb-item active float-right">لیست دوره های حضوری</li>
@@ -97,7 +97,7 @@
                                                 <td> {{$item->score}}</td>
                                                 <td>{{$item->course->start_at}}</td>
                                                 <td>
-                                                    <a href="/admin/scores/{{$item->id}}/edit" class="btn btn-warning btn-round">
+                                                    <a href="{{route('admin.scores.edit',$item->id)}}" class="btn btn-warning btn-round">
                                                         ویرایش نمره
                                                     </a>
                                                 </td>

@@ -118,7 +118,7 @@ class ScoreController extends Controller
             ['course_id','=',$request->course_id],
             ['user_id','=',$request->user_id]
         ])->update($data);
-        return redirect()->route('score.show', ['id' => $request->course_id])->with('success','با موفقیت ویرایش شد.');
+        return redirect()->route('admin.scores.show', ['id' => $request->course_id])->with('success','با موفقیت ویرایش شد.');
 
 
     }

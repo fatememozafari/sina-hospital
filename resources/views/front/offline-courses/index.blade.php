@@ -98,7 +98,7 @@
                                         @foreach($course as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/front/offline-courses/{{$item->id}}">{{$item->title}}</a></td>
+                                                <td class="sorting_1"><a href="{{route('front.offline-courses.show',$item->id)}}">{{$item->title}}</a></td>
                                                 <td>{{$item->slug}} <br>{{$item->id_code}}</td>
                                                 <td>{{__('custom.'.$item->type)}}
                                                     <br>{{$item->file_type}}</td>

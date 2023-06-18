@@ -24,9 +24,9 @@
                     دوره ها
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" target="" href="{{route('front.course.list')}}">لیست دوره های حضوری</a>
-                    <a class="dropdown-item" target="" href="{{route('front.offline.list')}}">لیست دوره های غیرحضوری</a>
-                    <a class="dropdown-item" target="" href="{{route('front.document.list')}}">لیست دوره هایی که قبلا
+                    <a class="dropdown-item" target="" href="{{route('front.courses.index')}}">لیست دوره های حضوری</a>
+                    <a class="dropdown-item" target="" href="{{route('front.offline-courses.index')}}">لیست دوره های غیرحضوری</a>
+                    <a class="dropdown-item" target="" href="{{route('front.documents.index')}}">لیست دوره هایی که قبلا
                         گذرانده اید </a>
 
                 </div>
@@ -38,9 +38,9 @@
                     نتایج دوره
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" target="" href="{{route('front.result.list')}}">کارنامه</a>
-                    <a class="dropdown-item" target="" href="{{route('front.result.create')}}">چاپ کارنامه</a>
-                    <a class="dropdown-item" target="" href="{{route('front.online_exam.create')}}">لیست آزمونهای
+                    <a class="dropdown-item" target="" href="{{route('front.results.index')}}">کارنامه</a>
+                    <a class="dropdown-item" target="" href="">چاپ کارنامه</a>
+                    <a class="dropdown-item" target="" href="{{route('front.online_exams.create')}}">لیست آزمونهای
                         آنلاین </a>
                 </div>
             </li>
@@ -60,19 +60,19 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" target="" href="{{route('front.about.list')}}"> درباره ما </a>
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.about.index')}}"> درباره ما </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" target="" href="{{route('front.contact.create')}}"> تماس با ما </a>
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.contacts.create')}}"> تماس با ما </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" target="" href="{{route('front.question.list')}}">سوالات متداول</a>
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.questions.index')}}">سوالات متداول</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" target="" href="{{route('front.news.list')}}">اخبار </a>
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.news.index')}}">اخبار </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" target="" href="{{route('front.newsletter.create')}}">عضویت در
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.newsletters.create')}}">عضویت در
                     خبرنامه</a>
             </li>
 

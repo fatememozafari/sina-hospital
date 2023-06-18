@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right"> ثبت مدرس جدید </li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/teachers" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.teachers.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-sm-6"><b>نام</b>

@@ -59,22 +59,22 @@ Route::view('access-denied', 'access-denied')->name('access-denied');
 */
 
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
     Route::get('asigns', [RoleController::class, 'asignPermissionForm']);
     Route::post('asigns', [RoleController::class, 'syncPermission']);
 
     Route::resource('roles', RoleController::class)->names([
-        'create' => 'role.create',
-        'index' => 'role.list',
+        'create' => 'roles.create',
+        'index' => 'roles.index',
     ]);
     Route::resource('asigns', AsignController::class)->names([
-        'create' => 'asign.create',
-        'index' => 'asign.list',
+        'create' => 'assign.create',
+        'index' => 'assign.index',
     ]);
     Route::resource('permissions', PermissionController::class)->names([
-        'create' => 'permission.create',
-        'index' => 'permission.list',
+        'create' => 'permissions.create',
+        'index' => 'permissions.index',
     ]);
 
 });

@@ -14,7 +14,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>داشبورد</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i>داشبورد</a></li>
                         <li class="breadcrumb-item float-right"><a href="javascript:void(0);">کاربران</a></li>
                         <li class="breadcrumb-item active float-right">پروفایل کاربر</li>
                     </ul>
@@ -136,7 +136,9 @@
                                             @foreach($user->courses as $item)
                                             <div class="timeline-item border-info">
                                                 <div class="item-content">
-                                                    <div class="text-small"> تاریخ برگزاری: {{$item->start_at}}</div>
+                                                    <div class="text-small"> تاریخ برگزاری:
+                                                        {{ Morilog\Jalali\Jalalian::forge($item->start_at)->format('Y/m/d H:i:s') }}
+                                                    </div>
                                                     <p>عنوان دوره: {{$item->title}}</p>
                                                 </div>
                                             </div>
@@ -151,7 +153,7 @@
                         <div class="hidden-print col-md-12 text-left">
                             <a href="javascript:void(0);" class="btn btn-info btn-round"><i
                                     class="zmdi zmdi-print"></i></a>
-                            <a href="/admin/users/{{$user->id}}/edit" class="btn btn-primary btn-round">ویرایش</a>
+                            <a href="{{route('admin.users.edit',$user->id)}}" class="btn btn-primary btn-round">ویرایش</a>
                         </div>
                     </div>
                 </div>

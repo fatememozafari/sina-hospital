@@ -51,7 +51,7 @@ class UserController extends Controller
             $inputs['user_id'] =Auth::id();
 
             if ($request->file('avatar_path'))
-                $inputs['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+                $inputs['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'profile/image');
 
             $result=User::create($inputs);
             if ($result){
@@ -102,7 +102,7 @@ class UserController extends Controller
 //        $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))
-            $data['avatar_path'] = $this->uploadMedia($request->file('avatar_path'));
+            $data['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'profile/image');
 
         User::query()->where('id',$id)->update($data);
         return redirect('admin/users')->with('success','با موفقیت ویرایش شد.');

@@ -47,7 +47,7 @@ class DocumentController extends Controller
         $result=Document::create($inputs);
 
         if ($result){
-            return redirect()->route('front.document.list')->with('success','با موفقیت ثبت شد.');
+            return redirect()->route('front.documents.list')->with('success','با موفقیت ثبت شد.');
         } else{
             return back()->with('error','با خطا مواجه شد.');
         }
@@ -90,7 +90,7 @@ class DocumentController extends Controller
     {
         $data=$request->only('title','slug','type','start_at','description','file','duration','teacher_id','user_id');
         if ($request->file('file'))
-            $data['file'] = $this->uploadMedia($request->file('file'));
+            $data['file'] = $this->uploadFile($request->file('file'), 'uploads/documents');
         Document::query()->where('id',$id)->update($data);
         return redirect('/documents')->with('success','با موفقیت ویرایش شد.');
 

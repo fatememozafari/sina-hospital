@@ -13,7 +13,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item active float-right"> ویرایش سوال {{$inputs->id}} </li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="/admin/questions/{{$inputs->id}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.questions.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="row clearfix">
