@@ -10,7 +10,7 @@ class Course extends Model
 {
     use HasFactory, Filterable;
     protected $fillable=[
-        'id_code','title','slug','type','start_at','description','file','teacher_id','user_id','duration'
+        'title','slug','type','start_at','description','file','teacher_id','user_id','duration'
     ];
 
     public function teacher()

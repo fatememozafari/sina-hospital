@@ -26,13 +26,9 @@ return new class extends Migration
             $table->string('avatar_path')->nullable();
             $table->text('address')->nullable();
             $table->date('birthday')->nullable();
-            $table->string('job')->nullable();
-            $table->string('born_in')->nullable();
-            $table->string('personnel_number')->nullable();
-            $table->string('job_code')->nullable();
             $table->string('rate');
             $table->string('user_id')->nullable();
-            $table->enum('gender',['MALE',"FEMALE"])->nullable();
+            $table->enum('gender',['MALE',"FEMALE",'UNKNOWN'])->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

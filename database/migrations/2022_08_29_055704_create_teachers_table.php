@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('family');
-            $table->string('melli_code')->unique()->nullable();
             $table->string('mobile');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,14 +24,9 @@ return new class extends Migration
             $table->string('password_confirmation');
             $table->string('avatar_path')->nullable();
             $table->text('address')->nullable();
-            $table->date('birthday')->nullable();
-            $table->string('born_in')->nullable();
-            $table->string('personnel_number')->nullable();
-            $table->string('job')->nullable();
-            $table->string('job_code')->nullable();
             $table->string('rate');
             $table->string('user_id')->nullable();
-            $table->enum('gender',['MALE',"FEMALE"])->nullable();
+            $table->enum('gender',['MALE',"FEMALE",'UNKNOWN'])->nullable();
             $table->timestamps();
             $table->softDeletes();
 

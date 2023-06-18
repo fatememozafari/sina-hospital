@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->foreignId('user_id')->constrained();
             $table->date('start_at')->format('Y/m/d');
-            $table->integer('duration');
+            $table->integer('duration')->nullable();
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->string('teacher')->nullable();
             $table->string('description')->nullable();

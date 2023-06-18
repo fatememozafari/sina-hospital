@@ -33,10 +33,10 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="{{route('front.document.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('front.documents.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="عنوان دوره"
                                                @error('title')
@@ -47,7 +47,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" class="form-control" value="{{old('slug')}}" placeholder="عنوان تخصصی دوره"
                                         @error('slug')
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری</b>
+                                <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری*</b>
                                     <div class="form-group">
                                         <input type="date" name="start_at" value="{{old('start_at')}}" class="form-control" placeholder="تاریخ برگزاری "
                                                @error('start_at')
@@ -71,7 +71,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6"><b> مدت زمان دوره به ساعت</b>
+                                <div class="col-lg-6 col-md-6"><b> مدت زمان دوره به ساعت*</b>
                                     <div class="form-group">
                                         <input type="number" name="duration" value="{{old('duration')}}" class="form-control" placeholder="مدت زمان دوره به ساعت "
                                                @error('duration')
@@ -117,7 +117,7 @@
                                 </div>
 
                                 <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6"><b> آپلود فایل</b>
+                                    <div class="col-lg-6 col-md-6"><b> آپلود فایل*</b>
                                         <div class="form-group">
                                             <input type="file" name="file" class="form-control" placeholder="آپلود فایل "
                                             @error('file')

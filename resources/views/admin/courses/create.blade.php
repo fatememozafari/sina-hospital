@@ -35,20 +35,9 @@
                             <form action="{{route('admin.courses.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>شناسه دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
-                                        <input type="text" name="id_code" class="form-control" placeholder="شناسه دوره"
-                                               @error('id_code')
-                                               style="border: 1px solid red"
-                                            @enderror>
-                                        @error('id_code')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-sm-6"><b>عنوان دوره</b>
-                                    <div class="form-group">
-                                        <input type="text" name="title" class="form-control" placeholder="عنوان دوره"
+                                        <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="عنوان دوره"
                                                @error('title')
                                                style="border: 1px solid red"
                                             @enderror>
@@ -57,12 +46,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
-                                        <input type="text" name="slug" class="form-control" placeholder="عنوان تخصصی دوره"
+                                        <input type="text" name="slug" value="{{old('slug')}}" class="form-control" placeholder="عنوان تخصصی دوره"
                                                @error('slug')
                                                style="border: 1px solid red"
                                             @enderror>
@@ -71,23 +57,12 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری</b>
-                                    <div class="form-group">
-                                        <input type="date" name="start_at" class="form-control" placeholder="تاریخ برگزاری "
-                                               @error('start_at')
-                                               style="border: 1px solid red"
-                                            @enderror>
-                                        @error('start_at')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-
                             </div>
+
                             <div class="row clearfix">
                                 <div class="col-sm-6"><b>نام مدرس</b>
                                     <div class="form-group">
-                                        <select class="form-control show-tick" name="teacher_id"
+                                        <select class="form-control show-tick" name="teacher_id" value="{{old('teacher_id')}}"
                                                 @error('teacher_id')
                                                 style="border: 1px solid red"
                                             @enderror>
@@ -102,9 +77,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-sm-6"><b>نوع دوره</b>
+                                <div class="col-sm-6"><b>نوع دوره*</b>
                                     <div class="form-group">
-                                        <select class="form-control show-tick" name="type"
+                                        <select class="form-control show-tick" name="type" value="{{old('type')}}"
                                                 @error('type')
                                         style="border: 1px solid red"
                                             @enderror>
@@ -119,17 +94,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12"><b>توضیحات</b>
-                                <div class="form-group">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری*</b>
+                                        <div class="form-group">
+                                            <input type="date" name="start_at" value="{{old('start_at')}}" class="form-control" placeholder="تاریخ برگزاری "
+                                                   @error('start_at')
+                                                   style="border: 1px solid red"
+                                                @enderror>
+                                            @error('start_at')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"><b>توضیحات</b>
+                                        <div class="form-group">
                                     <textarea rows="4" name="description" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."
                                               @error('description')
                                               style="border: 1px solid red"
-                                            @enderror></textarea>
-                                    @error('description')
-                                    <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                    @enderror
+                                            @enderror> {{old('description')}}</textarea>
+                                            @error('description')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
                                 <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>

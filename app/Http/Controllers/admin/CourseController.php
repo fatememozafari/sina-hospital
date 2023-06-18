@@ -42,7 +42,7 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
 
-            $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','teacher_id']);
+            $inputs=$request->only(['user_id','title','slug','type','start_at','description','teacher_id']);
             $inputs['rate'] = 0;
             $inputs['user_id'] =Auth::id();
 
@@ -95,7 +95,7 @@ class CourseController extends Controller
      */
     public function update(CourseRequest $request, $id)
     {
-        $data=$request->only('id_code','title','slug','type','start_at','description','file','teacher_id');
+        $data=$request->only('title','slug','type','start_at','description','file','teacher_id');
         if ($request->file('file'))
             $data['file'] = $this->uploadFile($request->file('file'),'uploads/courses');
         Course::query()->where('id',$id)->update($data);

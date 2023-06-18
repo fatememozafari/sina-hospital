@@ -36,7 +36,7 @@
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="mb-3 col-sm-12">
-                                        <label class="form-label" for="name">کاربر</label>
+                                        <label class="form-label" for="name">کاربر*</label>
                                         <br>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control" name="user_id" value="{{$inputs->user_id}}">
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="mb-3 col-sm-12">
-                                        <label class="form-label" for="name">انتخاب دوره</label>
+                                        <label class="form-label" for="name">انتخاب دوره*</label>
                                         <br>
                                         <input type="hidden" class="form-control" name="course_id" value="{{$inputs->course_id}}">
                                         <input type="text" class="form-control" name="" value="{{$inputs->course_id}}-{{$inputs->course->title}}" readonly>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="mb-3 col-sm-12">
-                                        <label class="form-label" for="name">ثبت نمره</label>
+                                        <label class="form-label" for="name">ثبت نمره*</label>
                                         <br>
                                         <input type="text" class="form-control" name="score" value="{{$inputs->score}}"
                                                @error('score')

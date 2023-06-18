@@ -37,13 +37,13 @@
                                 @csrf
                                 @method('put')
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>عنوان خبر</b>
+                                    <div class="col-sm-6"><b>عنوان خبر*</b>
                                         <div class="form-group">
                                             <input type="text" name="title" value="{{$inputs->title}}"
                                                    class="form-control" placeholder="عنوان خبر">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>نویسنده خبر</b>
+                                    <div class="col-sm-6"><b>نویسنده خبر*</b>
                                         <div class="form-group">
                                             <input type="text" name="writer" value="{{$inputs->writer}}"
                                                    class="form-control" placeholder="نویسنده خبر">
@@ -71,7 +71,7 @@
                                                    class="form-control" placeholder="آپلود تصویر" multiple>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>محتوای خبر</b>
+                                    <div class="col-sm-6"><b>محتوای خبر*</b>
                                         <div class="form-group">
                                             <textarea class="form-control" name="body" value=""
                                                       placeholder="محتوای خبر">{{$inputs->body}}</textarea>

@@ -43,8 +43,8 @@ class TeacherController extends Controller
      */
     public function store(TeacherRequest $request)
     {
-            $inputs=$request->only(['name','family','melli_code','gender','mobile','email',
-                'birthday','job','password','password_confirmation','address','avatar_path',
+            $inputs=$request->only(['name','family','gender','mobile','email',
+               'password','password_confirmation','address','avatar_path',
                 'type','user_id']);
             $inputs['password'] = Hash::make($inputs['password']);
             $inputs['type'] = 'USER';

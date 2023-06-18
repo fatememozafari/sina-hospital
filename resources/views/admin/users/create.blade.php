@@ -36,7 +36,7 @@
                             <form action="{{route('admin.users.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>نام</b>
+                                    <div class="col-sm-6"><b>نام*</b>
                                         <div class="form-group">
                                             <input type="text" name="name" value="{{old('name') ?? ''}}" class="form-control" placeholder="نام"
                                                    @error('name')
@@ -47,7 +47,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>نام خانوادگی</b>
+                                    <div class="col-sm-6"><b>نام خانوادگی*</b>
                                         <div class="form-group">
                                             <input type="text" name="family" value="{{old('family' ?? '')}}" class="form-control" placeholder="نام خانوادگی"
                                                    @error('family')
@@ -81,6 +81,7 @@
                                                 <option value="">- جنسیت -</option>
                                                 <option value="FEMALE">خانم</option>
                                                 <option value="MALE">آقا</option>
+                                                <option value="UNKNOWN">نامشخص</option>
                                             </select>
                                             @error('gender')
                                             <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
@@ -90,7 +91,7 @@
                                 </div>
 
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>شماره موبایل</b>
+                                    <div class="col-sm-6"><b>شماره موبایل*</b>
                                         <div class="form-group">
                                             <input type="text" name="mobile"  value="{{old('mobile' ?? '')}}" class="form-control" placeholder="موبایل"
                                                    @error('mobile')
@@ -101,7 +102,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>ایمیل</b>
+                                    <div class="col-sm-6"><b>ایمیل*</b>
                                         <div class="form-group">
                                             <input type="text" name="email" value="{{old('email' ?? '')}}" class="form-control" placeholder="ایمیل" @error('email')
                                             style="border: 1px solid red"
@@ -113,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>رمز ورود</b>
+                                    <div class="col-sm-6"><b>رمز ورود*</b>
                                         <div class="form-group">
                                             <input type="password" name="password" value="{{old('password' ?? '')}}" class="form-control" placeholder="رمز ورود"
                                                    @error('password')
@@ -124,37 +125,13 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>تایید رمز ورود</b>
+                                    <div class="col-sm-6"><b>تایید رمز ورود*</b>
                                         <div class="form-group">
                                             <input type="text" name="password_confirmation" value="{{old('password_confirmation' ?? '')}}" class="form-control" placeholder="تایید رمز ورود"
                                                    @error('password_confirmation')
                                                    style="border: 1px solid red"
                                                 @enderror>
                                             @error('password_confirmation')
-                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-sm-6"><b>تخصص</b>
-                                        <div class="form-group">
-                                            <input type="text" name="job" value="{{old('job' ?? '')}}" class="form-control" placeholder="شغل"
-                                                   @error('job')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                            @error('job')
-                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"><b>تاریخ تولد</b>
-                                        <div class="form-group">
-                                            <input type="date" name="birthday" value="{{old('birthday' ?? '')}}" class="form-control" placeholder="تاریخ تولد"
-                                                   @error('birthday')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                            @error('birthday')
                                             <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
                                             @enderror
                                         </div>

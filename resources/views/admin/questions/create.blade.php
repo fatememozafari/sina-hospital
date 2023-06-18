@@ -37,7 +37,7 @@
                             <form action="{{route('admin.questions.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>سوال</b>
+                                    <div class="col-sm-12"><b>سوال*</b>
                                         <div class="form-group">
                                             <input type="text" name="question" value="{{old('question')}}" class="form-control" placeholder="سوال"
                                             @error('question')
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-sm-12"><b>پاسخ</b>
+                                    <div class="col-sm-12"><b>پاسخ*</b>
                                         <div class="form-group">
                                             <textarea type="text" rows="5" name="answer" value="{{old('answer')}}" class="form-control" placeholder="پاسخ"
                                                       @error('answer')

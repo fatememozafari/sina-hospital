@@ -98,7 +98,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        $data=$request->only('name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate');
+        $data=$request->only('name','family','melli_code','gender','mobile','email','password','password_confirmation','address','avatar_path','type','rate');
 //        $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))

@@ -75,7 +75,7 @@ class OfflineCourseController extends Controller
 
     public function update(OfflineRequest $request, $id)
     {
-        $data=$request->only('id_code','user_id','title','slug','type','description','file','teacher_id','file_type','rate','start_at');
+        $data=$request->only('user_id','title','slug','type','description','file','teacher_id','rate','start_at');
 
         if ($request->file('file'))
             $data['file'] = $this->uploadFile($request->file('file'), 'uploads/offlineCourse');

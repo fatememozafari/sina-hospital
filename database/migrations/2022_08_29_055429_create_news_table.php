@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('photographer')->nullable();
             $table->string('feedback')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

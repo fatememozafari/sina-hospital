@@ -36,9 +36,8 @@
                             <form action="{{route('front.users.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
-
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>نام</b>
+                                    <div class="col-sm-6"><b>نام*</b>
                                         <div class="form-group">
                                             <input type="text" name="name" value="{{$inputs->name}}" class="form-control" placeholder="نام"
                                                    @error('name')
@@ -46,7 +45,7 @@
                                                 @enderror>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>نام خانوادگی</b>
+                                    <div class="col-sm-6"><b>نام خانوادگی*</b>
                                         <div class="form-group">
                                             <input type="text" name="family" value="{{$inputs->family}}" class="form-control" placeholder="نام خانوادگی"
                                              @error('family')
@@ -79,7 +78,7 @@
                                 </div>
 
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>شماره موبایل</b>
+                                    <div class="col-sm-6"><b>شماره موبایل*</b>
                                         <div class="form-group">
                                             <input type="text" name="mobile"  value="{{$inputs->mobile}}" class="form-control" placeholder="موبایل"
                                              @error('mobile')
@@ -87,7 +86,7 @@
                                                 @enderror>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>ایمیل</b>
+                                    <div class="col-sm-6"><b>ایمیل*</b>
                                         <div class="form-group">
                                             <input type="text" name="email" value="{{$inputs->email}}" class="form-control" placeholder="ایمیل"
                                                    @error('email')
@@ -115,26 +114,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-sm-6"><b>شغل</b>
-                                        <div class="form-group">
-                                            <input type="text" name="job" value="{{$inputs->job}}" class="form-control" placeholder="شغل"
-                                             @error('job')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"><b>تاریخ تولد</b>
-                                        <div class="form-group">
-                                            <input type="date" name="birthday" value="{{$inputs->birthday}}" class="form-control" placeholder="تاریخ تولد"
-                                                   @error('birthday')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-6"><b>آپلود تصویر</b>
                                         <div class="dz-message">

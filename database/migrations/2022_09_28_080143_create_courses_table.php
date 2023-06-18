@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('id_code')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);

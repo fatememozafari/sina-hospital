@@ -51,8 +51,7 @@ class NewsController extends Controller
                 'photographer'=> $request->photographer,
                 'feedback'=> $request->feedback,
                 'instagram'=> $request->instagram,
-                'facebook'=> $request->facebook,
-                'twitter'=> $request->twitter,
+
             ]);
             $news->save();
             if ($request->hasFile('images')){
@@ -113,8 +112,7 @@ class NewsController extends Controller
             'photographer'=> $request->photographer,
             'feedback'=> $request->feedback,
             'instagram'=> $request->instagram,
-            'facebook'=> $request->facebook,
-            'twitter'=> $request->twitter,
+
         ]);
         if ($request->hasFile('images')){
             $files=$request->file('images');

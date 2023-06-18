@@ -40,7 +40,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->only(['id_code','user_id','title','slug','type','start_at','description','file','teacher_id']);
+        $inputs=$request->only(['user_id','title','slug','type','start_at','description','file','teacher_id']);
         $inputs['rate'] = 0;
         $inputs['user_id'] =Auth::id();
 

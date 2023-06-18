@@ -35,24 +35,20 @@
                             <form action="{{route('admin.offline-courses.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>شناسه دوره</b>
-                                    <div class="form-group">
-                                        <input type="text" name="id_code" value="{{$inputs->id_code}}" class="form-control" placeholder="شناسه دوره">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره">
                                     </div>
                                 </div>
-                                <div class="col-sm-6"><b>تاریخ برگزاری</b>
+                            </div>
+                            <div class="row clearfix">
+
+                                <div class="col-sm-6"><b>تاریخ برگزاری*</b>
                                     <div class="form-group">
                                         <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ برگزاری">
                                     </div>
@@ -67,20 +63,26 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-sm-6"><b>نوع فایل</b>
+                                    <div class="col-sm-6"><b>نوع دوره*</b>
                                         <div class="form-group">
-                                            <select class="form-control show-tick" name="type">
-                                                <option value="">- نوع فایل -</option>
+                                            <select class="form-control show-tick" name="type" value="{{old('type')}}"
+                                                    @error('type')
+                                                    style="border: 1px solid red"
+                                                @enderror>
+                                                <option value="">- نوع دوره -</option>
                                                 <option> یک مورد را انتخاب کنید </option>
-                                                <option value="pdf">pdf</option>
-                                                <option value="video">video</option>
-                                                <option value="voice">voice</option>
+                                                <option value="SPECIALISED">تخصصی</option>
+                                                <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
+                                                <option value="GENERAL">عمومی</option>
                                             </select>
+                                            @error('type')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>فایل دوره</b>
+                                    <div class="col-sm-6"><b>فایل دوره*</b>
                                         <div class="form-group">
                                             <input type="file" name="file" class="form-control" placeholder="فایل دوره" value="{{$inputs->file}}">
                                         </div>

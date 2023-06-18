@@ -35,16 +35,12 @@
                             <form action="{{route('front.enrolls.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+                                    <div class="mb-3 col-sm-6">
                                         <label class="form-label" for="name">کاربر</label>
                                         <br>
                                         <input type="text" class="form-control" name="user_id" value="{{$user->name}}" readonly>
                                     </div>
-
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+                                    <div class="mb-3 col-sm-6">
                                         <label class="form-label" for="name">انتخاب دوره</label>
                                         <br>
                                         <input type="text" class="form-control" name="course_id" value="{{$course->title}}" readonly
@@ -55,7 +51,6 @@
                                         <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
                                         @enderror
                                     </div>
-
                                 </div>
 
                                 <div class="col-sm-12">

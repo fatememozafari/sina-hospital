@@ -11,7 +11,7 @@ class News extends Model
     use HasFactory, Filterable;
 
     protected $fillable = [
-        'title', 'body', 'writer', 'photographer', 'feedback', 'instagram', 'facebook', 'twitter',
+        'title', 'body', 'writer', 'photographer', 'feedback', 'instagram',
     ];
 
     public function images()

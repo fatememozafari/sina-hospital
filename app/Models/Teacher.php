@@ -9,9 +9,9 @@ class Teacher extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','family','melli_code',
-        'gender','mobile','email','birthday',
-        'job','password','password_confirmation',
+        'name','family',
+        'gender','mobile','email'
+        ,'password','password_confirmation',
         'address','avatar_path','role_id','rate',
         'user_id',
         ];

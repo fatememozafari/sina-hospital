@@ -36,17 +36,23 @@
                                 @csrf
                                 @method('put')
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>سوال</b>
+                                    <div class="col-sm-12"><b>سوال*</b>
                                         <div class="form-group">
-                                            <input type="text" name="question" value="{{$inputs->question}}" class="form-control" placeholder="سوال">
+                                            <input type="text" name="question" value="{{$inputs->question}}" class="form-control" placeholder="سوال"
+                                                   @error('question')
+                                                   style="border: 1px solid red"
+                                                @enderror>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-sm-12"><b>پاسخ</b>
+                                    <div class="col-sm-12"><b>پاسخ*</b>
                                         <div class="form-group">
-                                            <textarea type="text" rows="5" name="answer" value="" class="form-control" placeholder="پاسخ">{{$inputs->answer}}</textarea>
+                                            <textarea type="text" rows="5" name="answer" value="" class="form-control" placeholder="پاسخ"
+                                                      @error('answer')
+                                                      style="border: 1px solid red"
+                                                @enderror>{{$inputs->answer}}</textarea>
                                         </div>
                                     </div>
                                 </div>

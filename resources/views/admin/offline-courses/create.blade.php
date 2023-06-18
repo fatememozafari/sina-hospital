@@ -35,20 +35,8 @@
                         <div class="body">
                             <form action="{{route('admin.offline-courses.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>شناسه دوره</b>
-                                    <div class="form-group">
-                                        <input type="text" name="id_code" class="form-control" value="{{old('id_code')}}" placeholder="شناسه دوره"
-                                               @error('id_code')
-                                               style="border: 1px solid red"
-                                            @enderror>
-                                        @error('id_code')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-sm-6"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="عنوان دوره"
                                                @error('title')
@@ -59,9 +47,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" class="form-control" value="{{old('slug')}}" placeholder="عنوان تخصصی دوره"
                                                @error('slug')
@@ -72,7 +58,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-sm-6"><b>تاریخ برگزاری</b>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-6"><b>تاریخ برگزاری*</b>
                                     <div class="form-group">
                                         <input type="date" name="start_at" class="form-control" value="{{old('start_at')}}" placeholder="تاریخ برگزاری"
                                                @error('start_at')
@@ -99,7 +87,7 @@
                                     <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="col-sm-6"><b>نوع دوره</b>
+                                <div class="col-sm-6"><b>نوع دوره*</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="type" value="{{old('type')}}"
                                                 @error('type')
@@ -118,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>فایل دوره</b>
+                                <div class="col-sm-6"><b>فایل دوره*</b>
                                     <div class="form-group">
                                         <input type="file" name="file" class="form-control" placeholder="فایل دوره" value="{{old('file')}}"
                                                @error('file')

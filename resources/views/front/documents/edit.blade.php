@@ -44,7 +44,7 @@
                                 @method('put')
 
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره"
                                                @error('title')
@@ -55,9 +55,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-12"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره"
                                                @error('slug')
@@ -69,8 +67,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row clearfix">
-                                <div class="col-sm-12"><b>نام مدرس</b>
+                                <div class="col-sm-6"><b>نام مدرس</b>
                                     <div class="form-group">
                                         <input type="text" name="teacher" value="{{$inputs->teacher}}" class="form-control" placeholder="نام مدرس"
                                                @error('teacher')
@@ -81,10 +80,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12"><b>تاریخ برگزاری</b>
+                                <div class="col-sm-6"><b>تاریخ برگزاری*</b>
                                     <div class="form-group">
                                         <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع "
                                                @error('start_at')
@@ -97,7 +93,7 @@
                                 </div>
                             </div>
                                 <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-6"><b> مدت زمان دوره به ساعت</b>
+                                    <div class="col-lg-6 col-md-6"><b> مدت زمان دوره به ساعت*</b>
                                         <div class="form-group">
                                             <input type="number" name="duration" value="{{$inputs->duration}}" class="form-control" placeholder="مدت زمان دوره به ساعت "
                                                    @error('duration')
@@ -108,28 +104,25 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                            <div class="row clearfix">
-
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <select class="form-control show-tick" name="type"
-                                                @error('type')
-                                                style="border: 1px solid red"
-                                            @enderror>
-                                            <option value="">- نوع دوره -</option>
-                                            <option value="SPECIALISED">تخصصی</option>
-                                            <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
-                                            <option value="GENERAL">عمومی</option>
-                                        </select>
-                                        @error('type')
-                                        <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <select class="form-control show-tick" name="type"
+                                                    @error('type')
+                                                    style="border: 1px solid red"
+                                                @enderror>
+                                                <option value="">- نوع دوره -</option>
+                                                <option value="SPECIALISED">تخصصی</option>
+                                                <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
+                                                <option value="GENERAL">عمومی</option>
+                                            </select>
+                                            @error('type')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                                 <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-6"><b> آپلود فایل</b>
+                                    <div class="col-lg-6 col-md-6"><b> آپلود فایل*</b>
                                         <div class="form-group">
                                             <input type="file" name="file" class="form-control" value="{{$inputs->file}}" placeholder="آپلود فایل "
                                                    @error('file')
@@ -140,18 +133,19 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                            <div class="col-sm-12"><b>توضیحات</b>
-                                <div class="form-group">
+                                    <div class="col-sm-6"><b>توضیحات</b>
+                                        <div class="form-group">
                                     <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ..."
                                               @error('description')
                                               style="border: 1px solid red"
                                             @enderror>{{$inputs->description}}</textarea>
-                                    @error('description')
-                                    <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                    @enderror
+                                            @error('description')
+                                            <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
                             </div>

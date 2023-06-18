@@ -9,7 +9,7 @@ class OfflineCourse extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'id_code','title','slug','type','start_at','description','rate','file_type','teacher_id','user_id'
+        'title','slug','type','start_at','description','rate','teacher_id','user_id'
     ];
     protected $guarded=['id'];
 

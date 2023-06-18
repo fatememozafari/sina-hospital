@@ -104,7 +104,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','birthday','job','address','avatar_path','type','rate');
+        $data=$request->only('user_id','name','family','melli_code','gender','mobile','email','address','avatar_path','type','rate');
 
         if (!is_null(\request('password')) ){
             $data['password'] = Hash::make(\request('password'));

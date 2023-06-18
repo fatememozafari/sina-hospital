@@ -35,7 +35,7 @@
                             <form action="{{route('admin.news.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-6"><b>عنوان خبر</b>
+                                    <div class="col-sm-6"><b>عنوان خبر*</b>
                                         <div class="form-group">
                                             <input type="text" name="title" value="{{old('title') ?? ''}}" class="form-control" placeholder="عنوان خبر"
                                                    @error('title')
@@ -46,7 +46,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>نویسنده خبر</b>
+                                    <div class="col-sm-6"><b>نویسنده خبر*</b>
                                         <div class="form-group">
                                             <input type="text" name="writer" value="{{old('writer' ?? '')}}" class="form-control" placeholder="نویسنده خبر">
                                         </div>
@@ -71,7 +71,7 @@
                                             <input type="file" name="images[]"  class="form-control" placeholder="آپلود تصویر" multiple>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"><b>محتوای خبر</b>
+                                    <div class="col-sm-6"><b>محتوای خبر*</b>
                                         <div class="form-group">
                                             <textarea class="form-control" name="body" value="" placeholder="محتوای خبر"
                                                       @error('body')

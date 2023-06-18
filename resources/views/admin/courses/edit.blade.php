@@ -36,26 +36,14 @@
                                 @csrf
                                 @method('put')
                             <div class="row clearfix">
-                                <div class="col-sm-6"><b>شناسه دوره</b>
-                                    <div class="form-group">
-                                        <input type="text" name="id_code" value="{{$inputs->id_code}}" class="form-control" placeholder="شناسه دوره">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6"><b>عنوان دوره</b>
+                                <div class="col-sm-6"><b>عنوان دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="title" value="{{$inputs->title}}" class="form-control" placeholder="عنوان دوره">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-6"><b>عنوان تخصصی دوره</b>
+                                <div class="col-sm-6"><b>عنوان تخصصی دوره*</b>
                                     <div class="form-group">
                                         <input type="text" name="slug" value="{{$inputs->slug}}" class="form-control" placeholder="عنوان تخصصی دوره">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6"><b>تاریخ برگزاری</b>
-                                    <div class="form-group">
-                                        <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع ">
                                     </div>
                                 </div>
                             </div>
@@ -74,11 +62,13 @@
                                         </select>
                                         @error('teacher_id')
                                         <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
-                                        @enderror                                    </div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="col-sm-6"><b>نوع دوره</b>
+                                <div class="col-sm-6"><b>نوع دوره*</b>
                                     <div class="form-group">
                                         <select class="form-control show-tick" name="type">
+                                            <option> یک مورد را انتخاب کنید</option>
                                             <option value="SPECIALISED">تخصصی</option>
                                             <option value="SEMI_SPECIALISED">نیمه تخصصی</option>
                                             <option value="GENERAL">عمومی</option>
@@ -86,22 +76,20 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="col-lg-12 col-md-12 col-sm-12">--}}
-{{--                                <form action="http://www.wrraptheme.com/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">--}}
-{{--                                    <div class="dz-message">--}}
-{{--                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>--}}
-{{--                                        <h3> پرونده ها را در اینجا رها کنید یا برای بارگذاری کلیک کنید. </h3>--}}
-{{--                                        <em> <strong></strong></em> </div>--}}
-{{--                                    <div class="fallback">--}}
-{{--                                        <input name="file" type="file" multiple />--}}
-{{--                                    </div>--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-                            <div class="col-sm-12"><b>توضیحات</b>
-                                <div class="form-group">
-                                    <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
+                                <div class="row clearfix">
+
+                                    <div class="col-sm-6"><b>تاریخ برگزاری*</b>
+                                        <div class="form-group">
+                                            <input type="date" name="start_at" value="{{$inputs->start_at}}" class="form-control" placeholder="تاریخ شروع ">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"><b>توضیحات</b>
+                                        <div class="form-group">
+                                            <textarea rows="4" name="description" value="{{$inputs->description}}" class="form-control no-resize" placeholder="لطفاً آنچه را می خواهید تایپ کنید ...">{{$inputs->description}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
                             </div>
