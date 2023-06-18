@@ -5,7 +5,7 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
-                        <h2> پروفایل   {{$user->name}} {{$user->family}}
+                        <h2> پروفایل   {{$user->fullName}}
                             <small class="text-muted"> </small>
                         </h2>
                     </div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="body">
                                 <strong>نام و نام خانوادگی</strong>
-                                <p>{{$user->name}} {{$user->family}}</p>
+                                <p>{{$user->fullName}}</p>
                                 <strong> شغل </strong>
                                 <p>{{$user->job}}</p>
                                 <strong> آدرس ایمیل </strong>

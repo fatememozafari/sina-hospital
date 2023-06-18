@@ -12,7 +12,7 @@
                             </a>
                         </div>
                         <div class="detail">
-                            <h4>{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->family}}</h4>
+                            <h4>{{\Illuminate\Support\Facades\Auth::user()->fullName}}</h4>
                         </div>
                         <a href="#" title="رویدادها"><i class="zmdi zmdi-calendar"></i></a>
                         <a href="#" title="صندوق ورودی"><i class="zmdi zmdi-email"></i></a>

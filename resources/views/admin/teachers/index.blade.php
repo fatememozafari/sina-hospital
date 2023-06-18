@@ -105,7 +105,7 @@
                                         @foreach($teacher as $item)
                                             <tr role="row" class="even">
                                                 <td class="sorting_1">{{$item->id}}</td>
-                                                <td>{{$item->name}} {{$item->family}}</td>
+                                                <td>{{$item->fullName}}</td>
                                                 <td>{{$item->job}}</td>
                                                 <td>{{$item->mobile}}</td>
                                                 <td>{{$item->email}}</td>

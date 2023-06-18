@@ -77,8 +77,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                    {{\Illuminate\Support\Facades\Auth::user()->name}}
-                    {{\Illuminate\Support\Facades\Auth::user()->family}}
+                    {{\Illuminate\Support\Facades\Auth::user()->fullName}}
             </li>
 
 {{--            <li class="nav-item dropdown">--}}

@@ -87,7 +87,7 @@
                                         @foreach($teacher as $item)
                                             <tr role="row" class="even">
                                                 <td class="sorting_1">{{$item->id}}</td>
-                                                <td><a href="{{route('front.teachers.show',$item->id)}}">{{$item->name}} {{$item->family}}</a></td>
+                                                <td><a href="{{route('front.teachers.show',$item->id)}}">{{$item->fullName}}</a></td>
                                                 <td>{{$item->job}}</td>
                                                 <td>{{$item->email}}</td>
                                                 <td>

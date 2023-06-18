@@ -34,7 +34,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card member-card">
                             <div class="header l-cyan">
-                                <h4 class="m-t-10">{{$teacher->name}} {{$teacher->family}}</h4>
+                                <h4 class="m-t-10">{{$teacher->fullName}}</h4>
                             </div>
                             <div class="member-img">
                                 <a href="profile.html" class="">

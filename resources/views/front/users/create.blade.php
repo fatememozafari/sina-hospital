@@ -137,9 +137,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-6"><b>آپلود تصویر</b>
                                         <div class="dz-message">

@@ -104,7 +104,7 @@
                                         @foreach($user as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1">{{$item->name}} {{$item->family}}</td>
+                                                <td class="sorting_1">{{$item->fullName}}</td>
                                                 <td>{{$item->melli_code}}</td>
                                                 <td>{{$item->mobile}}</td>
 {{--                                                <td>{{$item->email}}</td>--}}
