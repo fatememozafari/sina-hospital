@@ -7,7 +7,7 @@
                         <div class="image">
                             <a href="#">
                                 <img
-                                    src="{{\Illuminate\Support\Facades\Auth::user()->avatar_path ?? asset('assets/images/avatar-profile2.png')}}"
+                                    src="{{asset('/profile/image/'.\Illuminate\Support\Facades\Auth::user()->avatar_path) ?? asset('assets/images/avatar-profile2.png')}}"
                                     alt="کاربر">
                             </a>
                         </div>
@@ -61,12 +61,12 @@
                         <li><a href="{{route('admin.offline-courses.create')}}">افزودن دوره ی جدید غیرحضوری</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره هایی که کاربر قبلا گذرانده</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li><a href="{{route('admin.documents.index')}}">لیست دوره هایی که کاربر قبلا گذرانده </a></li>
-                    </ul>
-                </li>
+{{--                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>دوره هایی که کاربر قبلا گذرانده</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="ml-menu">--}}
+{{--                        <li><a href="{{route('admin.documents.index')}}">لیست دوره هایی که کاربر قبلا گذرانده </a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>آزمون آنلاین</span>
                     </a>
                     <ul class="ml-menu">

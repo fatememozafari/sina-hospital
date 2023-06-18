@@ -45,11 +45,11 @@
                                         id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                         <thead>
                                         <tr role="row">
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="ردیف: activate to sort column ascending"
-                                                style="width: 41.5625px;">ردیف
-                                            </th>
+{{--                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"--}}
+{{--                                                rowspan="1" colspan="1"--}}
+{{--                                                aria-label="ردیف: activate to sort column ascending"--}}
+{{--                                                style="width: 41.5625px;">ردیف--}}
+{{--                                            </th>--}}
                                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1" aria-sort="ascending"
                                                 aria-label="نام دوره: activate to sort column descending"
@@ -58,18 +58,18 @@
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
                                                 aria-label=" نام تخصصی : activate to sort column ascending"
-                                                style="width: 133.453px;"> نام تخصصی
+                                                style="width: 133.453px;"> نام تخصصی دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
                                                 aria-label=" نوع دوره و نوع فایل : activate to sort column ascending"
-                                                style="width: 66.3906px;"> نوع دوره و نوع فایل
+                                                style="width: 66.3906px;"> نوع دوره
                                             </th>
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="امتیاز: activate to sort column ascending"
-                                                style="width: 44.7031px;">امتیاز
+                                                aria-label="مدرس: activate to sort column ascending"
+                                                style="width: 44.7031px;">مدرس
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -80,36 +80,44 @@
                                         </thead>
                                         <tfoot>
                                         <tr>
-                                            <th rowspan="1" colspan="1">ردیف</th>
+{{--                                            <th rowspan="1" colspan="1">ردیف</th>--}}
                                             <th rowspan="1" colspan="1">نام دوره</th>
                                             <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1"> نوع دوره و نوع فایل</th>
-                                            <th rowspan="1" colspan="1">امتیاز</th>
+                                            <th rowspan="1" colspan="1"> نوع دوره</th>
+                                            <th rowspan="1" colspan="1">مدرس</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
                                         </tfoot>
                                         <tbody>
                                         @foreach($document as $item)
                                             <tr role="row" class="even">
-                                                <td>{{$item->id}}</td>
+{{--                                                <td>{{$item->id}}</td>--}}
                                                 <td class="sorting_1">{{$item->title}}</td>
                                                 <td>{{$item->slug}}</td>
-                                                <td>{{__('custom.'.$item->type)}}
-                                                    <br>{{$item->file_type}}</td>
-                                                <td>{{$item->rate}}</td>
+                                                <td>{{__('custom.'.$item->type)}}</td>
+                                                <td>{{$item->teacher}}</td>
                                                 <td>
-                                                    <div>
-                                                        <a href="{{route('front.documents.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
-                                                        </a>
-                                                        <a href="{{route('front.documents.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
-                                                        </a>
-                                                        <form action="{{route('front.documents.destroy',$item->id)}}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-default btn-round btn-simple">
-                                                                حذف
-                                                            </button>
-                                                        </form>
+                                                    <div class="d-flex">
+                                                        <div class="mt-3">
+                                                            <a href="{{route('front.documents.show',$item->id)}}" class="btn-sm text-info">نمایش
+                                                            </a>
+                                                        </div>
+                                                        <div class="mt-3">
+                                                            <a href="{{route('front.documents.edit',$item->id)}}" class="btn-sm text-info">ویرایش
+                                                            </a>
+                                                        </div>
+                                                        <div class="mt-1">
+                                                            <form action="{{route('front.documents.destroy',$item->id)}}" method="post">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="submit" class="btn btn-danger btn-round btn-simple">
+                                                                    حذف
+                                                                </button>
+                                                            </form>
+                                                        </div>
+
+
+
 
                                                     </div>
                                                 </td>

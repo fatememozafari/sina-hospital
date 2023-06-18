@@ -45,8 +45,18 @@
                                 <p>{{$user->type}}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong> آموزش </strong></h2>
+                            </div>
+                            <div class="body">
+                                <ul class="dis list-unstyled">
+                                    @foreach($user->courses as $item)
+                                        <li>--{{$item->title}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="header">
                                 <h2>گزارش <strong>امتیازات</strong></h2>
@@ -62,62 +72,74 @@
 
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="header">
-                                <h2><strong> آموزش </strong></h2>
-                            </div>
-                            <div class="body">
-                                <ul class="dis list-unstyled">
-                                    @foreach($user->courses as $item)
-                                        <li>--{{$item->title}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12">
+
                         <div class="card">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#timeline"> جدول زمانی دروس</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#report">بیوگرافی</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#report">لیست دوره های گذرانده شده</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane " id="report">
                                 <div class="card">
                                     <div class="body">
-                                        <p class="text-justify">{{$user->description}}</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="header">
-                                        <h2>گزارش <strong> عمومی </strong></h2>
-                                    </div>
-                                    <div class="body">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <div> </div>
-                                                <div class="progress m-b-20">
-                                                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% کامل است (موفقیت)</span> </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div>  </div>
-                                                <div class="progress m-b-20">
-                                                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> <span class="sr-only">20% کامل است</span> </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div>  </div>
-                                                <div class="progress m-b-20">
-                                                    <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> <span class="sr-only"> 60% کامل است  (هشدار)</span> </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div></div>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> <span class="sr-only">80% کامل است (خطر)</span> </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+                                            <table
+                                                class="table table-bordered table-striped table-hover dataTable js-exportable"
+                                                id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                <thead>
+                                                <tr role="row">
+
+                                                    <th class="" tabindex="0" aria-controls="DataTables_Table_1"
+                                                        rowspan="1" colspan="1"
+                                                        style="width: 166.453px; font-size: x-small"> عنوان دوره
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                        rowspan="1" colspan="1"
+                                                        style="width: 98.7031px; font-size: x-small">عنوان تخصصی دوره
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                        rowspan="1" colspan="1"
+                                                        style="width: 133.7031px; font-size: x-small"> نوع دوره
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
+                                                        rowspan="1" colspan="1"
+                                                        style="width: 125.062px; font-size: x-small">مدت زمان دوره
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                                        rowspan="1" colspan="1"
+                                                        style="width: 233.453px; font-size: x-small">تصویر مدرک
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($user->documents as $document)
+                                                    <tr role="row" class="even">
+                                                        <td class="sorting_1">{{$document->title}}</td>
+                                                        <td>{{$document->slug}}</td>
+                                                        <td>{{__('custom.'.$document->type)}}</td>
+                                                        <td>{{$document->duration}} ساعت </td>
+                                                        <td>
+                                                            <div>
+                                                                <div class="col-md-12">
+                                                                    <a href="{{asset('/uploads/documents/'.$document->file)}}">
+                                                                        <img src="{{asset('/uploads/documents/'.$document->file)}}" class="img-responsive"
+                                                                             style="max-width: 100px; max-height: 100px" alt="">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
                                     </div>
                                 </div>
 

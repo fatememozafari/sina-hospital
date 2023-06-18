@@ -63,13 +63,13 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" نام تخصصی : activate to sort column ascending"
-                                                style="width: 133.453px;"> نام تخصصی و شناسه درس
+                                                aria-label=" نام تخصصی دوره : activate to sort column ascending"
+                                                style="width: 133.453px;">نام تخصصی دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" نوع دوره و نوع فایل : activate to sort column ascending"
-                                                style="width: 66.3906px;"> نوع دوره و نوع فایل
+                                                aria-label=" نوع دوره : activate to sort column ascending"
+                                                style="width: 66.3906px;"> نوع دوره
                                             </th>
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
@@ -89,7 +89,7 @@
                                             <th rowspan="1" colspan="1">ردیف</th>
                                             <th rowspan="1" colspan="1">نام دوره</th>
                                             <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1"> نوع دوره و نوع فایل</th>
+                                            <th rowspan="1" colspan="1"> نوع دوره</th>
                                             <th rowspan="1" colspan="1">امتیاز</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
@@ -99,9 +99,8 @@
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
                                                 <td class="sorting_1"><a href="{{route('front.offline-courses.show',$item->id)}}">{{$item->title}}</a></td>
-                                                <td>{{$item->slug}} <br>{{$item->id_code}}</td>
-                                                <td>{{__('custom.'.$item->type)}}
-                                                    <br>{{$item->file_type}}</td>
+                                                <td>{{$item->slug}}</td>
+                                                <td>{{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>

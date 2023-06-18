@@ -1,4 +1,5 @@
 @extends('layouts.adminMasterPage')
+
 @section('content')
     <section class="content home">
         <div class="block-header">
@@ -34,7 +35,6 @@
                         <div class="body">
                             <form action="{{route('admin.users.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
                                 <div class="row clearfix">
                                     <div class="col-sm-6"><b>نام*</b>
                                         <div class="form-group">
@@ -96,24 +96,24 @@
                                     </div>
                                 </div>
 
-                                <div class="row clearfix">
-                                    <div class="col-sm-6"><b> رمز ورود</b>
-                                        <div class="form-group">
-                                            <input type="text" name="password" value="" class="form-control" placeholder="رمز ورود"
-                                                   @error('password')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"><b>تایید رمز ورود</b>
-                                        <div class="form-group">
-                                            <input type="text" name="password_confirmation" value="" class="form-control" placeholder="تایید رمز ورود"
-                                                   @error('password_confirmation')
-                                                   style="border: 1px solid red"
-                                                @enderror>
-                                        </div>
-                                    </div>
-                                </div>
+{{--                                <div class="row clearfix">--}}
+{{--                                    <div class="col-sm-6"><b> رمز ورود</b>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="text" name="password" value="" class="form-control" placeholder="رمز ورود"--}}
+{{--                                                   @error('password')--}}
+{{--                                                   style="border: 1px solid red"--}}
+{{--                                                @enderror>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-6"><b>تایید رمز ورود</b>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="text" name="password_confirmation" value="" class="form-control" placeholder="تایید رمز ورود"--}}
+{{--                                                   @error('password_confirmation')--}}
+{{--                                                   style="border: 1px solid red"--}}
+{{--                                                @enderror>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <br>
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-6"><b>آپلود تصویر</b>
@@ -159,3 +159,4 @@
     </section>
 
 @endsection
+

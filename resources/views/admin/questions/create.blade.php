@@ -37,7 +37,7 @@
                             <form action="{{route('admin.questions.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>سوال*</b>
+                                    <div class="col-sm-6"><b>سوال*</b>
                                         <div class="form-group">
                                             <input type="text" name="question" value="{{old('question')}}" class="form-control" placeholder="سوال"
                                             @error('question')
@@ -48,10 +48,15 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-sm-6"><b>آپلود تصویر</b>
+                                        <div class="form-group">
+                                            <input type="file"  name="file" value="{{old('file')}}" class="form-control" placeholder="پاسخ">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-sm-12"><b>پاسخ*</b>
+                                    <div class="col-sm-6"><b>پاسخ*</b>
                                         <div class="form-group">
                                             <textarea type="text" rows="5" name="answer" value="{{old('answer')}}" class="form-control" placeholder="پاسخ"
                                                       @error('answer')
@@ -60,14 +65,6 @@
                                             @error('answer')
                                             <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
                                             @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-12"><b>آپلود تصویر</b>
-                                        <div class="form-group">
-                                            <input type="file"  name="file" value="{{old('file')}}" class="form-control" placeholder="پاسخ">
                                         </div>
                                     </div>
                                 </div>

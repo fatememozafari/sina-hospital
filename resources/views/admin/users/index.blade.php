@@ -111,9 +111,9 @@
                                                 <td>{{$item->rate}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{route('admin.users.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
+                                                        <a href="{{route('admin.users.show',$item->id)}}" class="btn-sm text-info ">نمایش
                                                         </a>
-                                                        <a href="{{route('admin.users.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
+                                                        <a href="{{route('admin.users.edit',$item->id)}}" class="btn-sm text-info ">ویرایش
                                                         </a>
 
 

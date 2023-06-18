@@ -72,14 +72,14 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" نام تخصصی دوره یا شناسه دوره: activate to sort column ascending"
-                                                style="width: 133.453px;"> نام تخصصی دوره یا شناسه دوره
+                                                aria-label=" نام تخصصی دوره : activate to sort column ascending"
+                                                style="width: 133.453px;"> نام تخصصی دوره
                                             </th>
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
                                                 aria-label="مدرس و نوع دوره: activate to sort column ascending"
-                                                style="width: 41.5625px;">مدرس و نوع دوره
+                                                style="width: 41.5625px;">نوع دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -99,7 +99,7 @@
                                             <th rowspan="1" colspan="1">ردیف</th>
                                             <th rowspan="1" colspan="1">نام دوره</th>
                                             <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1">مدرس و نوع دوره</th>
+                                            <th rowspan="1" colspan="1">نوع دوره</th>
                                             <th rowspan="1" colspan="1">تاریخ برگزاری</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
@@ -109,19 +109,18 @@
                                         <tr role="row" class="even">
                                             <td>{{$item->id}}</td>
                                             <td class="sorting_1">{{$item->title}}</td>
-                                            <td>{{$item->slug}} {{$item->id_code}}</td>
-                                            <td>{{$item->teacher_id}}
-                                                    <br> {{__('custom.'.$item->type)}}</td>
+                                            <td>{{$item->slug}}</td>
+                                            <td>{{__('custom.'.$item->type)}}</td>
                                             <td>{{$item->start_at}}</td>
                                             <td>
-                                                <div style="display: flex">
-                                                    <a href="{{route('admin.courses.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
+                                                <div style="display: flex" >
+                                                    <a href="{{route('admin.courses.show',$item->id)}}" class="btn-sm text-info mt-3">نمایش
                                                     </a>
-                                                    <a href="{{route('admin.courses.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
+                                                    <a href="{{route('admin.courses.edit',$item->id)}}" class="btn-sm text-info mt-3">ویرایش
                                                     </a>
-                                                    <form action="{{route('admin.courses.delete',$item->id)}}" method="post">
+                                                    <form action="{{route('admin.courses.delete',$item->id)}}" class="mt-2" method="post">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-default btn-round btn-simple">
+                                                        <button type="submit" class="btn btn-danger btn-round btn-simple">
                                                             حذف
                                                         </button>
                                                     </form>

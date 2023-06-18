@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <ul class="breadcrumb float-md-left">
-                        <li class="breadcrumb-item float-right"><a href="{{route('dashboard')}}"><i
+                        <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                     class="zmdi zmdi-home"></i> خانه</a></li>
                         <li class="breadcrumb-item float-right"><a href="javascript:void(0);">دوره های حضوری</a></li>
                         <li class="breadcrumb-item active float-right">نمایش دوره</li>
@@ -24,9 +24,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong> نمایش دوره: {{$document->title}}
-                                    <br><p>#{{$document->id}}</p> </strong>
-                                </h2>
+                            <h2><strong> نمایش دوره: {{$document->title}}</strong></h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
                                                         data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -64,7 +62,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <a href="{{$document->file }}"> <img src="{{$document->file }}" alt="{{$document->title}}" height="300px" width="500px"></a>
+                                                    <a href="/uploads/documents/{{$document->file }}"> <img src="/uploads/documents/{{$document->file }}" alt="{{$document->title}}" height="300px" width="500px"></a>
                                                 </div>
                                             </div>
                                             <hr>
@@ -99,7 +97,9 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h5> تاریخ برگزاری دوره: </h5>
-                                                    <p class="text-justify">{{$document->start_at}}</p>
+                                                    <p class="text-justify">
+                                                        {{ Morilog\Jalali\Jalalian::forge($document->start_at)->format('Y/m/d H:i:s') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <hr>

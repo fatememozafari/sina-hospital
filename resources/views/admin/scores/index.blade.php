@@ -67,14 +67,14 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label=" نام تخصصی دوره یا شناسه دوره: activate to sort column ascending"
-                                                style="width: 133.453px;"> نام تخصصی دوره یا شناسه دوره
+                                                aria-label=" نام تخصصی دوره: activate to sort column ascending"
+                                                style="width: 133.453px;"> نام تخصصی دوره
                                             </th>
 
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
-                                                aria-label="مدرس و نوع دوره: activate to sort column ascending"
-                                                style="width: 41.5625px;">مدرس و نوع دوره
+                                                aria-label="نوع دوره: activate to sort column ascending"
+                                                style="width: 41.5625px;">نوع دوره
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1"
                                                 rowspan="1" colspan="1"
@@ -94,7 +94,7 @@
                                             <th rowspan="1" colspan="1">ردیف</th>
                                             <th rowspan="1" colspan="1">نام دوره</th>
                                             <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1">مدرس و نوع دوره</th>
+                                            <th rowspan="1" colspan="1">نوع دوره</th>
                                             <th rowspan="1" colspan="1">تاریخ برگزاری</th>
                                             <th rowspan="1" colspan="1">عملیات</th>
                                         </tr>
@@ -104,13 +104,14 @@
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
                                                 <td class="sorting_1"><a href="{{route('admin.courses.show',$item->id)}}">{{$item->title}}</a></td>
-                                                <td>{{$item->slug}} {{$item->id_code}}</td>
-                                                <td><a href="/admin/teachers/{{$item->teacher_id}}">{{$item->teacher_id}}</a>
-                                                    <br> {{__('custom.'.$item->type)}}</td>
+                                                <td>{{$item->slug}}</td>
+                                                <td>
+{{--                                                    <a href="/admin/teachers/{{$item->teacher_id}}">{{$item->teacher->fullName}}</a><br>--}}
+                                                    {{__('custom.'.$item->type)}}</td>
                                                 <td>{{$item->start_at}}</td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{route('admin.scores.create',$item->id)}}" class="btn btn-warning btn-round">
+                                                        <a href="{{route('admin.scores.create',$item->id)}}" class="btn btn-primary btn-round">
                                                             ثبت نمره
                                                         </a>
                                                         <a href="{{route('admin.scores.show',$item->id)}}" class="btn btn-warning btn-round">

@@ -34,9 +34,8 @@
                         <div class="body">
                             <form action="{{route('admin.questions.update',$inputs->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
                                 <div class="row clearfix">
-                                    <div class="col-sm-12"><b>سوال*</b>
+                                    <div class="col-sm-6"><b>سوال*</b>
                                         <div class="form-group">
                                             <input type="text" name="question" value="{{$inputs->question}}" class="form-control" placeholder="سوال"
                                                    @error('question')
@@ -44,23 +43,20 @@
                                                 @enderror>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-
-                                    <div class="col-sm-12"><b>پاسخ*</b>
+                                    <div class="col-sm-6"><b>آپلود تصویر</b>
                                         <div class="form-group">
-                                            <textarea type="text" rows="5" name="answer" value="" class="form-control" placeholder="پاسخ"
-                                                      @error('answer')
-                                                      style="border: 1px solid red"
-                                                @enderror>{{$inputs->answer}}</textarea>
+                                            <input type="file" name="file" value="{{$inputs->avatar_path}}" class="form-control" placeholder="پاسخ">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-sm-12"><b>آپلود تصویر</b>
+                                    <div class="col-sm-6"><b>پاسخ*</b>
                                         <div class="form-group">
-                                            <input type="file" name="file" value="{{$inputs->avatar_path}}" class="form-control" placeholder="پاسخ">
+                                            <textarea type="text" rows="5" name="answer" value="" class="form-control" placeholder="پاسخ"
+                                                      @error('answer')
+                                                      style="border: 1px solid red"
+                                                @enderror>{{$inputs->answer}}</textarea>
                                         </div>
                                     </div>
                                 </div>

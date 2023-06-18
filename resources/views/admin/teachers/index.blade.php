@@ -110,13 +110,19 @@
                                                 <td>{{$item->mobile}}</td>
                                                 <td>{{$item->email}}</td>
                                                 <td>
-                                                    <div>
-                                                        <a href="{{route('admin.teachers.show',$item->id)}}" class="btn btn-primary btn-round">نمایش
+                                                    <div class="d-flex">
+                                                        <a href="{{route('admin.teachers.show',$item->id)}}" class="btn-sm text-info mt-3">نمایش
                                                         </a>
-                                                        <a href="{{route('admin.teachers.edit',$item->id)}}" class="btn btn-primary btn-round">ویرایش
+                                                        <a href="{{route('admin.teachers.edit',$item->id)}}" class="btn-sm text-info mt-3">ویرایش
                                                         </a>
-
-
+                                                        @role('SUPERADMIN')
+                                                        <form action="{{route('admin.teachers.delete',$item->id)}}" class="mt-2" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger btn-round btn-simple">
+                                                                حذف
+                                                            </button>
+                                                        </form>
+                                                            @endrole
                                                     </div>
                                                 </td>
                                             </tr>

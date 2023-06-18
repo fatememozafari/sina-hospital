@@ -15,7 +15,7 @@
 </div>
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
-@can('users_read')
+@role('SUPERADMIN|ADMIN')
 <!-- Top Bar -->
 @include('layouts.partials.admin.header')
 <!--Top Bar -->
@@ -31,7 +31,7 @@
 @yield('content')
 <!-- Jquery Core Js -->
 @include('layouts.partials.admin.script')
-@endcan
+@endrole
 </body>
 
 </html>
