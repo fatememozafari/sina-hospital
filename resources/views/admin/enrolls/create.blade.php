@@ -43,14 +43,10 @@
                                         <label class="form-label" for="name">کاربر*</label>
                                         <br>
                                         <div class="form-group">
-                                        <select class="form-control show-tick" name="user_id" id=""
+                                        <select class="form-control show-tick" id="parent" name="user_id"
                                                 @error('user_id')
                                                 style="border: 1px solid red"
                                             @enderror>
-                                            <option value=""></option>
-                                        @foreach($user as $item)
-                                            <option value="{{$item->id}}">{{$item->id}}-{{$item->name}} {{$item->family}}</option>
-                                            @endforeach
                                         </select>
                                             @error('user_id')
                                             <span style="font-size: 12px;font-weight: bold;color: red">{{$message}}</span>
@@ -83,8 +79,32 @@
             </div>
         </div>
     </section>
-
-
-
-
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('#parent').select2({
+                minimumInputLength: 3 ,
+                placeholder: "جستجوی کاربر ...",
+                ajax: {
+                    url:"{!! route('admin.users.ajax') !!}",
+                    delay: 20,
+                    dataType: 'json',
+                    minimumInputLength: 3 ,
+                    placeholder: "جستجوی کاربر ...",
+                    data: function (params) {
+                        return {
+                            user_id:params.term,
+                        }
+                    },
+                    processResults: function (response) {
+                        return{
+                            results:response.data
+                        };
+
+                    }
+                }
+            })
+        });
+    </script>
+    @endsection

@@ -70,4 +70,11 @@ Route::name('front.')->group(function () {
 
     Route::get('/download/{file}', [\App\Http\Controllers\Controller::class, 'getDownload'])->name('downloadFile');
 
+
+    Route::post('courses/{course}/comments/store',[\App\Http\Controllers\front\CommentController::class, 'store'])->name('comments.store');
+    Route::get('comment-ajax/{id}',[\App\Http\Controllers\front\CommentController::class,'ajaxDelete'])->name('comments.ajax');
+
+    Route::post('courses/{course}/comments/replys/store',[\App\Http\Controllers\front\ReplyController::class,'store'])->name('replys.store');
+    Route::get('reply-ajax/{id}',[\App\Http\Controllers\front\ReplyController::class,'ajaxDelete'])->name('replys.ajax');
+
 });

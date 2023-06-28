@@ -5,12 +5,15 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Requests\UserRequest;
 use App\Models\Course;
+use App\Models\Document;
 use App\Models\Enroll;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use function Symfony\Component\String\length;
 
 class UserController extends Controller
 {
@@ -21,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::query()->orderBy('id','desc')->get();
+        $user=User::query()->with(['documents'])->orderBy('id','desc')->get();
         return view('admin.users.index',compact('user'));
     }
 
@@ -44,7 +47,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-            $inputs=$request->only(['user_id','name','family','melli_code','gender','mobile','email','birthday','job','password','password_confirmation','address','avatar_path','type','rate']);
+            $inputs=$request->only(['user_id','name','family','melli_code','gender','mobile','email','password','password_confirmation','address','avatar_path','type','rate']);
             $inputs['password'] = Hash::make($inputs['password']);
             $inputs['type'] = 'USER';
             $inputs['rate'] = 0;
@@ -68,10 +71,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user, Document $document)
     {
-        $user=User::query()->find($id);
-        $course=User::find($id)->courses->where('user_id',$id);
+        $user=User::query()->find($user->id);
+        $course=User::find($user->id)->courses->where('user_id',$user->id);
         return view('admin.users.show',compact('user','course'));
 
     }
@@ -82,9 +85,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $inputs=User::query()->where('id',$id)->first();
+        $inputs=User::query()->where('id',$user->id)->first();
         return view('admin.users.edit',compact('inputs'));
 
     }
@@ -96,15 +99,31 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, User $user)
     {
-        $data=$request->only('name','family','melli_code','gender','mobile','email','password','password_confirmation','address','avatar_path','type','rate');
+//        dd($request->all());
+        $data=$request->only([
+            'name','family','melli_code',
+            'gender','mobile','email',
+            'password','password_confirmation',
+            'address','avatar_path','role_id','rate',
+            'user_id',
+        ]);
 //        $data['password'] = Hash::make($data['password']);
 
         if ($request->file('avatar_path'))
             $data['avatar_path'] = $this->uploadFile($request->file('avatar_path'),'profile/image');
 
-        User::query()->where('id',$id)->update($data);
+        if ($request->has('password')){
+            $data['password'] =  Hash::make($request['password']);
+        }
+
+        if ($request->has('password_confirmation')){
+            $data['password_confirmation'] = \request('password_confirmation');
+        }
+
+
+        User::query()->where('id',$user->id)->update($data);
         return redirect('admin/users')->with('success','با موفقیت ویرایش شد.');
 
 
@@ -116,9 +135,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        User::query()->where('id',$id)->delete();
+        User::query()->where('id',$user->id)->delete();
         return back();
     }
 
@@ -130,5 +149,18 @@ class UserController extends Controller
             $user->save();
         }
         return back();
+    }
+
+    public function ajaxUser()
+    {
+
+        $users=User::where('name','like',"%".request('user_id')."%")
+            ->orwhere('family','like',"%".request('user_id')."%")
+            ->get(
+                [
+                'id as id', 'name as text'
+            ]
+            )->toArray();
+        return \response()->json(['data'=> $users]);
     }
 }

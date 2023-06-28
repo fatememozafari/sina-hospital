@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('start_at')->format('Y/m/d');
             $table->integer('duration')->nullable();
             $table->string('rate')->nullable();
+            $table->enum('status',['active','in-active','soon'])->default('soon');
             $table->string('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

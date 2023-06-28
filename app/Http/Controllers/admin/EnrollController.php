@@ -30,13 +30,13 @@ class EnrollController extends Controller
         public function create($id)
     {
 
-        $user = User::query()->get();
         $course = Course::query()->where('id', $id)->first();
-        return view('admin.enrolls.create', compact('course', 'user'));
+        return view('admin.enrolls.create', compact('course'));
     }
 
     public function store(EnrollRequest $request)
     {
+
             $inputs = $request->only(['user_id', 'course_id']);
             $check=CourseUser::query()
                 ->where([
@@ -50,7 +50,7 @@ class EnrollController extends Controller
                     return back()->with('success','با موفقیت ثبت شد.');
 //                return redirect('/admin/enrolls');
                 } else {
-                    return back()->withErrors($this->validate());
+                    return back()->withErrors('با خطا مواجه شد');
                 }
 
             } else {

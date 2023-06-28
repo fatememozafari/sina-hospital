@@ -102,7 +102,7 @@
                                         @foreach($course as $item)
                                             <tr role="row" class="even">
                                                 <td>{{$item->id}}</td>
-                                                <td class="sorting_1"><a href="/front/courses/{{$item->id}}">{{$item->title}}</a></td>
+                                                <td class="sorting_1"><a href="{{route('front.courses.show',$item->id)}}">{{$item->title}}</a></td>
                                                 <td>{{$item->slug}}</td>
                                                 <td>
 {{--                                                    <a href="{{route('front.teachers.show',$item->teacher_id)}}">{{$item->teacher_id}}</a><br>--}}

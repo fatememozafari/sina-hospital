@@ -34,7 +34,7 @@
 @yield('content')
 <!-- Jquery Core Js -->
 @include('layouts.partials.front.script')
-
+@yield('script')
 </body>
 
 </html>

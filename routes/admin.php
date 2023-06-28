@@ -141,7 +141,7 @@ Route::name('admin.')->group(function () {
     Route::post('teachers/{teacher}/update', [TeacherController::class, 'update'])->name('teachers.update');
     Route::post('teachers/{teacher}/delete', [TeacherController::class, 'destroy'])->name('teachers.delete');
 
-// teachers route
+// users route
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('users/store', [UserController::class, 'store'])->name('users.store');
@@ -149,6 +149,7 @@ Route::name('admin.')->group(function () {
     Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::post('users/{user}/update', [UserController::class, 'update'])->name('users.update');
     Route::post('users/{user}/delete', [UserController::class, 'destroy'])->name('users.delete');
+    Route::get('ajax-user',[UserController::class,'ajaxUser'])->name('users.ajax');
 
     Route::delete('/deletephoto/{id}', [UserController::class, 'deletephoto']);
 
@@ -163,7 +164,7 @@ Route::name('admin.')->group(function () {
 
     Route::get('/enroll-course-list', [\App\Http\Controllers\admin\EnrollController::class, 'courseList'])->name('enroll-course-list');
     Route::get('/enrolls', [\App\Http\Controllers\admin\EnrollController::class, 'index'])->name('enrolls.index');
-    Route::get('/enrolls/{id}/create', [\App\Http\Controllers\admin\EnrollController::class, 'create'])->name('enrolls.create');
+    Route::get('course/{id}/enrolls', [\App\Http\Controllers\admin\EnrollController::class, 'create'])->name('enrolls.create');
     Route::post('/enrolls', [\App\Http\Controllers\admin\EnrollController::class, 'store'])->name('enrolls.store');
 
     Route::get('/results', [\App\Http\Controllers\admin\ResultController::class, 'index'])->name('results.index');

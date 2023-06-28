@@ -36,7 +36,7 @@ class DocumentController extends Controller
 
     public function store(DocumentRequest $request)
     {
-        dd($request);
+//        dd($request);
         $inputs=$request->all();
         $inputs['rate'] = 0;
         $inputs['user_id'] =Auth::id();
@@ -47,7 +47,7 @@ class DocumentController extends Controller
         $result=Document::create($inputs);
 
         if ($result){
-            return redirect()->route('front.documents.list')->with('success','با موفقیت ثبت شد.');
+            return redirect()->route('front.documents.index')->with('success','با موفقیت ثبت شد.');
         } else{
             return back()->with('error','با خطا مواجه شد.');
         }
@@ -59,9 +59,9 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Document $document)
     {
-        $document=Document::query()->find($id);
+        $document=Document::query()->find($document->id);
         return view('front.documents.show',compact('document'));
 
     }
@@ -72,9 +72,9 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Document $document)
     {
-        $inputs=Document::query()->where('id',$id)->first();
+        $inputs=Document::query()->where('id',$document->id)->first();
         return view('front.documents.edit',compact('inputs'));
 
     }
@@ -86,12 +86,12 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(DocumentRequest $request, $id)
+    public function update(DocumentRequest $request, Document $document)
     {
-        $data=$request->only('title','slug','type','start_at','description','file','duration','teacher_id','user_id');
+        $data=$request->only('title','slug','type','start_at','description','file','duration','teacher','user_id');
         if ($request->file('file'))
             $data['file'] = $this->uploadFile($request->file('file'), 'uploads/documents');
-        Document::query()->where('id',$id)->update($data);
+        Document::query()->where('id',$document->id)->update($data);
         return redirect('/documents')->with('success','با موفقیت ویرایش شد.');
 
 
@@ -103,9 +103,9 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Document $document)
     {
-        Document::query()->where('id',$id)->delete();
+        Document::query()->where('id',$document->id)->delete();
         return back();
     }
 

@@ -22,32 +22,29 @@
                 <strong> گواهی میشود:</strong>
             </p>
             <div class="d-flex justify-content-between">
-                <p>  خانم/اقا {{$user->name}} {{$user->family}} </p>
+                <p>  خانم/اقا {{$user->fullName}}  </p>
                 <p>{{$user->melli_code}} به شماره ملی:</p>
-                <p> صادره از: {{$user->name}}</p>
+{{--                <p> صادره از: {{$user->name}}</p>--}}
 
             </div>
-            <div class="d-flex justify-content-between ">
-                <p>به شماره پرسنلی:</p>
-                <p> پست سازمانی:</p>
-                <p> کد شغل:</p>
+{{--            <div class="d-flex justify-content-between ">--}}
+{{--                <p>به شماره پرسنلی:</p>--}}
+{{--                <p> پست سازمانی:</p>--}}
+{{--                <p> کد شغل:</p>--}}
 
-            </div>
+{{--            </div>--}}
             <div class="d-flex justify-content-between">
-                <p> محل خدمت: بیمارستان سینا اراک</p>
+                <p> در آموزشگاه علمی سینا اراک دوره های آموزشی مشروحه زیر را با موفقیت طی نموده است.</p>
 
             </div>
-            <div>
-                <p> دوره های آموزشی مشروحه زیر را در سال با موفقیت طی نموده است.</p>
-            </div>
+
 
 
         </div>
         <br>
-        <table class="table table-bordered text-center">
+        <table class="table text-center" style="border: black solid 1px;">
             <thead>
             <tr>
-                <th style="width: 133.7031px;">کد دوره</th>
                 <th style="width: 133.7031px;">نام دوره آموزشی</th>
                 <th style="width: 133.7031px;">نوع دوره</th>
                 <th style="width: 133.7031px;">تاریخ برگزاری</th>
@@ -57,20 +54,22 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($courses as $item)
+            @foreach($user->courses as $item)
                 <tr>
-                    <td>{{$item->id_code}}</td>
                     <td>{{$item->title}}</td>
-                    <td>{{$item->type}}</td>
-                    <td>{{$item->start_at}}</td>
-                    <td>{{$item->updated_at}}</td>
-                    <td>{{$item->score}}</td>
+                    <td>{{__('custom.'.$item->type)}}</td>
+                    <td>
+                        {{ Morilog\Jalali\Jalalian::forge($item->start_at)->format('%d %B ، %Y') }}
+                    </td>
+                    <td>{{$item->duration}}</td>
+                    <td>{{$item->score[0]->score}}</td>
+
                 </tr>
             @endforeach
             </tbody>
         </table>
 
-        <table class="table table-bordered text-center">
+        <table class="table text-center" style="border: black solid 1px;">
             خلاصه وضعیت آموزشی شاغل
 
             <thead>

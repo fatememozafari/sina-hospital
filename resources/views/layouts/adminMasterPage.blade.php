@@ -31,6 +31,8 @@
 @yield('content')
 <!-- Jquery Core Js -->
 @include('layouts.partials.admin.script')
+
+@yield('script')
 @endrole
 </body>
 
