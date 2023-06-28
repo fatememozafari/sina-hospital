@@ -26,7 +26,7 @@
 
 {{--<script src="{{asset('extrasection/assets/bundles/mainscripts.bundle.js')}}"></script><!-- Custom Js -->--}}
 <script src="{{asset('extrasection/assets/js/pages/tables/jquery-datatable.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="{{asset('assets/bundles/fullcalendarscripts.bundle.js')}}"></script><!--/ calender javascripts -->
 <script src="{{asset('assets/js/pages/calendar/calendar.js')}}"></script>

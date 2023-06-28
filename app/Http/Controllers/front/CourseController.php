@@ -4,7 +4,9 @@ namespace App\Http\Controllers\front;
 
 use App\Filters\CourseFilter;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Course;
+use App\Models\Reply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,13 +61,20 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Course $course
+     * @param Comment $comment
+     * @param Reply $reply
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Comment $comment)
     {
         $course=Course::query()->find($id);
-        return view('front.courses.show',compact('course'));
+
+        $comments= Comment::where('commentable_id',$id)->orderBy('id','DESC')->get();
+
+        $replys= Reply::where('replyable_id',$comment->id)->orderBy('id','DESC')->get();
+
+        return view('front.courses.show',compact('course','comments','replys'));
 
     }
 
