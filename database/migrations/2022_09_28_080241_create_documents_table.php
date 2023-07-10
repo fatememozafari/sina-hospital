@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('type',['SPECIALISED','GENERAL','SEMI_SPECIALISED']);
             $table->string('teacher')->nullable();
             $table->string('description')->nullable();
-            $table->longText('file');
+            $table->text('file');
             $table->timestamps();
             $table->softDeletes();
         });
