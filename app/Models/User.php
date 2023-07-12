@@ -73,4 +73,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return "{$this->name}"." "."{$this->family}";
     }
 
+    public function ticketAdmin()
+    {
+        return $this->hasOne(TicketAdmin::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class,'ticket_id');
+    }
+
 }

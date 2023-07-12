@@ -77,4 +77,9 @@ Route::name('front.')->group(function () {
     Route::post('courses/{course}/comments/replys/store',[\App\Http\Controllers\front\ReplyController::class,'store'])->name('replys.store');
     Route::get('reply-ajax/{id}',[\App\Http\Controllers\front\ReplyController::class,'ajaxDelete'])->name('replys.ajax');
 
+
+    Route::resource('tickets', \App\Http\Controllers\front\TicketController::class);
+    Route::post('tickets/answer/{ticket}', [\App\Http\Controllers\front\TicketController::class, 'answer'])->name('tickets.answer');
+    Route::get('tickets/change-status/{ticket}', [\App\Http\Controllers\front\TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
+
 });

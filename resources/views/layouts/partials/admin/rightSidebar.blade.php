@@ -24,6 +24,13 @@
                 <li class="header">اصلی</li>
                 <li class="active open"><a href="{{route('admin.dashboard')}}"><i
                             class="zmdi zmdi-home"></i><span>داشبورد</span></a></li>
+{{--                <li><a href="javascript:void(0);" class="menu-toggle"><i--}}
+{{--                            class="zmdi zmdi-account-add"></i><span>ادمین ها</span> </a>--}}
+{{--                    <ul class="ml-menu">--}}
+{{--                        <li><a href="{{route('admin.teachers.index')}}">لیست ادمین ها</a></li>--}}
+{{--                        <li><a href="{{route('admin.teachers.create')}}">افزودن ادمین ها</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li><a href="javascript:void(0);" class="menu-toggle"><i
                             class="zmdi zmdi-account-add"></i><span>مدرسان</span> </a>
                     <ul class="ml-menu">
@@ -72,6 +79,18 @@
                     <ul class="ml-menu">
                         <li><a href="{{route('admin.online_exams.index')}}">لیست آزمونهای آنلاین </a></li>
                         <li><a href="{{route('admin.online_exams.create')}}">افزودن آزمون آنلاین</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>مدیریت تیکت ها</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="{{route('admin.tickets.index')}}">همه ی تیکت ها</a></li>
+                        <li><a href="{{route('admin.tickets.newTicket')}}">تیکت های جدید</a></li>
+                        <li><a href="{{route('admin.tickets.openTicket')}}">تیکت های باز</a></li>
+                        <li><a href="{{route('admin.tickets.closeTicket')}}">تیکت های بسته</a></li>
+                        <li><a href="{{route('admin.tickets.admins.index')}}">ادمین تیکت ها</a></li>
+                        <li><a href="{{route('admin.tickets.categories.index')}}">دسته بندی تیکت ها</a></li>
+                        <li><a href="{{route('admin.tickets.priorities.index')}}">اولویت بندی تیکت ها</a></li>
                     </ul>
                 </li>
                 @can('roles_read')

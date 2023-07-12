@@ -75,6 +75,10 @@
                 <a class="nav-link dropdown-toggle" target="" href="{{route('front.newsletters.create')}}">عضویت در
                     خبرنامه</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" target="" href="{{route('front.tickets.index')}}">ارسال تیکت
+                    </a>
+            </li>
 
             <li class="nav-item dropdown">
                     {{\Illuminate\Support\Facades\Auth::user()->fullName}}

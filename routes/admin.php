@@ -170,5 +170,36 @@ Route::name('admin.')->group(function () {
     Route::get('/results', [\App\Http\Controllers\admin\ResultController::class, 'index'])->name('results.index');
     Route::get('/results/{id}', [\App\Http\Controllers\admin\ResultController::class, 'show'])->name('results.show');
 
+// tickets route
+    Route::get('new-tickets', [\App\Http\Controllers\admin\TicketController::class, 'newTicket'])->name('tickets.newTicket');
+    Route::get('open-tickets', [\App\Http\Controllers\admin\TicketController::class, 'openTicket'])->name('tickets.openTicket');
+    Route::get('close-tickets', [\App\Http\Controllers\admin\TicketController::class, 'closeTicket'])->name('tickets.closeTicket');
+
+    Route::get('tickets', [\App\Http\Controllers\admin\TicketController::class, 'index'])->name('tickets.index');
+    Route::post('tickets/answer/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'answer'])->name('tickets.answer');
+    Route::get('tickets/show/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'show'])->name('tickets.show');
+    Route::get('tickets/change-status/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
+
+    // tickets category route
+    Route::get('category', [\App\Http\Controllers\admin\TicketCategoryController::class, 'index'])->name('tickets.categories.index');
+    Route::get('category/create', [\App\Http\Controllers\admin\TicketCategoryController::class, 'create'])->name('tickets.categories.create');
+    Route::post('category/store', [\App\Http\Controllers\admin\TicketCategoryController::class, 'store'])->name('tickets.categories.store');
+    Route::get('category/{ticketCategory}/edit', [\App\Http\Controllers\admin\TicketCategoryController::class, 'edit'])->name('tickets.categories.edit');
+    Route::post('category/{ticketCategory}/update', [\App\Http\Controllers\admin\TicketCategoryController::class, 'update'])->name('tickets.categories.update');
+    Route::post('category/{ticketCategory}/delete', [\App\Http\Controllers\admin\TicketCategoryController::class, 'destroy'])->name('tickets.categories.delete');
+
+
+    // tickets priority route
+    Route::get('priority', [\App\Http\Controllers\admin\TicketPriorityController::class, 'index'])->name('tickets.priorities.index');
+    Route::get('priority/create', [\App\Http\Controllers\admin\TicketPriorityController::class, 'create'])->name('tickets.priorities.create');
+    Route::post('priority/store', [\App\Http\Controllers\admin\TicketPriorityController::class, 'store'])->name('tickets.priorities.store');
+    Route::get('priority/{ticketPriority}/edit', [\App\Http\Controllers\admin\TicketPriorityController::class, 'edit'])->name('tickets.priorities.edit');
+    Route::post('priority/{ticketPriority}/update', [\App\Http\Controllers\admin\TicketPriorityController::class, 'update'])->name('tickets.priorities.update');
+    Route::post('priority/{ticketPriority}/delete', [\App\Http\Controllers\admin\TicketPriorityController::class, 'destroy'])->name('tickets.priorities.delete');
+
+
+    // tickets admin route
+    Route::get('ticket-admin', [\App\Http\Controllers\admin\TicketAdminController::class, 'index'])->name('tickets.admins.index');
+    Route::get('set-admin/{admin}', [\App\Http\Controllers\admin\TicketAdminController::class, 'set'])->name('tickets.admins.set');
 
 });

@@ -85,13 +85,7 @@
                                                         <p class="text-justify">{{__('custom.'.$course->type)}}</p>
                                                     </div>
                                                 </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h5> نوع فایل: </h5>
-                                                        <p class="text-justify">{{$course->file_type}}</p>
-                                                    </div>
-                                                </div>
+
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-md-12">
