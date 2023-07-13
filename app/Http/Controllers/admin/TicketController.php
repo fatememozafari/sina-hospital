@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    public function newTickets()
+    public function newTicket()
     {
         $tickets = Ticket::where('seen', 0)->get();
         foreach($tickets as $newTicket){
@@ -18,13 +18,13 @@ class TicketController extends Controller
         return view('admin.tickets.index', compact('tickets'));
     }
 
-    public function openTickets()
+    public function openTicket()
     {
         $tickets = Ticket::where('status', 0)->get();
         return view('admin.tickets.index', compact('tickets'));
     }
 
-    public function closeTickets()
+    public function closeTicket()
     {
         $tickets = Ticket::where('status', 1)->get();
         return view('admin.tickets.index', compact('tickets'));

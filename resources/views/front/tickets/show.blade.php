@@ -25,9 +25,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>عنوان تیکت:</strong> <small> {{$ticket->subject}}</small></h2>
+                            <h2><strong>عنوان تیکت:</strong> <p> {{$ticket->subject}}</p></h2>
                             <ul class="header-dropdown">
-
                                 <li class="remove">
                                     <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                 </li>
@@ -35,7 +34,7 @@
                         </div>
                         <div class="body">
                             <div class="row clearfix">
-                                <div class="col-sm-3"><b>نویسنده تیکت : </b> <b>{{$ticket->user->fullName}}</b></div>
+                                <div class="col-sm-12"><b>نویسنده تیکت : </b> <b>{{$ticket->user->fullName}}</b></div>
                             </div>
                             <br>
                             <div class="row clearfix">
@@ -45,9 +44,11 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($ticket->file->count() > 0)
                             <div>
                                 <a href="{{asset('uploads/tickets/'.$ticket->file->file)}}" class="btn btn-primary" download="download">فایل ضمیمه</a>
                             </div>
+                            @endif
                             <hr>
                             @foreach($ticket->children as $child)
                                 <div class="mx-5 my-2" style="border: 1px solid #bababa">
