@@ -400,7 +400,7 @@
 .theme-blush .profile-page .profile-sub-header .box-list ul li a:hover,
 .theme-blush .menu>ul>li>ul.normal-sub>li a:hover,
 .theme-blush .menu>ul>li>ul>li>ul>li a:hover {
-    background-color: #ffafbd
+    background-color: #ff6681
 }
 
 .theme-blush .navbar-brand {
@@ -410,11 +410,11 @@
 .theme-blush .navbar-brand:hover,
 .theme-blush .navbar-brand:active,
 .theme-blush .navbar-brand:focus {
-    color: #ffafbd
+    color: #c24141
 }
 
 .theme-blush .navbar {
-    background: linear-gradient(45deg, #ffafbd, #ffc2a0)
+    background: linear-gradient(45deg, #c24141, #ff6681)
 }
 
 .theme-blush .nav>li>a {
@@ -445,7 +445,7 @@
 
 .theme-blush .sidebar .menu .list li.active>:first-child i,
 .theme-blush .sidebar .menu .list li.active>:first-child span {
-    color: #ff6681
+    color: #c24141
 }
 
 .theme-blush .sidebar .menu .list a:hover {
@@ -453,26 +453,26 @@
 }
 
 .theme-blush .checkbox input[type="checkbox"]:checked+label::after {
-    border: 1px solid #ffafbd
+    border: 1px solid #ff6681
 }
 
 .theme-blush .inbox-widget .inbox-inner:hover .inbox-img img {
-    border: 2px solid #ffafbd;
+    border: 2px solid #c24141;
     transition: all 150ms linear
 }
 
 .theme-blush .nav-tabs .nav-link.active {
-    border: 1px solid #ff6681 !important
+    border: 1px solid #c24141 !important
 }
 
 .theme-blush .card .header h2:before {
-    background: #ff6681
+    background: #c24141
 }
 
 .theme-blush .card .header h2 strong {
-    color: #ff6681
+    color: #c24141
 }
 
 .theme-blush .blog-page .single-blog-post .img-holder .date-box {
-    background-color: #ff6681
+    background-color: #c24141
 }
