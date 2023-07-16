@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\Ticket;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ticket;
+use App\Models\Ticket\Ticket;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller

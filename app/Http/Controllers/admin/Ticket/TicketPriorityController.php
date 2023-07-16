@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\Ticket;
 
 use App\Http\Controllers\Controller;
-use App\Models\TicketPriority;
+use App\Models\Ticket\TicketPriority;
 use Illuminate\Http\Request;
 
 class TicketPriorityController extends Controller

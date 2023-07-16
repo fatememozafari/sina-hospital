@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Ticket;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TicketCategory extends Model
+class TicketPriority extends Model
 {
     use HasFactory;
 
