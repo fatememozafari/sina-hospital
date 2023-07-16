@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <h6> منوی سمت چپ </h6>
+                    <h6> منوی سمت راست </h6>
                     <ul class="list-unstyled theme-light-dark">
                         <li>
                             <div class="t-light btn btn-default btn-simple btn-round">روشن</div>
@@ -41,52 +41,52 @@
                         </li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h6>تنظیمات عمومی</h6>
-                    <ul class="setting-list list-unstyled">
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox1" type="checkbox">
-                                <label for="checkbox1">گزارش استفاده از پانل</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox2" type="checkbox" checked="">
-                                <label for="checkbox2">تغییر مسیر ایمیل</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox3" type="checkbox" checked="">
-                                <label for="checkbox3">اعلان ها</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox4" type="checkbox" checked="">
-                                <label for="checkbox4">به روز رسانی خودکار</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h6>تنظیمات حساب</h6>
-                    <ul class="setting-list list-unstyled">
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox5" type="checkbox" checked="">
-                                <label for="checkbox5">آفلاین</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox6" type="checkbox" checked="">
-                                <label for="checkbox6">مجوز موقعیت مکانی</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+{{--                <div class="card">--}}
+{{--                    <h6>تنظیمات عمومی</h6>--}}
+{{--                    <ul class="setting-list list-unstyled">--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox1" type="checkbox">--}}
+{{--                                <label for="checkbox1">گزارش استفاده از پانل</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox2" type="checkbox" checked="">--}}
+{{--                                <label for="checkbox2">تغییر مسیر ایمیل</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox3" type="checkbox" checked="">--}}
+{{--                                <label for="checkbox3">اعلان ها</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox4" type="checkbox" checked="">--}}
+{{--                                <label for="checkbox4">به روز رسانی خودکار</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <div class="card">--}}
+{{--                    <h6>تنظیمات حساب</h6>--}}
+{{--                    <ul class="setting-list list-unstyled">--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox5" type="checkbox" checked="">--}}
+{{--                                <label for="checkbox5">آفلاین</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <div class="checkbox">--}}
+{{--                                <input id="checkbox6" type="checkbox" checked="">--}}
+{{--                                <label for="checkbox6">مجوز موقعیت مکانی</label>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
             </div>
         </div>
         <div class="tab-pane right_chat pullUp" id="chat">
