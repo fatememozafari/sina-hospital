@@ -19,6 +19,12 @@ use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\AsignController;
 use App\Http\Controllers\admin\OfflineCourseController;
 use \App\Http\Controllers\admin\NewsletterController;
+use App\Http\Controllers\admin\Ticket\TicketController;
+use App\Http\Controllers\admin\Ticket\TicketCategoryController;
+use App\Http\Controllers\admin\Ticket\TicketPriorityController;
+use App\Http\Controllers\admin\Ticket\TicketAdminController;
+
+
 
 
 /*
@@ -171,35 +177,63 @@ Route::name('admin.')->group(function () {
     Route::get('/results/{id}', [\App\Http\Controllers\admin\ResultController::class, 'show'])->name('results.show');
 
 // tickets route
-    Route::get('new-tickets', [\App\Http\Controllers\admin\TicketController::class, 'newTicket'])->name('tickets.newTicket');
-    Route::get('open-tickets', [\App\Http\Controllers\admin\TicketController::class, 'openTicket'])->name('tickets.openTicket');
-    Route::get('close-tickets', [\App\Http\Controllers\admin\TicketController::class, 'closeTicket'])->name('tickets.closeTicket');
+    Route::get('new-tickets', [TicketController::class, 'newTicket'])->name('tickets.newTicket');
+    Route::get('open-tickets', [TicketController::class, 'openTicket'])->name('tickets.openTicket');
+    Route::get('close-tickets', [TicketController::class, 'closeTicket'])->name('tickets.closeTicket');
 
-    Route::get('tickets', [\App\Http\Controllers\admin\TicketController::class, 'index'])->name('tickets.index');
-    Route::post('tickets/answer/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'answer'])->name('tickets.answer');
-    Route::get('tickets/show/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'show'])->name('tickets.show');
-    Route::get('tickets/change-status/{ticket}', [\App\Http\Controllers\admin\TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
+    Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
+    Route::post('tickets/answer/{ticket}', [TicketController::class, 'answer'])->name('tickets.answer');
+    Route::get('tickets/show/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+    Route::get('tickets/change-status/{ticket}', [TicketController::class, 'changeStatus'])->name('tickets.changeStatus');
 
     // tickets category route
-    Route::get('category', [\App\Http\Controllers\admin\TicketCategoryController::class, 'index'])->name('tickets.categories.index');
-    Route::get('category/create', [\App\Http\Controllers\admin\TicketCategoryController::class, 'create'])->name('tickets.categories.create');
-    Route::post('category/store', [\App\Http\Controllers\admin\TicketCategoryController::class, 'store'])->name('tickets.categories.store');
-    Route::get('category/{ticketCategory}/edit', [\App\Http\Controllers\admin\TicketCategoryController::class, 'edit'])->name('tickets.categories.edit');
-    Route::post('category/{ticketCategory}/update', [\App\Http\Controllers\admin\TicketCategoryController::class, 'update'])->name('tickets.categories.update');
-    Route::post('category/{ticketCategory}/delete', [\App\Http\Controllers\admin\TicketCategoryController::class, 'destroy'])->name('tickets.categories.delete');
+    Route::get('category', [TicketCategoryController::class, 'index'])->name('tickets.categories.index');
+    Route::get('category/create', [TicketCategoryController::class, 'create'])->name('tickets.categories.create');
+    Route::post('category/store', [TicketCategoryController::class, 'store'])->name('tickets.categories.store');
+    Route::get('category/{ticketCategory}/edit', [TicketCategoryController::class, 'edit'])->name('tickets.categories.edit');
+    Route::post('category/{ticketCategory}/update', [TicketCategoryController::class, 'update'])->name('tickets.categories.update');
+    Route::post('category/{ticketCategory}/delete', [TicketCategoryController::class, 'destroy'])->name('tickets.categories.delete');
 
 
     // tickets priority route
-    Route::get('priority', [\App\Http\Controllers\admin\TicketPriorityController::class, 'index'])->name('tickets.priorities.index');
-    Route::get('priority/create', [\App\Http\Controllers\admin\TicketPriorityController::class, 'create'])->name('tickets.priorities.create');
-    Route::post('priority/store', [\App\Http\Controllers\admin\TicketPriorityController::class, 'store'])->name('tickets.priorities.store');
-    Route::get('priority/{ticketPriority}/edit', [\App\Http\Controllers\admin\TicketPriorityController::class, 'edit'])->name('tickets.priorities.edit');
-    Route::post('priority/{ticketPriority}/update', [\App\Http\Controllers\admin\TicketPriorityController::class, 'update'])->name('tickets.priorities.update');
-    Route::post('priority/{ticketPriority}/delete', [\App\Http\Controllers\admin\TicketPriorityController::class, 'destroy'])->name('tickets.priorities.delete');
+    Route::get('priority', [TicketPriorityController::class, 'index'])->name('tickets.priorities.index');
+    Route::get('priority/create', [TicketPriorityController::class, 'create'])->name('tickets.priorities.create');
+    Route::post('priority/store', [TicketPriorityController::class, 'store'])->name('tickets.priorities.store');
+    Route::get('priority/{ticketPriority}/edit', [TicketPriorityController::class, 'edit'])->name('tickets.priorities.edit');
+    Route::post('priority/{ticketPriority}/update', [TicketPriorityController::class, 'update'])->name('tickets.priorities.update');
+    Route::post('priority/{ticketPriority}/delete', [TicketPriorityController::class, 'destroy'])->name('tickets.priorities.delete');
 
 
     // tickets admin route
-    Route::get('ticket-admin', [\App\Http\Controllers\admin\TicketAdminController::class, 'index'])->name('tickets.admins.index');
-    Route::get('set-admin/{admin}', [\App\Http\Controllers\admin\TicketAdminController::class, 'set'])->name('tickets.admins.set');
+    Route::get('ticket-admin', [TicketAdminController::class, 'index'])->name('tickets.admins.index');
+    Route::get('set-admin/{admin}', [TicketAdminController::class, 'set'])->name('tickets.admins.set');
+
+
+    // sms route
+    Route::get('sms', [\App\Http\Controllers\admin\Notify\SMSController::class, 'index'])->name('sms.index');
+    Route::get('sms/create', [\App\Http\Controllers\admin\Notify\SMSController::class, 'create'])->name('sms.create');
+    Route::post('sms/store', [\App\Http\Controllers\admin\Notify\SMSController::class, 'store'])->name('sms.store');
+    Route::get('sms/{sms}/show', [\App\Http\Controllers\admin\Notify\SMSController::class, 'show'])->name('sms.show');
+    Route::get('sms/{sms}/edit', [\App\Http\Controllers\admin\Notify\SMSController::class, 'edit'])->name('sms.edit');
+    Route::post('sms/{sms}/update', [\App\Http\Controllers\admin\Notify\SMSController::class, 'update'])->name('sms.update');
+    Route::post('sms/{sms}/delete', [\App\Http\Controllers\admin\Notify\SMSController::class, 'destroy'])->name('sms.delete');
+    Route::get('ajax-sms',[\App\Http\Controllers\admin\Notify\SMSController::class,'ajaxUser'])->name('sms.ajax');
+    Route::get('sms/change-status/{sms}', [\App\Http\Controllers\admin\Notify\SMSController::class, 'changeStatus'])->name('sms.changeStatus');
+
+
+    // email route
+    Route::get('email', [\App\Http\Controllers\admin\Notify\EmailController::class, 'index'])->name('email.index');
+    Route::get('email/create', [\App\Http\Controllers\admin\Notify\EmailController::class, 'create'])->name('email.create');
+    Route::post('email/store', [\App\Http\Controllers\admin\Notify\EmailController::class, 'store'])->name('email.store');
+    Route::get('email/{email}/show', [\App\Http\Controllers\admin\Notify\EmailController::class, 'show'])->name('email.show');
+    Route::get('email/{email}/edit', [\App\Http\Controllers\admin\Notify\EmailController::class, 'edit'])->name('email.edit');
+    Route::post('email/{email}/update', [\App\Http\Controllers\admin\Notify\EmailController::class, 'update'])->name('email.update');
+    Route::post('email/{email}/delete', [\App\Http\Controllers\admin\Notify\EmailController::class, 'destroy'])->name('email.delete');
+    Route::get('ajax-email',[\App\Http\Controllers\admin\Notify\EmailController::class,'ajaxUser'])->name('email.ajax');
+    Route::get('email/change-status/{email}', [\App\Http\Controllers\admin\Notify\EmailController::class, 'changeStatus'])->name('email.changeStatus');
+
+    //email file route
+    Route::get('email/{email}', [\App\Http\Controllers\admin\Notify\EmailFileController::class, 'index'])->name('email-file.index');
+    Route::post('email/{emailFile}/delete', [\App\Http\Controllers\admin\Notify\EmailFileController::class, 'destroy'])->name('email-file.delete');
 
 });
