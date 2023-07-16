@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('color_id')->nullable()->constrained('product_colors')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('guarantee_id')->nullable()->constrained('guarantees')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('guarantee_id')->nullable()->constrained('product_guarantees')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('number')->default(1);//شماره محصول
             $table->timestamps();
             $table->softDeletes();

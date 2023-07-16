@@ -26,7 +26,7 @@ return new class extends Migration
             $table->decimal('final_product_price',20, 3)->nullable();
             $table->decimal('final_total_price',20, 3)->nullable()->comment('number * final_product_price');
             $table->foreignId('color_id')->nullable()->constrained('product_colors')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('guarantee_id')->nullable()->constrained('guarantees')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('guarantee_id')->nullable()->constrained('product_guarantees')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
