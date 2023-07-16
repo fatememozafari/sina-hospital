@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12">
                         <h2>
-                            <small class="text-muted">خوش امدید</small>
+{{--                            <small class="text-muted">خوش امدید</small>--}}
                         </h2>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -35,16 +35,6 @@
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a class="btn btn-info" href="{{route('admin.newsletters.create')}}">ارسال ایمیل</a>
-                                    </li>
-                                    <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
-                                                            data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                            aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li role="presentation" class="divider"></li>
-                                            <li><a href="javascript:void(0);">خروجی XLS</a></li>
-                                            <li><a href="javascript:void(0);">خروجی CSV</a></li>
-                                            <li><a href="javascript:void(0);">خروجی XML</a></li>
-                                        </ul>
                                     </li>
                                     <li class="remove">
                                         <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>

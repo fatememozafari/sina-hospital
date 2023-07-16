@@ -34,16 +34,6 @@
                                     <li class="">
                                         <a class="btn btn-info" href="{{route('admin.teachers.create')}}">ایجاد مدرس جدید</a>
                                     </li>
-                                    <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle"
-                                                            data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                            aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li role="presentation" class="divider"></li>
-                                            <li><a href="javascript:void(0);">خروجی XLS</a></li>
-                                            <li><a href="javascript:void(0);">خروجی CSV</a></li>
-                                            <li><a href="javascript:void(0);">خروجی XML</a></li>
-                                        </ul>
-                                    </li>
                                     <li class="remove">
                                         <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
                                     </li>

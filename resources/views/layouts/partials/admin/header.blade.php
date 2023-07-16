@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" >
     <div class="col-12">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>

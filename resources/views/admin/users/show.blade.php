@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>پروفایل {{$user->fullName}}
-                        <small class="text-muted"> خوش آمدید</small>
+{{--                        <small class="text-muted"> خوش آمدید</small>--}}
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
