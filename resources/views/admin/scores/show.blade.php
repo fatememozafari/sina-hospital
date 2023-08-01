@@ -78,16 +78,16 @@
 
                                         </tr>
                                         </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">ردیف</th>
-                                            <th rowspan="1" colspan="1">نام دوره</th>
-                                            <th rowspan="1" colspan="1">نام کاربر</th>
-                                            <th rowspan="1" colspan="1"> نتیجه آزمون</th>
-                                            <th rowspan="1" colspan="1">تاریخ برگزاری</th>
-                                            <th rowspan="1" colspan="1">عملیات</th>
-                                        </tr>
-                                        </tfoot>
+{{--                                        <tfoot>--}}
+{{--                                        <tr>--}}
+{{--                                            <th rowspan="1" colspan="1">ردیف</th>--}}
+{{--                                            <th rowspan="1" colspan="1">نام دوره</th>--}}
+{{--                                            <th rowspan="1" colspan="1">نام کاربر</th>--}}
+{{--                                            <th rowspan="1" colspan="1"> نتیجه آزمون</th>--}}
+{{--                                            <th rowspan="1" colspan="1">تاریخ برگزاری</th>--}}
+{{--                                            <th rowspan="1" colspan="1">عملیات</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </tfoot>--}}
                                         <tbody>
                                         @foreach($score as $item)
                                             <tr role="row" class="even">
@@ -95,7 +95,7 @@
                                                 <td class="sorting_1">{{$item->course_id}}-{{$item->course->title}}</td>
                                                 <td>{{$item->user->name}} {{$item->user->family}}</td>
                                                 <td> {{$item->score}}</td>
-                                                <td>{{$item->course->start_at}}</td>
+                                                <td>{{\Morilog\Jalali\Jalalian::forge($item->start_at)->format('Y-m-d H:i:s')}}</td>
                                                 <td>
                                                     <a href="{{route('admin.scores.edit',$item->id)}}" class="btn btn-warning btn-round">
                                                         ویرایش نمره

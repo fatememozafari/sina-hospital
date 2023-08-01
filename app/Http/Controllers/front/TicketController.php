@@ -4,10 +4,11 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\File;
-use App\Models\Ticket;
-use App\Models\TicketCategory;
-use App\Models\TicketFile;
-use App\Models\TicketPriority;
+
+use App\Models\Ticket\Ticket;
+
+use App\Models\Ticket\TicketCategory;
+use App\Models\Ticket\TicketPriority;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -15,7 +16,7 @@ class TicketController extends Controller
     public function index()
     {
 //        $tickets = auth()->user()->tickets()->where('ticket_id', null)->get();
-        $tickets=Ticket::query()->where('user_id', auth()->id())->where('ticket_id', null)->get();
+        $tickets= Ticket::query()->where('user_id', auth()->id())->where('ticket_id', null)->get();
         return view('front.tickets.index', compact('tickets'));
     }
 

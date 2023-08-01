@@ -110,9 +110,9 @@
                                                 <td>{{ $ticket->parent->subject ?? '-' }}</td>
                                                 <td>
                                                     <div style="display: flex" >
-                                                        <a href="{{route('admin.tickets.show',$ticket->id)}}" class="btn-sm text-info mt-3">مشاهده
+                                                        <a href="{{route('admin.tickets.show',$ticket->id)}}" class="btn-sm text-info btn-round mt-2">مشاهده
                                                         </a>
-                                                        <a href="{{ route('admin.tickets.changeStatus', $ticket->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-check"></i> {{ $ticket->status == 1 ? 'باز کردن' : 'بستن' }}</a>
+                                                        <a href="{{ route('admin.tickets.changeStatus', $ticket->id) }}" class="btn btn-warning btn-simple btn-round"><i class="fa fa-check"></i> {{ $ticket->status == 1 ? 'باز کردن' : 'بستن' }}</a>
                                                     </div>
                                                 </td>
                                             </tr>

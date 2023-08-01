@@ -110,22 +110,8 @@
                                                     این دوره</h5>
                                             </div>
                                         </div>
-                                        <div class="row ">
-                                            <div class="col">
-                                                <form action="{{route('front.comments.store',$course->id)}}"
-                                                      method="post">
-                                                    @csrf
-                                                    <textarea name="comment" id=""
-                                                              class="w-100 p-2 @error('comment') is-invalid @enderror"
-                                                              rows="10"
-                                                              style="background-color:#eeeeee; border-radius: 10px "
-                                                              placeholder="نظر خود را وارد نمایید..."></textarea>
-                                                    <br>
-                                                    <button type="submit" class="btn btn-info  btn-round">ارسال</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        @include('front.courses.comment')
+
+                                        @include('front.comments.comment')
                                     </div>
                                 </div>
                             </div>
@@ -137,5 +123,5 @@
     </div>
 @endsection
 @section('script')
-   @include('front.courses.comment-script')
+   @include('front.comments.comment-script')
 @endsection

@@ -32,7 +32,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong>دوره های حضوری </strong></h2>
+                                <h2><strong>لیست دوره های حضوری </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="remove">
                                         <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
@@ -99,7 +99,7 @@
                                                 <td class="sorting_1"><a href="{{route('admin.courses.show',$item->id)}}">{{$item->title}}</a></td>
                                                 <td>{{$item->slug}} {{$item->id_code}}</td>
                                                 <td> {{$item->name}} {{$item->family}}</td>
-                                                <td>{{$item->start_at}}</td>
+                                                <td>{{\Morilog\Jalali\Jalalian::forge($item->start_at)->format('Y-m-d H:i:s')}}</td>
                                                 <td>
                                                     <div>
                                                      <span class="badge badge-success">ثبت نام شده</span>

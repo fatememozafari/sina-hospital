@@ -80,9 +80,9 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class=""
-                                         style="overflow:visible; max-width: 100%; min-height: 50px">{{substr($item->body,0,30)}}</div>
-                                    <a href="#" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>
+{{--                                    <div class="" style="overflow:visible; max-width: 100%; min-height: 50px">{{substr($item->body,0,30)}}</div>--}}
+{{--                                    <a href="#" title="ادامه مطلب" class="btn btn-round btn-info"> ادامه مطلب </a>--}}
+                                    <div class="" style="overflow:visible; max-width: 100%; min-height: 50px">{{$item->body}}</div>
                                 </div>
                             </div>
                         @endforeach

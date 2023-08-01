@@ -110,7 +110,7 @@
                                 <hr>
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                    <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
+                                    <a href="{{ url()->previous() }}" class="btn btn-default btn-round btn-simple float-left">لغو</a>
                                 </div>
                             </form>
                         </div>

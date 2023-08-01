@@ -44,11 +44,13 @@
                                     </div>
                                 </div>
                             </div>
-                            @if($ticket->file->count() > 0)
+                            @isset($ticket->file)
+{{--                            @if($ticket->file->count() > 0)--}}
                             <div>
                                 <a href="{{asset('uploads/tickets/'.$ticket->file->file)}}" class="btn btn-primary" download="download">فایل ضمیمه</a>
                             </div>
-                            @endif
+{{--                            @endif--}}
+                            @endisset
                             <hr>
                             @foreach($ticket->children as $child)
                                 <div class="mx-5 my-2" style="border: 1px solid #bababa">

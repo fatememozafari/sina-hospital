@@ -31,7 +31,26 @@
 @yield('content')
 <!-- Jquery Core Js -->
 @include('layouts.partials.admin.script')
+<script>
 
+    setMode();
+
+    function setMode() {
+        let mode = localStorage.getItem('mode');
+        if(!mode) mode = '';
+        document.body.classList.add(mode);
+    }
+
+
+    if (localStorage.getItem('mode') === 'menu_dark') {
+        document.body.classList.remove('');
+        document.body.classList.add('menu_dark');
+    } else if (localStorage.getItem('mode') !== 'menu_dark') {
+        document.body.classList.remove('menu_dark');
+        document.body.classList.add('');
+    }
+
+</script>
 @yield('script')
 @endrole
 </body>

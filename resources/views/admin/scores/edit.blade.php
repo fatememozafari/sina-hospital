@@ -35,7 +35,7 @@
                             <form action="/admin/scores/{{route('admin.scores.update',$inputs->id)}}" method="post" >
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+                                    <div class="mb-3 col-sm-4">
                                         <label class="form-label" for="name">کاربر*</label>
                                         <br>
                                         <div class="form-group">
@@ -43,17 +43,15 @@
                                             <input type="text" class="form-control" name="" value="{{$inputs->user_id}}-{{$inputs->user->name}} {{$inputs->user->family}}" readonly>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+
+                                    <div class="mb-3 col-sm-4">
                                         <label class="form-label" for="name">انتخاب دوره*</label>
                                         <br>
                                         <input type="hidden" class="form-control" name="course_id" value="{{$inputs->course_id}}">
                                         <input type="text" class="form-control" name="" value="{{$inputs->course_id}}-{{$inputs->course->title}}" readonly>
                                     </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+
+                                    <div class="mb-3 col-sm-4">
                                         <label class="form-label" for="name">ثبت نمره*</label>
                                         <br>
                                         <input type="text" class="form-control" name="score" value="{{$inputs->score}}"
@@ -65,9 +63,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-round">ویرایش</button>
-                                    <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
+                                <div class="col-sm-12 mb-5">
+                                    <button type="submit" class="btn btn-primary btn-round float-left">ویرایش</button>
+                                    <a href="{{ url()->previous() }}" class="btn btn-default btn-round btn-simple float-left">لغو</a>
                                 </div>
                             </form>
                         </div>

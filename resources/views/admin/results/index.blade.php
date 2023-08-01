@@ -79,16 +79,7 @@
 
                                         </tr>
                                         </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">ردیف</th>
-                                            <th rowspan="1" colspan="1">نام</th>
-                                            <th rowspan="1" colspan="1"> نام خانوادگی</th>
-                                            <th rowspan="1" colspan="1">کد ملی</th>
-                                            <th rowspan="1" colspan="1">شماره موبایل</th>
-                                            <th rowspan="1" colspan="1">عملیات</th>
-                                        </tr>
-                                        </tfoot>
+
                                         <tbody>
                                         @foreach($user as $item)
                                             <tr role="row" class="even">

@@ -19,7 +19,7 @@
                             <li class="breadcrumb-item float-right"><a href="{{route('admin.dashboard')}}"><i
                                         class="zmdi zmdi-home"></i>
                                     خانه</a></li>
-                            <li class="breadcrumb-item active float-right"> دسته بندی </li>
+                            <li class="breadcrumb-item active float-right"> ادمین تیکت  </li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong>لیست دسته بندی های تیکت </strong></h2>
+                                <h2><strong>ادمین های تیکت </strong></h2>
                                 <ul class="header-dropdown">
                                     <li class="">
 {{--                                        <a class="btn btn-info" href="{{route('admin.tickets.admins.create')}}">ایجاد دسته بندی جدید</a>--}}
@@ -91,7 +91,7 @@
                                                 <td>{{ $admin->email }}</td>
                                                 <td>
                                                     <div style="display: flex" >
-                                                        <a href="{{ route('admin.tickets.admins.set', $admin->id) }}" class="btn btn-{{ $admin->ticketAdmin == null ? 'success' : 'danger' }} btn-sm"><i class="fa fa-check"></i>
+                                                        <a href="{{ route('admin.tickets.admins.set', $admin->id) }}" class="btn btn-{{ $admin->ticketAdmin == null ? 'success' : 'danger' }} btn-sm btn-round"><i class="fa fa-check"></i>
                                                             {{ $admin->ticketAdmin == null ? 'اضافه' : 'حذف' }}
                                                         </a>
 

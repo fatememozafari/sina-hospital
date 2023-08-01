@@ -39,7 +39,7 @@
                             <form action="{{route('admin.enrolls.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+                                    <div class="mb-3 col-sm-6">
                                         <label class="form-label" for="name">کاربر*</label>
                                         <br>
                                         <div class="form-group">
@@ -56,10 +56,8 @@
 
                                     </div>
 
-                                </div>
 
-                                <div class="row clearfix">
-                                    <div class="mb-3 col-sm-12">
+                                    <div class="mb-3 col-sm-6">
                                         <label class="form-label" for="name">انتخاب دوره*</label>
                                         <br>
                                         <input type="hidden" class="form-control" name="course_id" value="{{$course->id}}">
@@ -68,9 +66,9 @@
 
                                 </div>
 
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                    <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
+                                <div class="col-sm-12 mb-5">
+                                    <button type="submit" class="btn btn-primary btn-round float-left">ارسال</button>
+                                    <a href="{{ url()->previous() }}" class="btn btn-default btn-round btn-simple float-left">لغو</a>
                                 </div>
                             </form>
                         </div>

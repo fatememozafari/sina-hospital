@@ -91,7 +91,7 @@
                                                 <td>{{$ticketCategory->status}}</td>
                                                 <td>
                                                     <div style="display: flex" >
-                                                        <a href="{{route('admin.tickets.categories.edit',$ticketCategory->id)}}" class="btn-sm text-info mt-3">ویرایش
+                                                        <a href="{{route('admin.tickets.categories.edit',$ticketCategory->id)}}" class="btn-sm text-info btn-round mt-3">ویرایش
                                                         </a>
                                                         <form action="{{route('admin.tickets.categories.delete',$ticketCategory->id)}}" class="mt-2" method="post">
                                                             @csrf

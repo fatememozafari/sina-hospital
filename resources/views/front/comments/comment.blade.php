@@ -1,6 +1,21 @@
 
 <div>
-    @if(count($comments)>0)
+    <div class="row ">
+        <div class="col">
+            <form action="{{route('front.comments.store',$course->id)}}"
+                  method="post">
+                @csrf
+                <textarea name="comment" id=""
+                          class="w-100 p-2 @error('comment') is-invalid @enderror"
+                          rows="10"
+                          style="background-color:#eeeeee; border-radius: 10px "
+                          placeholder="نظر خود را وارد نمایید..."></textarea>
+                <br>
+                <button type="submit" class="btn btn-info  btn-round">ارسال</button>
+            </form>
+        </div>
+    </div>
+{{--    @if(count($comments)>0)--}}
         @isset($comments)
             @foreach($comments as $comment)
                 <div class="row my-3" id="commentCard{{$comment->id}}">
@@ -60,7 +75,7 @@
                 </div>
             @endforeach
         @endisset
-    @endif
+{{--    @endif--}}
     <div class="row">
         <div class="col">
 

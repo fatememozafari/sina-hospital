@@ -79,16 +79,16 @@
 
                                         </tr>
                                         </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">ردیف</th>
-                                            <th rowspan="1" colspan="1">نام دوره</th>
-                                            <th rowspan="1" colspan="1"> نام تخصصی دوره</th>
-                                            <th rowspan="1" colspan="1">نوع دوره</th>
-                                            <th rowspan="1" colspan="1">تاریخ برگزاری</th>
-                                            <th rowspan="1" colspan="1">عملیات</th>
-                                        </tr>
-                                        </tfoot>
+{{--                                        <tfoot>--}}
+{{--                                        <tr>--}}
+{{--                                            <th rowspan="1" colspan="1">ردیف</th>--}}
+{{--                                            <th rowspan="1" colspan="1">نام دوره</th>--}}
+{{--                                            <th rowspan="1" colspan="1"> نام تخصصی دوره</th>--}}
+{{--                                            <th rowspan="1" colspan="1">نوع دوره</th>--}}
+{{--                                            <th rowspan="1" colspan="1">تاریخ برگزاری</th>--}}
+{{--                                            <th rowspan="1" colspan="1">عملیات</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </tfoot>--}}
                                         <tbody>
                                         @foreach($course as $item)
                                             <tr role="row" class="even">
@@ -98,7 +98,7 @@
                                                 <td>
 {{--                                                    <a href="/admin/teachers/{{$item->teacher_id}}">{{$item->teacher->fullName}}</a><br>--}}
                                                     {{__('custom.'.$item->type)}}</td>
-                                                <td>{{$item->start_at}}</td>
+                                                <td>{{\Morilog\Jalali\Jalalian::forge($item->start_at)->format('Y-m-d H:i:s')}}</td>
                                                 <td>
                                                     <div>
                                                         <a href="{{route('admin.scores.create',$item->id)}}" class="btn btn-primary btn-round">

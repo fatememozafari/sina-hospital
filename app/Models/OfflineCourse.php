@@ -17,4 +17,9 @@ class OfflineCourse extends Model
     {
         return $this->morphOne(File::class, 'fileable');
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

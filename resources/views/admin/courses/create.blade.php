@@ -97,7 +97,7 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6"><b> تاریخ برگزاری*</b>
                                         <div class="form-group">
-                                            <input type="date" name="start_at" value="{{old('start_at')}}" class="form-control" placeholder="تاریخ برگزاری "
+                                            <input type="datetime-local" name="start_at" value="{{old('start_at')}}" class="form-control" placeholder="تاریخ برگزاری "
                                                    @error('start_at')
                                                    style="border: 1px solid red"
                                                 @enderror>
@@ -121,7 +121,7 @@
 
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-round">ارسال</button>
-                                <button type="reset" class="btn btn-default btn-round btn-simple">لغو</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-default btn-round btn-simple float-left">لغو</a>
                             </div>
                             </form>
                         </div>

@@ -33,12 +33,15 @@
                         <div class="body widget newsletter">
                             <form action="{{route('front.newsletters.store')}}" method="post">
                                 @csrf
+                                <div class="row">
+                                    <div class="input-group col-md-6">
                                 <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
                                 @error('name')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
+                                    </div>
                                 <br>
-                                <div class="input-group">
+                                <div class="input-group col-md-6">
                                     <input type="text" name="email" class="form-control" placeholder="ایمیل را وارد کنید">
                                     <span class="input-group-addon">
                                     <i class="zmdi zmdi-mail-send"></i>
@@ -47,7 +50,11 @@
                                 @error('email')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
-                                <button type="submit" class="btn btn-warning btn-round waves-effect m-t-20">ارسال</button>
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn btn-warning btn-round waves-effect m-t-20 mb-2 float-left">ارسال</button>
+
+                                </div>
                             </form>
 
                         </div>

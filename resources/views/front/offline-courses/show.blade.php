@@ -25,8 +25,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="header">
-                                <h2><strong> نمایش دوره{{$course->title}}
-                                        <p>شماره {{$course->id}}</p> </strong>
+                                <h2><strong> نمایش دوره{{$course->title}}</strong>
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li class="remove">
@@ -54,7 +53,9 @@
                                             <div class="col-md-12 col-sm-12">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <a href="{{$course->file }}"> <img src="{{$course->file }}" alt="{{$course->title}}" height="300px" width="500px"></a>
+                                                        <a href="uploads/offlineCourse/{{$course->file->file }}" class="btn btn-primary btn-round"
+                                                           download="{{$course->file->file}}">دانلود فایل
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -104,16 +105,25 @@
 
                                             <hr>
                                             <div class="hidden-print col-md-12 text-left">
-                                                <a href="javascript:void(0);" class="btn btn-info btn-round"><i
-                                                        class="zmdi zmdi-print"></i></a>
-                                                <a href="{{route('front.offline-cources.edit',$course->id)}}" class="btn btn-primary btn-round">ویرایش</a>
+{{--                                                <a href="javascript:void(0);" class="btn btn-info btn-round"><i--}}
+{{--                                                        class="zmdi zmdi-print"></i></a>--}}
+{{--                                                <a href="{{route('front.offline-cources.edit',$course->id)}}" class="btn btn-primary btn-round">ویرایش</a>--}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong> ارسال نظرات</strong> </h2>
+                            </div>
+                            <div class="body">
 
+
+                                @include('front.comments.comment')
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,4 +132,7 @@
     </div>
 
 
+@endsection
+@section('script')
+    @include('front.comments.comment-script')
 @endsection
