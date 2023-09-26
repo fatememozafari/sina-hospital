@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use function Symfony\Component\String\length;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -153,14 +154,15 @@ class UserController extends Controller
 
     public function ajaxUser()
     {
-
-        $users=User::where('name','like',"%".request('user_id')."%")
-            ->orwhere('family','like',"%".request('user_id')."%")
+        $users = User::query()->select('id', DB::raw("CONCAT(users.name,' ',users.family) as name"))
+            ->where('family', 'like', "%".\request('user_id')."%")
+            ->orWhere('name', 'like', "%".\request('user_id')."%")
             ->get(
                 [
-                'id as id', 'name as text'
-            ]
+                    'id as id', 'name as text'
+                ]
             )->toArray();
+
         return \response()->json(['data'=> $users]);
     }
 }
